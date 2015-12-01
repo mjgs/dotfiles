@@ -56,6 +56,7 @@ Plugin 'nathanaelkane/vim-indent-guides' "visually displaying indent levels in c
 Plugin 'Valloric/YouCompleteMe'  "automatic suggestions as you type, works for a lot of languages
 Plugin 'marijnh/tern_for_vim'    "works with YouCompleteMe through Vim's omni completion
 Plugin 'tpope/vim-commentary'    "comment easily with gcc
+Plugin 'bling/vim-airline'       "lean & mean status/tabline for vim that's light as air
 
 "vim-scripts repos:
 Plugin 'L9'
@@ -88,13 +89,13 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 "ultisnip plugin:
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsExpandTrigger="<c-j>"       "Do not use <tab> if you use YouCompleteMe
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"        "If you want :UltiSnipsEdit to split your window
 
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+"vim-airline plugin:
+set laststatus=2 "vim-airline status line appears even without a split
 
 "SECTION 4: Load local vimrc file if it exists
 
