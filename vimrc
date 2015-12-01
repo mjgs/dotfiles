@@ -45,7 +45,8 @@ Plugin 'scrooloose/nerdtree'     "explore your filesystem, open files and direct
 Plugin 'lukaszb/vim-web-indent'  "javascript indent plugin
 Plugin 'digitaltoad/vim-jade'    "syntax highlighting for jade templates
 Plugin 'rstacruz/sparkup'        "write html faster http://bit.ly/1FYVBSx
-Plugin 'msanders/snipmate.vim'   "implements snippets for quick html and code writing http://bit.ly/1dj1xfm
+Plugin 'SirVer/ultisnips'        "ultimate solution for snippets in Vim
+Plugin 'honza/vim-snippets'      "snipmate dependency
 Plugin 'tpope/vim-surround'      "quoting/parenthesizing made simple - http://bit.ly/1Gbwk94
 Plugin 'wavded/vim-stylus'       "syntax highlighting for stylus
 Plugin 'nikvdp/ejs-syntax'       "syntax highlighting for ejs templates
@@ -85,6 +86,15 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+"ultisnip plugin:
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 "SECTION 4: Load local vimrc file if it exists
 
