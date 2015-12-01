@@ -1,0 +1,89 @@
+"SECTION 1: Basic vim config
+
+set ts=2
+set t_Co=256 
+syntax on
+set background=light
+colorscheme github
+let mapleader=","    "set the leader key
+set showcmd          "shows the current command, see your <leader> key appear in the bottom right hand corner
+set number           "turn line numbers on 'set nonumber' to turn them off
+
+"SECTION 2: Plugin manager configuration
+" Add Plugins to section below then run :PluginInstall inside vim
+" Plugins are installed in ~/.vim/bundle directory
+" Try :help {plugin name} - if there are docs they will be displayed
+
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+set nocompatible                 " be iMproved
+filetype off                     " required!
+set rtp+=~/.vim/bundle/Vundle.vim" set the runtime path to include Vundle and initialize
+
+call vundle#begin()              " Keep Plugin commands between vundle#begin/end
+
+"github repos:
+Plugin 'gmarik/Vundle.vim'       " let Vundle manage Vundle, required
+Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-fugitive'      "fugitive.vim may very well be the best Git wrapper of all time
+Plugin 'Lokaltog/vim-easymotion' "provides a much simpler way to use some motions in vim
+Plugin 'godlygeek/tabular'       "text filtering and alignment
+Plugin 'plasticboy/vim-markdown' "must come after tabular
+Plugin 'walm/jshint.vim'         "jshint tool - usage :JSHint {file}
+Plugin 'scrooloose/syntastic'    "syntax checking - many languages, install syntax checkers seperately
+Plugin 'wincent/command-t'       "Fast file navigation - requires compilation using ruby after install
+Plugin 'scrooloose/nerdtree'     "explore your filesystem, open files and directories
+Plugin 'lukaszb/vim-web-indent'  "javascript indent plugin
+Plugin 'digitaltoad/vim-jade'    "syntax highlighting for jade templates
+Plugin 'rstacruz/sparkup'        "write html faster http://bit.ly/1FYVBSx
+Plugin 'msanders/snipmate.vim'   "implements snippets for quick html and code writing http://bit.ly/1dj1xfm
+Plugin 'tpope/vim-surround'      "quoting/parenthesizing made simple - http://bit.ly/1Gbwk94
+Plugin 'wavded/vim-stylus'       "syntax highlighting for stylus
+Plugin 'nikvdp/ejs-syntax'       "syntax highlighting for ejs templates
+Plugin 'tpope/vim-git'           "just another git plugin
+Plugin 'Raimondi/delimitMate'    "insert mode auto-completion for quotes, parens, brackets, etc
+Plugin 'nathanaelkane/vim-indent-guides' "visually displaying indent levels in code, toggle with <Leader>ig
+Plugin 'Valloric/YouCompleteMe'  "automatic suggestions as you type, works for a lot of languages
+Plugin 'marijnh/tern_for_vim'    "works with YouCompleteMe through Vim's omni completion
+
+"vim-scripts repos:
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+
+"non github repos:
+"Plugin 'git://git.somedomain.com/some-cmd-repo.git'
+
+call vundle#end()            " required, all of your Plugins must be added before this line
+filetype plugin indent on    " required
+
+"SECTION 3: Individual plugin configurations
+
+"vim-web-indent plugin - sets tabs to 2 spaces
+set tabstop=2
+set shiftwidth=2
+set expandtab
+
+"syntastic plugin - basic new user config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+"SECTION 4: Load local vimrc file if it exists
+
+if filereadable(glob("~/.vimrc.local")) 
+    source ~/.vimrc.local
+endif
