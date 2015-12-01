@@ -32,7 +32,7 @@ set rtp+=~/.vim/bundle/Vundle.vim" set the runtime path to include Vundle and in
 call vundle#begin()              " Keep Plugin commands between vundle#begin/end
 
 "github repos:
-Plugin 'gmarik/Vundle.vim'       " let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'       "let Vundle manage Vundle, required
 Plugin 'pangloss/vim-javascript'
 Plugin 'tpope/vim-fugitive'      "fugitive.vim may very well be the best Git wrapper of all time
 Plugin 'Lokaltog/vim-easymotion' "provides a much simpler way to use some motions in vim
@@ -54,6 +54,7 @@ Plugin 'Raimondi/delimitMate'    "insert mode auto-completion for quotes, parens
 Plugin 'nathanaelkane/vim-indent-guides' "visually displaying indent levels in code, toggle with <Leader>ig
 Plugin 'Valloric/YouCompleteMe'  "automatic suggestions as you type, works for a lot of languages
 Plugin 'marijnh/tern_for_vim'    "works with YouCompleteMe through Vim's omni completion
+Plugin 'tpope/vim-commentary'    "comment easily with gcc
 
 "vim-scripts repos:
 Plugin 'L9'
