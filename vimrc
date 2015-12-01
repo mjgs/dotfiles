@@ -63,6 +63,9 @@ Plugin 'FuzzyFinder'
 "non github repos:
 "Plugin 'git://git.somedomain.com/some-cmd-repo.git'
 
+"color schemes:
+Plugin 'flazz/vim-colorschemes'  "one colorscheme pack to rule them all!
+
 call vundle#end()            " required, all of your Plugins must be added before this line
 filetype plugin indent on    " required
 
