@@ -3,8 +3,8 @@
 set ts=2
 set t_Co=256 
 syntax on
-set background=light
-colorscheme monokai
+set background=dark
+colorscheme monokai-chris
 let mapleader=","    "set the leader key
 set showcmd          "shows the current command, see your <leader> key appear in the bottom right hand corner
 set number           "turn line numbers on 'set nonumber' to turn them off
