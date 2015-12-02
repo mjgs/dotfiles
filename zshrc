@@ -18,8 +18,18 @@ source ~/perl5/perlbrew/etc/bashrc
 
 export EDITOR=~/dotfiles/bin/mvimf
 
-# Aliases
-alias ll='ls -la'
-alias cc='cd ~/codes/' # change to codes dir
-alias cb='cd ~/Documents/Personal/eBooks/Programming\ Books' # change to code books dir
+# Aliases - General
 alias t='tree -L 2'
+
+# Aliases - Locations
+alias dt='cd ~/Desktop'
+alias dl='cd ~/Downloads'
+alias cc='cd ~/codes'
+
+# Aliases - Configurations
+alias zshrc='mvim ~/.zshrc'
+alias szshrc='source ~/.zshrc'
+alias ohmyzshrc='mvim ~/.oh-my-zshrc'
+alias ohmyzsh='mvim ~/.oh-my-zsh'
+alias omzp='ls ~/.oh-my-zsh/plugins'
+alias vimrc='mvim ~/.vimrc'
