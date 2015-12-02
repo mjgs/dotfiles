@@ -16,6 +16,8 @@ source ~/perl5/perlbrew/etc/bashrc
 # http://bit.ly/1OFlBq3
 . ~/z.sh
 
+export EDITOR=~/dotfiles/bin/mvimf
+
 # Aliases
 alias ll='ls -la'
 alias cc='cd ~/codes/' # change to codes dir

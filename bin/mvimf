@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Script to run mvim with -f option
+# Needed for crontab editing http://bit.ly/1IoJUt5
+/usr/local/bin/mvim -f "$@"

@@ -8,6 +8,7 @@ colorscheme monokai
 let mapleader=","    "set the leader key
 set showcmd          "shows the current command, see your <leader> key appear in the bottom right hand corner
 set number           "turn line numbers on 'set nonumber' to turn them off
+autocmd filetype crontab setlocal nobackup nowritebackup "needed to edit crontab using mvim
 
 "SECTION 2: Plugin manager configuration
 " Add Plugins to section below then run :PluginInstall inside vim
