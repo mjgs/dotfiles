@@ -57,7 +57,7 @@ BULLETTRAIN_STATUS_EXIT_SHOW=true
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git node npm z)
+plugins=(git node npm z sublime web-search bower sudo brew tmux tmuxinator lol nyan)
 
 # User configuration
 export PATH=$HOME/bin:/usr/local/bin:$PATH
