@@ -16,7 +16,7 @@ source ~/perl5/perlbrew/etc/bashrc
 # http://bit.ly/1OFlBq3
 . ~/z.sh
 
-export EDITOR=~/dotfiles/bin/mvimf
+export EDITOR=~/dotfiles/bin/nvimf
 
 # Aliases - General
 alias t='tree -L 2'
