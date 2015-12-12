@@ -20,6 +20,7 @@ export EDITOR=~/dotfiles/bin/mvimf
 
 # Aliases - General
 alias t='tree -L 2'
+alias ag='alias | grep'
 
 # Aliases - Locations
 alias dt='cd ~/Desktop'
