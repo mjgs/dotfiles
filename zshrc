@@ -18,6 +18,9 @@ source ~/perl5/perlbrew/etc/bashrc
 
 export EDITOR=~/dotfiles/bin/nvimf
 
+# Tmuxinator
+export DISABLE_AUTO_TITLE=true
+
 # Aliases - General
 alias t='tree -L 2'
 alias ag='alias | grep'
