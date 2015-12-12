@@ -22,7 +22,6 @@ export EDITOR=~/dotfiles/bin/nvimf
 export DISABLE_AUTO_TITLE=true
 
 # Aliases - General
-alias t='tree -L 2'
 alias ag='alias | grep'
 
 # Aliases - Locations
