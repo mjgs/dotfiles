@@ -10,9 +10,23 @@ export ZSH=/Users/marksmith/.oh-my-zsh
 #POWERLEVEL9K_MODE="flat"
 
 ZSH_THEME="bullet-train"
-BULLETTRAIN_NVM_SHOW=true
-BULLETTRAIN_NVM_FG=black
-BULLETTRAIN_RVM_SHOW=false
+
+BULLETTRAIN_PROMPT_CHAR=$'\u266B'
+BULLETTRAIN_PROMPT_SEPARATE_LINE=false
+BULLETTRAIN_PROMPT_ADD_NEWLINE=false
+
+BULLETTRAIN_TIME_BG=white
+BULLETTRAIN_TIME_FG=black
+
+BULLETTRAIN_NVM_SHOW=true                                                       
+BULLETTRAIN_NVM_FG=black                                                       
+BULLETTRAIN_RVM_SHOW=false 
+
+BULLETTRAIN_DIR_EXTENDED=1
+BULLETTRAIN_DIR_BG=cyan
+BULLETTRAIN_DIR_FG=black
+
+BULLETTRAIN_IS_SSH_CLIENT=true
 BULLETTRAIN_STATUS_EXIT_SHOW=true
 
 # Uncomment the following line to use case-sensitive completion.
