@@ -98,6 +98,12 @@ let g:UltiSnipsEditSplit="vertical"        "If you want :UltiSnipsEdit to split 
 "vim-airline plugin:
 set laststatus=2 "vim-airline status line appears even without a split
 
+"nerdtree plugin:
+autocmd VimEnter * NERDTree
+autocmd BufEnter * NERDTreeMirror
+autocmd VimEnter * wincmd w
+hi Directory ctermfg=gray         # change color of directories
+
 "SECTION 4: Load local vimrc file if it exists
 
 if filereadable(glob("~/.vimrc.local")) 
