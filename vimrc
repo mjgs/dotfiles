@@ -99,10 +99,13 @@ let g:UltiSnipsEditSplit="vertical"        "If you want :UltiSnipsEdit to split 
 set laststatus=2 "vim-airline status line appears even without a split
 
 "nerdtree plugin:
-autocmd VimEnter * NERDTree
-autocmd BufEnter * NERDTreeMirror
-autocmd VimEnter * wincmd w
-hi Directory ctermfg=gray         # change color of directories
+  "open nerdtree if nvim started with no files specified
+autocmd StdinReadPre * let s:std_in=1 
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  "chnage directory color
+hi Directory guifg=#FF0000 ctermfg=gray "change color of directories
+  "map Ctrl-n to open NERDTree
+map <C-n> :NERDTreeToggle<CR> 
 
 "SECTION 4: Load local vimrc file if it exists
 
