@@ -30,7 +30,6 @@ alias ag='alias | grep'
 # Aliases - Locations
 alias dt='cd ~/Desktop'
 alias dl='cd ~/Downloads'
-alias cc='cd ~/codes'
 
 # Aliases - Configurations
 alias zshrc='nvim ~/.zshrc'
