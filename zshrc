@@ -15,9 +15,8 @@ source ~/perl5/perlbrew/etc/bashrc
 # nvm configuration
 [ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh" # This loads nvm
 
-# include Z, yo 
-# http://bit.ly/1OFlBq3
-. ~/z.sh
+# Z
+. `brew --prefix`/etc/profile.d/z.sh
 
 export EDITOR=$CONFIGS_DIR/dotfiles/bin/nvimf
 
