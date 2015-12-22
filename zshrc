@@ -1,5 +1,8 @@
 export PATH="/bin:/usr/bin:/sbin:/usr/sbin:/opt/X11/bin"
 
+# Local configuration
+source $HOME/.zshrc_local
+
 # oh-my-zsh configuration
 source ~/.oh-my-zshrc
 
@@ -16,7 +19,7 @@ source ~/perl5/perlbrew/etc/bashrc
 # http://bit.ly/1OFlBq3
 . ~/z.sh
 
-export EDITOR=~/dotfiles/bin/nvimf
+export EDITOR=$CONFIGS_DIR/dotfiles/bin/nvimf
 
 # Tmuxinator
 export DISABLE_AUTO_TITLE=true
@@ -40,5 +43,3 @@ alias tmuxc='nvim ~/.tmux.conf'
 alias npmrc='nvim ~/.npmrc'
 alias brewc='cd /usr/local/etc; echo "Homebrew installed apps config directory:"; pwd; ll'
 
-# Local configuration
-source $HOME/.zshrc_local
