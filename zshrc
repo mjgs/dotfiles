@@ -31,6 +31,7 @@ alias cc='cd ~/codes'
 
 # Aliases - Configurations
 alias zshrc='nvim ~/.zshrc'
+alias zshrcl='nvim ~/.zshrc_local'
 alias szshrc='source ~/.zshrc'
 alias ohmyzshrc='nvim ~/.oh-my-zshrc'
 alias ohmyzsh='nvim ~/.oh-my-zsh'
@@ -38,3 +39,6 @@ alias vimrc='nvim ~/.vimrc'
 alias tmuxc='nvim ~/.tmux.conf'
 alias npmrc='nvim ~/.npmrc'
 alias brewc='cd /usr/local/etc; echo "Homebrew installed apps config directory:"; pwd; ll'
+
+# Local configuration
+source $HOME/.zshrc_local
