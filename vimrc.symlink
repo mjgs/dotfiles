@@ -110,5 +110,5 @@ map <C-n> :NERDTreeToggle<CR>
 "SECTION 4: Load local vimrc file if it exists
 
 if filereadable(glob("~/.vimrc.local")) 
-    source ~/.vimrc.local
+  source ~/.vimrc.local
 endif
