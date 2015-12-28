@@ -18,6 +18,7 @@ brew install freetype
 brew install git
 brew install gnupg
 brew install heroku-toolbelt
+brew install httpie
 brew install imagemagick
 brew install iperf
 brew install jq
