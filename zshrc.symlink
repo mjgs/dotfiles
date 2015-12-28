@@ -12,7 +12,6 @@ export NVM_DIR=~/.nvm # Homebrew installed nvm
 source $(brew --prefix nvm)/nvm.sh # Homebrew installed nvm
 #[ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh" # standard install
 
-
 # Z
 source `brew --prefix`/etc/profile.d/z.sh
 
