@@ -55,7 +55,10 @@ else
 fi
 
 echo "Installing vim color schemes..."
-git clone https://github.com/flazz/vim-colorschemes.git ~/.vim
+git clone https://github.com/flazz/vim-colorschemes.git $HOME/.vim
+
+echo "Installing vim web indent..."
+git clone https://github.com/lukaszb/vim-web-indent.git $HOME/.vim
 
 echo "Installing vim plugin manager Vundle..."
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
