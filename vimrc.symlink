@@ -34,7 +34,7 @@ call vundle#begin()              " Keep Plugin commands between vundle#begin/end
 
 "github repos:
 Plugin 'gmarik/Vundle.vim'       "let Vundle manage Vundle, required
-Plugin 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript' "javascript indentation and syntax support 
 Plugin 'tpope/vim-fugitive'      "fugitive.vim may very well be the best Git wrapper of all time
 Plugin 'Lokaltog/vim-easymotion' "provides a much simpler way to use some motions in vim
 Plugin 'godlygeek/tabular'       "text filtering and alignment
@@ -102,7 +102,7 @@ set laststatus=2 "vim-airline status line appears even without a split
   "open nerdtree if nvim started with no files specified
 autocmd StdinReadPre * let s:std_in=1 
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-  "chnage directory color
+  "change directory color
 hi Directory guifg=#FF0000 ctermfg=gray "change color of directories
   "map Ctrl-n to open NERDTree
 map <C-n> :NERDTreeToggle<CR> 
@@ -110,5 +110,5 @@ map <C-n> :NERDTreeToggle<CR>
 "SECTION 4: Load local vimrc file if it exists
 
 if filereadable(glob("~/.vimrc.local")) 
-    source ~/.vimrc.local
+  source ~/.vimrc.local
 endif

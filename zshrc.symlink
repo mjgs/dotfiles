@@ -1,0 +1,38 @@
+export PATH="/bin:/usr/bin:/sbin:/usr/sbin"
+export PATH="$HOME/bin:/usr/local/bin:$PATH"
+
+# Local configuration
+source $HOME/.zshrc_local
+
+# oh-my-zsh configuration
+source ~/.oh-my-zshrc
+
+# nvm configuration
+export NVM_DIR=~/.nvm # Homebrew installed nvm
+source $(brew --prefix nvm)/nvm.sh # Homebrew installed nvm
+#[ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh" # standard install
+
+# Z
+source `brew --prefix`/etc/profile.d/z.sh
+
+export EDITOR=$CONFIGS_DIR/dotfiles/bin/nvimf
+
+# Aliases - General
+alias ag='alias | grep'
+
+# Aliases - Locations
+alias dt='cd ~/Desktop'
+alias dl='cd ~/Downloads'
+alias ulogs='cd ~/Library/Logs'
+
+# Aliases - Configurations
+alias zshrc='mvim ~/.zshrc'
+alias zshrcl='mvim ~/.zshrc_local'
+alias szshrc='source ~/.zshrc'
+alias ohmyzshrc='mvim ~/.oh-my-zshrc'
+alias ohmyzsh='mvim ~/.oh-my-zsh'
+alias vimrc='mvim ~/.vimrc'
+alias tmuxc='mvim ~/.tmux.conf'
+alias npmrc='mvim ~/.npmrc'
+alias brewc='cd /usr/local/etc; echo "Homebrew installed apps config directory:"; pwd; ll'
+alias dot="dir=`pwd`;cd $HOME;pwd;ls -la|grep '\->';cd $HOME/.config;pwd;ls -la | grep '\->'; cd $dir;"
