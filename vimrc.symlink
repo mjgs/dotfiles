@@ -34,7 +34,7 @@ call vundle#begin()              " Keep Plugin commands between vundle#begin/end
 
 "github repos:
 Plugin 'gmarik/Vundle.vim'       "let Vundle manage Vundle, required
-Plugin 'pangloss/vim-javascript'
+Plugin 'pangloss/vim-javascript' "javascript indentation and syntax support 
 Plugin 'tpope/vim-fugitive'      "fugitive.vim may very well be the best Git wrapper of all time
 Plugin 'Lokaltog/vim-easymotion' "provides a much simpler way to use some motions in vim
 Plugin 'godlygeek/tabular'       "text filtering and alignment
@@ -46,7 +46,7 @@ Plugin 'scrooloose/nerdtree'     "explore your filesystem, open files and direct
 Plugin 'lukaszb/vim-web-indent'  "javascript indent plugin
 Plugin 'digitaltoad/vim-jade'    "syntax highlighting for jade templates
 Plugin 'rstacruz/sparkup'        "write html faster http://bit.ly/1FYVBSx
-"Plugin 'SirVer/ultisnips'        "ultimate solution for snippets in Vim
+Plugin 'SirVer/ultisnips'        "ultimate solution for snippets in Vim
 Plugin 'honza/vim-snippets'      "snipmate dependency
 Plugin 'tpope/vim-surround'      "quoting/parenthesizing made simple - http://bit.ly/1Gbwk94
 Plugin 'wavded/vim-stylus'       "syntax highlighting for stylus
@@ -54,7 +54,7 @@ Plugin 'nikvdp/ejs-syntax'       "syntax highlighting for ejs templates
 Plugin 'tpope/vim-git'           "just another git plugin
 Plugin 'Raimondi/delimitMate'    "insert mode auto-completion for quotes, parens, brackets, etc
 Plugin 'nathanaelkane/vim-indent-guides' "visually displaying indent levels in code, toggle with <Leader>ig
-"Plugin 'Valloric/YouCompleteMe'  "automatic suggestions as you type, works for a lot of languages
+Plugin 'Valloric/YouCompleteMe'  "automatic suggestions as you type, works for a lot of languages
 Plugin 'marijnh/tern_for_vim'    "works with YouCompleteMe through Vim's omni completion
 Plugin 'tpope/vim-commentary'    "comment easily with gcc
 Plugin 'bling/vim-airline'       "lean & mean status/tabline for vim that's light as air
