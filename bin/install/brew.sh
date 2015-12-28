@@ -54,17 +54,17 @@ else
   ln -s $HOME/.vimrc $HOME/.config/nvim/init.vim
 fi
 
-echo "Installing vim color schemes..."
-git clone https://github.com/flazz/vim-colorschemes.git $HOME/.vim
-
-echo "Installing vim web indent..."
-git clone https://github.com/lukaszb/vim-web-indent.git $HOME/.vim
-
 echo "Installing vim plugin manager Vundle..."
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 echo "Installing vim plugins to $HOME/.vim/bundle (no output to console, might take a while)..."
 nvim +PluginInstall +PluginUpdate +qall &>/dev/null
+
+echo "Installing vim color schemes..."
+rsync -avz $HOME/.vim/bundle/vim-colorschemes/colors $HOME/.vim
+
+echo "Installing vim web indent..."
+rsync -avz $HOME/.vim/bundle/vim-web-indent/indent $HOME/.vim
 
 echo "When install.sh completes..."
 echo "Make sure all nvim plugins got installed, open nvim and run:"
