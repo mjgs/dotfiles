@@ -80,4 +80,10 @@ echo "########################################################################"
 
 $DOTFILES_DIR/bin/install/projects.sh
 
+echo "Installation complete"
+
+echo "Make sure all nvim plugins got installed, open nvim and run:"
+echo ":PluginInstall"
+echo ":PluginUpdate" 
+
 exit 0

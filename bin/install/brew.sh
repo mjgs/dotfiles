@@ -35,7 +35,7 @@ brew install z
 
 echo "Configuring installed homebrew packages..."
 
-echo "Linking nvim to vim configuration and installing nvim plugins..."
+echo "Linking nvim to vim configuration..."
 NVIM_DIR=$HOME/.config/nvim
 NVIM_INIT=$HOME/.config/nvim/init.vim
 
@@ -53,7 +53,19 @@ else
   ln -s $HOME/.vimrc $HOME/.config/nvim/init.vim
 fi
 
-nvim +PluginInstall +qall
+echo "Installing vim color schemes..."
+git clone https://github.com/flazz/vim-colorschemes.git ~/.vim
+
+echo "Installing vim plugin manager Vundle..."
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+echo "Installing vim plugins to $HOME/.vim/bundle (no output to console, might take a while)..."
+nvim +PluginInstall +PluginUpdate +qall &>/dev/null
+
+echo "When install.sh completes..."
+echo "Make sure all nvim plugins got installed, open nvim and run:"
+echo ":PluginInstall"
+echo ":PluginUpdate" 
 
 if [ -x $CONFIGS_DIR/brew_local.sh ]; then
   $CONFIGS_DIR/brew_local.sh			
