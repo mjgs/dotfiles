@@ -5,7 +5,7 @@
 if [ ! -x /usr/local/bin/brew ]; then
   echo "Installing homebrew..."
   ruby -e "$(curl \
-  	-fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 echo "Installing homebrew packages..."
@@ -41,16 +41,16 @@ NVIM_DIR=$HOME/.config/nvim
 NVIM_INIT=$HOME/.config/nvim/init.vim
 
 if [ -e $NVIM_DIR ]; then 
-	echo "$NVIM_DIR already exists... Skipping."    
+  echo "$NVIM_DIR already exists... Skipping."    
 else
-	echo "Creating $HOME/.vim symlink to $NVIM_DIR"
+  echo "Creating $HOME/.vim symlink to $NVIM_DIR"
   ln -s $HOME/.vim $HOME/.config/nvim
 fi
 
 if [ -e $NVIM_INIT ]; then 
-	echo "$NVIM_INIT already exists... Skipping."    
+  echo "$NVIM_INIT already exists... Skipping."    
 else
-	echo "Creating $HOME/.vimrc symlink to $NVIM_INIT"
+  echo "Creating $HOME/.vimrc symlink to $NVIM_INIT"
   ln -s $HOME/.vimrc $HOME/.config/nvim/init.vim
 fi
 

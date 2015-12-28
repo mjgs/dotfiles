@@ -3,7 +3,7 @@
 # Description: installs shell
 
 if [ ! -x /usr/local/bin/brew ]; then
-	echo "ERROR: Homebrew must be installed to run the shell.sh installer script"
+  echo "ERROR: Homebrew must be installed to run the shell.sh installer script"
   exit 1
 fi
 

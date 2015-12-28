@@ -7,11 +7,11 @@ echo "Deleting ~/ dotfile symlinks..."
 LINKABLES=$( find -H "$CONFIGS_DIR" -maxdepth 3 -name '*.symlink' )
 
 for FILE in $LINKABLES; do
-	TARGET="$HOME/.$( basename $FILE ".symlink" )"
-	if [ -e $TARGET ]; then
-		echo "Deleting ${TARGET} symlink to $FILE"
-		rm $TARGET
-	fi
+  TARGET="$HOME/.$( basename $FILE ".symlink" )"
+  if [ -e $TARGET ]; then
+    echo "Deleting ${TARGET} symlink to $FILE"
+    rm $TARGET
+  fi
 done
 
 echo "Deleting ~/.config dotfile symlinks..."

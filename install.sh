@@ -27,7 +27,7 @@ fi
 
 echo "Creating convenience symlink from $HOME/codes to $CODES_DIR"
 if [ ! -L $HOME/codes ]; then 
-	ln -s $CODES_DIR $HOME/codes; 
+  ln -s $CODES_DIR $HOME/codes; 
 fi
 
 export CODES_DIR=$CODES_DIR
@@ -45,7 +45,7 @@ fi
 
 if [ ! -x /usr/bin/git ]
 then
-	echo "ERROR: Apple's version of git must be installed to run the install.sh installer script"
+  echo "ERROR: Apple's version of git must be installed to run the install.sh installer script"
   exit 1
 fi
 

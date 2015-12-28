@@ -3,12 +3,12 @@
 # Description: installs brew cask gui packages
 
 if [ ! -x /usr/local/bin/brew ]; then
-	echo "ERROR: Homebrew must be installed to run the gui.sh installer script"
+  echo "ERROR: Homebrew must be installed to run the gui.sh installer script"
   exit 1
 fi
 
 if [ ! -x /usr/local/opt/brew-cask ]; then
-	echo "ERROR: Homebrew Cask must be installed to run the gui.sh installer script"
+  echo "ERROR: Homebrew Cask must be installed to run the gui.sh installer script"
   exit 1
 fi
 

@@ -4,7 +4,7 @@
 
 if [ ! -x /usr/local/bin/git ]
 then
-	echo "ERROR: Git must be installed to run the projects.sh installer script"
+  echo "ERROR: Git must be installed to run the projects.sh installer script"
   exit 1
 fi
 

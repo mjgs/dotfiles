@@ -3,7 +3,7 @@
 # Description: installs node and node modules
 
 if [ ! -x /usr/local/bin/brew ]; then
-	echo "ERROR: Homebrew must be installed to run the node.sh installer script"
+  echo "ERROR: Homebrew must be installed to run the node.sh installer script"
   exit 1
 fi
 
@@ -11,7 +11,7 @@ if [ ! -x /usr/local/opt/nvm/nvm.sh ]; then
   echo "Installing nvm..."
   brew install nvm
   if [ ! -e $HOME/.nvm ]; then 
-  	mkdir $HOME/.nvm; 
+    mkdir $HOME/.nvm; 
   fi 
 fi
 

@@ -3,7 +3,7 @@
 # Description: installs ruby and ruby packages
 
 if [ ! -x /usr/local/bin/brew ]; then
-	echo "ERROR: Homebrew must be installed to run the ruby.sh installer script"
+  echo "ERROR: Homebrew must be installed to run the ruby.sh installer script"
   exit 1
 fi
 
