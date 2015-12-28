@@ -25,6 +25,7 @@ if [ ! -e $CODES_DIR ]; then
   mkdir $CODES_DIR
 fi	
 
+echo "Creating convenience symlink from $HOME/codes to $CODES_DIR"
 if [ ! -L $HOME/codes ]; then 
 	ln -s $CODES_DIR $HOME/codes; 
 fi
