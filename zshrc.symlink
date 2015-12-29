@@ -34,5 +34,6 @@ alias ohmyzsh='mvim ~/.oh-my-zsh'
 alias vimrc='mvim ~/.vimrc'
 alias tmuxc='mvim ~/.tmux.conf'
 alias npmrc='mvim ~/.npmrc'
-alias brewc='cd /usr/local/etc; echo "Homebrew installed apps config directory:"; pwd; ll'
-alias dot="dir=`pwd`;cd $HOME;pwd;ls -la|grep '\->';cd $HOME/.config;pwd;ls -la | grep '\->'; cd $dir;"
+alias brewc='echo "Homebrew apps config directory (/usr/local/etc):"; ll -la /usr/local/etc;'
+alias dot='echo "$HOME dotfiles:"; ls -la $HOME | grep "\->"; \
+  echo "$HOME/.config dotfiles:"; ls -la $HOME/.config | grep "\->";'
