@@ -23,6 +23,7 @@ brew cask install evernote
 brew cask install firefox
 #brew cask install get-iplayer-automator https://github.com/GetiPlayerAutomator/get-iplayer-automator
 brew cask install google-chrome
+#brew cask install gpodder
 brew cask install handbrake
 #brew cask install hemmingway-editor http://www.hemingwayapp.com
 brew cask install id3-editor

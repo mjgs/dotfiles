@@ -17,7 +17,6 @@ brew install fontconfig
 brew install freetype
 brew install git
 brew install gnupg
-brew install gpodder
 brew install heroku-toolbelt
 brew install httpie
 brew install imagemagick
