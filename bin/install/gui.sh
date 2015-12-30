@@ -35,6 +35,7 @@ brew cask install malwarebytes-anti-malware
 brew cask install omnidisksweeper
 brew cask install opera
 brew cask install sequel-pro
+brew cask install shiftit
 brew cask install skype
 brew cask install slack
 brew cask install sublime-text
