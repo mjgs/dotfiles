@@ -20,15 +20,20 @@ alias cproj='cd $PROJECTS_DIR'
 alias cplay='cd $PLAYGROUND_DIR' 
 
 # fast dotfile editing
-alias zshrc='mvim ~/.zshrc'
-alias zshrcl='mvim ~/.zshrc_local'
+alias zshrc='e ~/.zshrc'
+alias zshrcl='e ~/.zshrc_local'
+alias aliases='e ~/.aliases'
+alias aliasesl='e ~/.aliases_local'
+alias exports='e ~/.exports'
+alias exportsl='e ~/.exports_local'
+alias ohmyzshrc='e ~/.oh-my-zshrc'
+alias vimrc='e ~/.vimrc'
+alias tmuxc='e ~/.tmux.conf'
+alias npmrc='e ~/.npmrc'
+
 alias szshrc='source ~/.zshrc'
-alias ohmyzshrc='mvim ~/.oh-my-zshrc'
-alias ohmyzsh='mvim ~/.oh-my-zsh'
-alias vimrc='mvim ~/.vimrc'
-alias tmuxc='mvim ~/.tmux.conf'
-alias npmrc='mvim ~/.npmrc'
-alias brewc='echo "Homebrew apps config directory (/usr/local/etc):"; ll -la /usr/local/etc;'
+
+# list linked dotfiles
 alias dot='echo "$HOME dotfiles:"; ls -la $HOME | grep "\->"; \
   echo "$HOME/.config dotfiles:"; ls -la $HOME/.config | grep "\->";' 
 
