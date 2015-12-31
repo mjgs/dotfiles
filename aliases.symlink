@@ -1,0 +1,36 @@
+# general
+alias ag='alias | grep'
+alias e='$EDITOR'
+
+# fast navigation
+alias dt='cd $HOME/Desktop'
+alias dl='cd $HOME/Downloads'
+alias ulogs='cd $HOME/Library/Logs'
+
+alias backups='cd $BACKUPS_DIR'
+alias codes='cd $CODES_DIR'
+alias configs='cd $CONFIGS_DIR'
+alias courses='cd $COURSES_DIR'
+alias notes='cd $NOTES_DIR'
+alias dots='cd $CONFIGS_DIR/dotfiles'
+alias usb='cd $USB_DRIVE_DIR'
+alias scripts='cd $HOME/bin'
+alias cheats='cd $CHEATSHEETS_DIR'
+alias cproj='cd $PROJECTS_DIR'
+alias cplay='cd $PLAYGROUND_DIR' 
+
+# fast dotfile editing
+alias zshrc='mvim ~/.zshrc'
+alias zshrcl='mvim ~/.zshrc_local'
+alias szshrc='source ~/.zshrc'
+alias ohmyzshrc='mvim ~/.oh-my-zshrc'
+alias ohmyzsh='mvim ~/.oh-my-zsh'
+alias vimrc='mvim ~/.vimrc'
+alias tmuxc='mvim ~/.tmux.conf'
+alias npmrc='mvim ~/.npmrc'
+alias brewc='echo "Homebrew apps config directory (/usr/local/etc):"; ll -la /usr/local/etc;'
+alias dot='echo "$HOME dotfiles:"; ls -la $HOME | grep "\->"; \
+  echo "$HOME/.config dotfiles:"; ls -la $HOME/.config | grep "\->";' 
+
+# local aliases
+source $HOME/.aliases_local
