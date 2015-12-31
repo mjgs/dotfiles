@@ -60,6 +60,7 @@ $DOTFILES_DIR/bin/install/ruby.sh
 $DOTFILES_DIR/bin/install/python.sh
 $DOTFILES_DIR/bin/install/node.sh
 $DOTFILES_DIR/bin/install/shell.sh
+$DOTFILES_DIR/bin/install/configuration.sh
 
 echo "########################################################################"
 echo "#                    Configuring OSX settings [2/4]                    #"
