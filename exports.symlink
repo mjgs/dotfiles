@@ -2,7 +2,6 @@ export PATH="/bin:/usr/bin:/sbin:/usr/sbin"
 export PATH="$HOME/bin:/usr/local/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm" # Homebrew installed nvm
-export EDITOR="$CONFIGS_DIR/dotfiles/bin/nvimf"
 
 # local variable exports
 source $HOME/.exports_local
