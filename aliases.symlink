@@ -31,7 +31,7 @@ alias vimrc='e $HOME/.vimrc'
 alias tmuxc='e $HOME/.tmux.conf'
 alias npmrc='e $HOME/.npmrc'
 
-# reload the shell dofiles into current shell
+# reload the shell dotfiles into current shell
 alias szshrc='source $HOME/.zshrc'
 
 # list linked dotfiles
