@@ -65,10 +65,10 @@ echo "########################################################################"
 echo "#                    Configuring OSX settings [2/4]                    #"
 echo "########################################################################"
 
-./install/bin/osx/set_system_prefs.sh
-./install/bin/osx/set_hidden_prefs.sh
-./install/bin/osx/set_application_prefs.sh
-./install/bin/osx/configure_dock_apps.sh
+$DOTFILES_DIR/bin/osx/set_system_prefs.sh
+$DOTFILES_DIR/bin/osx/set_hidden_prefs.sh
+$DOTFILES_DIR/bin/osx/set_application_prefs.sh
+$DOTFILES_DIR/bin/osx/configure_dock_apps.sh
 
 echo "########################################################################"
 echo "#                  Installing GUI Applications [3/4]                   #"
