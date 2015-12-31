@@ -22,3 +22,10 @@ Override by setting environment variables before running the install command:
 
     export CONFIGS_DIR=~/Documents/Codes
     export CODES_DIR=~/Documents/Configs
+
+## Thanks to…
+
+* Nick Nisi [dotfiles repository](https://github.com/nicknisi/dotfiles)
+* Mathias Bynens [dotfiles repository](https://github.com/mathiasbynens/dotfiles)
+* @ptb and [his _OS X Lion Setup_ repository](https://github.com/ptb/Mac-OS-X-Lion-Setup)
+* [Kevin Suttle](http://kevinsuttle.com/) and his [OSXDefaults project](https://github.com/kevinSuttle/OSXDefaults), which aims to provide better documentation for [`~/.osx`](https://mths.be/osx)
