@@ -4,6 +4,9 @@ source $HOME/.exports
 # aliases
 source $HOME/.aliases
 
+# functions
+source $HOME/.functions
+
 # oh-my-zsh
 source $HOME/.oh-my-zshrc
 
