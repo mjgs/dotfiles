@@ -65,8 +65,10 @@ echo "########################################################################"
 echo "#                    Configuring OSX settings [2/4]                    #"
 echo "########################################################################"
 
-# TODO - create osx.sh with commands to set osx settings
-#./install/osx.sh
+./install/bin/osx/set_system_prefs.sh
+./install/bin/osx/set_hidden_prefs.sh
+./install/bin/osx/set_application_prefs.sh
+./install/bin/osx/configure_dock_apps.sh
 
 echo "########################################################################"
 echo "#                  Installing GUI Applications [3/4]                   #"
