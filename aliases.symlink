@@ -20,19 +20,19 @@ alias cproj='cd $PROJECTS_DIR'
 alias cplay='cd $PLAYGROUND_DIR' 
 
 # fast dotfile editing
-alias zshrc='e ~/.zshrc'
-alias zshrcl='e ~/.zshrc_local'
-alias aliases='e ~/.aliases'
-alias aliasesl='e ~/.aliases_local'
-alias exports='e ~/.exports'
-alias exportsl='e ~/.exports_local'
-alias ohmyzshrc='e ~/.oh-my-zshrc'
-alias vimrc='e ~/.vimrc'
-alias tmuxc='e ~/.tmux.conf'
-alias npmrc='e ~/.npmrc'
+alias zshrc='e $HOME/.zshrc'
+alias zshrcl='e $HOME/.zshrc_local'
+alias aliases='e $HOME/.aliases'
+alias aliasesl='e $HOME/.aliases_local'
+alias exports='e $HOME/.exports'
+alias exportsl='e $HOME/.exports_local'
+alias ohmyzshrc='e $HOME/.oh-my-zshrc'
+alias vimrc='e $HOME/.vimrc'
+alias tmuxc='e $HOME/.tmux.conf'
+alias npmrc='e $HOME/.npmrc'
 
 # reload the shell dofiles into current shell
-alias szshrc='source ~/.zshrc'
+alias szshrc='source $HOME/.zshrc'
 
 # list linked dotfiles
 alias dot='echo "$HOME dotfiles:"; ls -la $HOME | grep "\->"; \
