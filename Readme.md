@@ -19,7 +19,6 @@ directories in current directory.
 
 Override by setting environment variables before running the install command:
 
-
     export CONFIGS_DIR=~/Documents/Codes
     export CODES_DIR=~/Documents/Configs
 
