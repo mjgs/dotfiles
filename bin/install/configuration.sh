@@ -43,11 +43,6 @@ rsync -avz $HOME/.vim/bundle/vim-web-indent/indent $HOME/.vim
 
 echo "Configuring ycm vim plugin..."
 $HOME/.vim/bundle/YouCompleteMe/install.py --tern-completer
-mkdir $HOME/ycm_build && cd $_
-cmake -G "<generator>" . $HOME/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
-cmake --build . --target ycm_support_libs --config Release
-cd YouCompleteMe/third_party/ycmd/third_party/tern
-npm install --production
 
 echo "When install.sh completes..."
 echo "Make sure all nvim plugins got installed, open nvim and run:"
