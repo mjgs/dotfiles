@@ -10,8 +10,6 @@ fi
 if [ ! -x /usr/local/bin/ruby ]; then
   echo "Installing ruby..."
   brew install ruby
-  source $HOME/.zshrc
-  sleep 2
 fi
 
 echo "Current ruby: `which ruby`"
@@ -25,8 +23,6 @@ gem install -N bson_ext
 gem install -N jekyll
 gem install -N sass
 gem install -N rouge
-
-source $HOME/.zshrc
 
 if [ -x $CONFIGS_DIR/ruby_local.sh ]; then
   $CONFIGS_DIR/ruby_local.sh			

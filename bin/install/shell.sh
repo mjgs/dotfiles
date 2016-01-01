@@ -10,8 +10,6 @@ fi
 if [ ! -x /usr/local/bin/zsh ]; then
   echo "Installing zsh..."
   brew install zsh
-  source $HOME/.zshrc
-  sleep 2
 fi
 
 echo "Installing oh-my-zsh..."
@@ -22,11 +20,7 @@ URL=https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/ma
 mkdir -p $ZSH/custom/themes
 wget -P $ZSH/custom/themes/ $URL
 
-source $HOME/.zshrc
-sleep 2
-
-if [ -x $CONFIGS_DIR/shell_local.sh ]
-then
+if [ -x $CONFIGS_DIR/shell_local.sh ]; then
   $CONFIGS_DIR/shell_local.sh			
 fi
 
