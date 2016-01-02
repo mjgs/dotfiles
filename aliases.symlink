@@ -19,7 +19,7 @@ alias cheats='cd $CHEATSHEETS_DIR'
 alias cproj='cd $PROJECTS_DIR'
 alias cplay='cd $PLAYGROUND_DIR' 
 
-# fast dotfile editing
+# fast file editing
 alias zshrc='e $HOME/.zshrc'
 alias zshrcl='e $HOME/.zshrc_local'
 alias aliases='e $HOME/.aliases'
@@ -30,6 +30,7 @@ alias ohmyzshrc='e $HOME/.oh-my-zshrc'
 alias vimrc='e $HOME/.vimrc'
 alias tmuxc='e $HOME/.tmux.conf'
 alias npmrc='e $HOME/.npmrc'
+alias cnotes='e $NOTES_DIR/coding_notes.txt'
 
 # reload the shell dotfiles into current shell
 alias szshrc='source $HOME/.zshrc'
