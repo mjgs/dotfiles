@@ -39,5 +39,8 @@ alias szshrc='source $HOME/.zshrc'
 alias dot='echo "$HOME dotfiles:"; ls -la $HOME | grep "\->"; \
   echo "$HOME/.config dotfiles:"; ls -la $HOME/.config | grep "\->";' 
 
+# logging
+alias lg="logger -p $LGF.info"
+
 # local aliases
 source $HOME/.aliases_local
