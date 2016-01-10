@@ -44,6 +44,15 @@ rsync -avz $HOME/.vim/bundle/vim-web-indent/indent $HOME/.vim
 echo "Configuring ycm vim plugin..."
 $HOME/.vim/bundle/YouCompleteMe/install.py --tern-completer
 
+echo "Configuring tern_for_vim vim plugin..."
+current_dir=`pwd`; 
+cd $HOME/.vim/bundle/tern_for_vim
+source ~/.nvm/nvm.sh # load nvm
+nvm install v0.12.0
+nvm use v0.12.0
+npm install 
+cd $current_dir
+
 echo "When install.sh completes..."
 echo "Make sure all nvim plugins got installed, open nvim and run:"
 echo ":PluginInstall"
