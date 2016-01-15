@@ -1,6 +1,7 @@
 # general
 alias ag='alias | grep'
 alias e='$EDITOR'
+alias p='ping'
 
 # fast navigation
 alias dt='cd $HOME/Desktop'
