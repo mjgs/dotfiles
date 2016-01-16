@@ -57,3 +57,8 @@ echo "When install.sh completes..."
 echo "Make sure all nvim plugins got installed, open nvim and run:"
 echo ":PluginInstall"
 echo ":PluginUpdate" 
+
+echo "Configuring openvpn..."
+echo "Have launchd start openvpn at startup..."
+sudo cp -fv /usr/local/opt/openvpn/*.plist /Library/LaunchDaemons
+sudo chown root /Library/LaunchDaemons/homebrew.mxcl.openvpn.plist

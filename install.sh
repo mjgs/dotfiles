@@ -7,6 +7,14 @@
 # export CODES_DIR=/path/to/dir (optional)
 # install.sh
 
+# Ask for the administrator password upfront.
+echo "Installing tun/tap (required for openvpn) requires admin priveledges" 
+echo "[cancel by typing ctl-c to use cyber ghost client instead]"
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until the script has finished.
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 CURRENT_DIR=`pwd`
 
 if [ ! $CONFIGS_DIR ]; then 
