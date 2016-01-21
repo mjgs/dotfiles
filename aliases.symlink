@@ -3,6 +3,7 @@ alias ag='alias | grep'
 alias e='$EDITOR'
 alias p='ping'
 alias p1='ping -c 1'
+alias t='traceroute'
 
 # fast navigation
 alias dt='cd $HOME/Desktop'
