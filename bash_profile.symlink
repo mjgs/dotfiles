@@ -1,0 +1,2 @@
+# local bash configuration
+source $HOME/.bash_profile_local
