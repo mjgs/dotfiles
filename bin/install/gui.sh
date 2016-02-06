@@ -44,6 +44,7 @@ brew cask install vlc
 #brew cask install wd-drive-utilities http://download.wdc.com/wdapp/WD_Drive_Utilities_Installer_2_0_2_18.zip
 brew cask install wd-security
 brew cask install webstorm
+brew cask install robomongo
 
 # TODO - create casks for get0iplayer-automator, hemmingway-editor, wd-drive-utilities
 
