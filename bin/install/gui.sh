@@ -45,6 +45,7 @@ brew cask install vlc
 brew cask install wd-security
 brew cask install webstorm
 brew cask install robomongo
+brew cask install Caskroom/cask/dockertoolbox
 
 # TODO - create casks for get0iplayer-automator, hemmingway-editor, wd-drive-utilities
 
