@@ -28,6 +28,6 @@ HIST_STAMPS="yyyy-mm-dd"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git node npm z sublime web-search bower sudo brew lol nyan vi-mode)
+plugins=(git git-extras node npm z sublime web-search bower sudo brew lol nyan vi-mode)
 
 source $ZSH/oh-my-zsh.sh

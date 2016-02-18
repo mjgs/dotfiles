@@ -16,6 +16,7 @@ brew install dos2unix
 brew install fontconfig
 brew install freetype
 brew install git
+brew install git-extras
 brew install gnupg
 brew install heroku-toolbelt
 brew install httpie
