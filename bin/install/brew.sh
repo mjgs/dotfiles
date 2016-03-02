@@ -13,6 +13,8 @@ brew install ack
 brew install brew-cask
 brew install cmake
 brew install dos2unix
+brew install ffmpeg
+brew install ffprobe
 brew install fontconfig
 brew install freetype
 brew install git
