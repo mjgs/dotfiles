@@ -10,7 +10,7 @@ fi
 
 echo "Installing homebrew packages..."
 brew install ack
-brew install brew-cask
+brew tap caskroom/cask
 brew install cmake
 brew install dos2unix
 brew install ffmpeg
