@@ -7,16 +7,16 @@ if [ ! -x /usr/local/bin/brew ]; then
   exit 1
 fi
 
-if [ ! -x /usr/local/opt/nvm/nvm.sh ]; then
+if [ ! -x ~/.nvm/nvm.sh ]; then
   echo "Installing nvm..."
-  brew install nvm
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash
   if [ ! -e $HOME/.nvm ]; then 
     mkdir $HOME/.nvm; 
   fi 
 fi
 
 # reload nvm into this environment
-source $(brew --prefix nvm)/nvm.sh
+source ~/.nvm/nvm.sh
 
 echo "Installing latest stable node..."	
 nvm install stable
