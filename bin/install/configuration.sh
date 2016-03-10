@@ -12,6 +12,7 @@ echo "Configuring installed homebrew packages..."
 echo "Configuring git..."
 git config --global user.name $NAME
 git config --global user.email $EMAIL
+git config --global push.default simple
 
 echo "Configuring nvim..."
 
