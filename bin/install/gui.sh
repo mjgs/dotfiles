@@ -7,7 +7,7 @@ if [ ! -x /usr/local/bin/brew ]; then
   exit 1
 fi
 
-if [ ! -x /usr/local/opt/brew-cask ]; then
+if [ ! -x /usr/local/Library/Taps/caskroom/homebrew-cask/brew-cask.rb ]; then
   echo "ERROR: Homebrew Cask must be installed to run the gui.sh installer script"
   exit 1
 fi
