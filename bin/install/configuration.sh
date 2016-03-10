@@ -9,6 +9,10 @@
 # Homebrew packages
 echo "Configuring installed homebrew packages..."
 
+echo "Configuring git..."
+git config --global user.name $NAME
+git config --global user.email $EMAIL
+
 echo "Configuring nvim..."
 
 echo "Linking nvim to vim configuration..."
