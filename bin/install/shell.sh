@@ -13,12 +13,14 @@ if [ ! -x /usr/local/bin/zsh ]; then
 fi
 
 echo "Installing oh-my-zsh..."
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# Use manual instalation method - clone repo, then change shell
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+chsh -s /bin/zsh
 
 echo "Installing bullet-train oh-my-zsh theme..."
 URL=https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme
-mkdir -p $ZSH/custom/themes
-wget -P $ZSH/custom/themes/ $URL
+mkdir -p ~/.oh-my-zsh/custom/themes
+wget -P ~/.oh-my-zsh/custom/themes/ $URL
 
 if [ -x $CONFIGS_DIR/shell_local.sh ]; then
   $CONFIGS_DIR/shell_local.sh			
