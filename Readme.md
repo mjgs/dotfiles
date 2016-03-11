@@ -22,6 +22,12 @@ Override by setting environment variables before running the install command:
     export CONFIGS_DIR=~/Documents/Configs
     export CODES_DIR=~/Documents/Codes
 
+Also set the following environment variables:
+
+    # Used to configure git:  
+    export NAME="Your Name"
+    export EMAIL="youraddress@domain.com
+
 ## Thanks to…
 
 * Nick Nisi [dotfiles repository](https://github.com/nicknisi/dotfiles)
