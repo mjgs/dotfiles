@@ -27,7 +27,7 @@ brew install jq
 brew install media-info
 brew install mongodb
 brew install mysql
-brew install neovim
+brew install neovim/neovim/neovim
 brew install nmap
 brew install nvm
 brew install openssl
