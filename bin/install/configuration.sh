@@ -37,8 +37,11 @@ fi
 echo "Installing vim plugin manager Vundle..."
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-echo "Installing vim plugins to $HOME/.vim/bundle (no output to console, might take a while)..."
-nvim +PluginInstall +PluginUpdate +qall &>/dev/null
+# Silent install of vim plugins doesn't work
+#echo "Installing vim plugins to $HOME/.vim/bundle (no output to console, might take a while)..."
+#nvim +PluginInstall +PluginUpdate +qall &>/dev/null
+read -p "Open nvim / vim and install plugins :PluginInstall" enter1
+read -p "Open nvim / vim and update plugins :PluginUpdate" enter2
 
 echo "Configuring vim color schemes..."
 rsync -avz $HOME/.vim/bundle/vim-colorschemes/colors $HOME/.vim
