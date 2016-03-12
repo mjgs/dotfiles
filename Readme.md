@@ -17,16 +17,15 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjgs/dotfiles/master/insta
 Typically run from user's home directory, defaults to creating Configs and Codes 
 directories in current directory.
 
-Override by setting environment variables before running the install command:
+Environment variables that you should set before install:
 
+    # Directories
     export CONFIGS_DIR=~/Documents/Configs
     export CODES_DIR=~/Documents/Codes
-
-Also set the following environment variables:
-
-    # Used to configure git:  
-    export NAME="Your Name"
-    export EMAIL="youraddress@domain.com
+    
+    # Location of dotfiles repos
+    export DOTFILES_URL=https://path/to/public/dotfiles/repo
+    export DOTFILES_LOCAL_URL=https://path/to/private/dotfiles/repo
 
 ## Thanks to…
 
