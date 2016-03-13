@@ -33,6 +33,7 @@ brew cask install libreoffice
 brew cask install little-snitch
 brew cask install m3unify
 brew cask install malwarebytes-anti-malware
+brew cask install mongohub
 brew cask install omnidisksweeper
 brew cask install opera
 brew cask install sequel-pro
@@ -45,7 +46,7 @@ brew cask install vlc
 brew cask install wd-security
 brew cask install webstorm
 brew cask install robomongo
-brew cask install Caskroom/cask/dockertoolbox
+brew cask install dockertoolbox
 
 # TODO - create casks for get0iplayer-automator, hemmingway-editor, wd-drive-utilities
 
