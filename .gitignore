@@ -4,3 +4,4 @@ vim.symlink/indent
 vim.symlink/syntax
 vim.symlink/.netrwhist
 .idea
+.DS_Store
