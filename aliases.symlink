@@ -6,6 +6,7 @@ alias p='ping'
 alias p1='ping -c 1'
 alias p1g='ping -c 1 google.com'
 alias t='traceroute'
+alias uuid="uuidgen | tr 'A-Z' 'a-z'"
 
 # fast navigation
 alias dt='cd $HOME/Desktop'
