@@ -70,3 +70,6 @@ echo "Configuring openvpn..."
 echo "Have launchd start openvpn at startup..."
 sudo cp -fv /usr/local/opt/openvpn/*.plist /Library/LaunchDaemons
 sudo chown root /Library/LaunchDaemons/homebrew.mxcl.openvpn.plist
+
+echo "Configuring redis..."
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
