@@ -18,9 +18,10 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 chsh -s /bin/zsh
 
 echo "Installing bullet-train oh-my-zsh theme..."
-URL=https://raw.githubusercontent.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme
-mkdir -p ~/.oh-my-zsh/custom/themes
-wget -P ~/.oh-my-zsh/custom/themes/ $URL
+git clone https://github.com/amandeepg/bullet-train-oh-my-zsh-theme.git /tmp/bullet-train-oh-my-zsh-theme
+mkdir -p ~/.oh-my-zsh/themes
+mv /tmp/bullet-train-oh-my-zsh-theme/bullet-train.zsh-theme ~/.oh-my-zsh/themes
+rm -rf /tmp/bullet-train-oh-my-zsh-theme
 
 if [ -x $CONFIGS_DIR/shell_local.sh ]; then
   $CONFIGS_DIR/shell_local.sh			
