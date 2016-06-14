@@ -16,6 +16,7 @@ echo "Installing brew cask applications..."
 brew cask install adobe-reader
 brew cask install adobe-photoshop-cc
 brew cask install alfred
+brew cask install calibre
 brew cask install cord
 brew cask install cyberghost
 brew cask install dropbox
