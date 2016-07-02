@@ -18,6 +18,7 @@ brew cask install alfred
 brew cask install calibre
 brew cask install cord
 brew cask install cyberghost
+brew cask install diskmaker-x
 brew cask install dropbox
 brew cask install evernote
 brew cask install firefox
