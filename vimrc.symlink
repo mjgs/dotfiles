@@ -6,6 +6,7 @@ set showcmd          "shows the current command, see your <leader> key appear in
 set number           "turn line numbers on 'set nonumber' to turn them off
 autocmd filetype crontab setlocal nobackup nowritebackup "needed to edit crontab using mvim
 set foldmethod=indent "create folds based on indent 
+set foldlevelstart=1 "default fold level for newly opened files
 
 "SECTION 2: Plugin manager configuration
 " Add Plugins to section below then run :PluginInstall inside vim
