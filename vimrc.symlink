@@ -1,9 +1,6 @@
 "SECTION 1: Basic vim config
 
 set ts=2
-set t_Co=256
-syntax enable
-set background=dark
 let mapleader=","    "set the leader key
 set showcmd          "shows the current command, see your <leader> key appear in the bottom right hand corner
 set number           "turn line numbers on 'set nonumber' to turn them off
@@ -105,6 +102,13 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 hi Directory guifg=#FF0000 ctermfg=gray "change color of directories
   "map Ctrl-n to open NERDTree
 map <C-n> :NERDTreeToggle<CR> 
+
+"vim-colorschemes plugin
+let g:solarized_termcolors=256
+set t_Co=256
+syntax enable
+set background=dark
+colorscheme solarized
 
 "SECTION 4: Load local vimrc file if it exists
 
