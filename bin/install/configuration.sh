@@ -56,8 +56,7 @@ echo "Configuring tern_for_vim vim plugin..."
 current_dir=`pwd`; 
 cd $HOME/.vim/bundle/tern_for_vim
 source ~/.nvm/nvm.sh # load nvm
-nvm install v0.12.0
-nvm use v0.12.0
+nvm use stable
 npm install 
 cd $current_dir
 
