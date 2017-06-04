@@ -16,6 +16,7 @@ echo "Current python: `which python`"
 
 echo "Installing python packages..."
 pip2 install --user neovim
+pip install beets
 
 if [ -x $CONFIGS_DIR/python_local.sh ]; then
   $CONFIGS_DIR/python_local.sh			
