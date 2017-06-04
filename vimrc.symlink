@@ -1,12 +1,15 @@
 "SECTION 1: Basic vim config
 
-set ts=2
 let mapleader=","    "set the leader key
+
+set ts=2
 set showcmd          "shows the current command, see your <leader> key appear in the bottom right hand corner
 set number           "turn line numbers on 'set nonumber' to turn them off
-autocmd filetype crontab setlocal nobackup nowritebackup "needed to edit crontab using mvim
+set relativenumber   "show the line number relative to the line with the cursor
 set foldmethod=indent "create folds based on indent 
 set foldlevelstart=1 "default fold level for newly opened files
+
+autocmd filetype crontab setlocal nobackup nowritebackup "needed to edit crontab using mvim
 
 "SECTION 2: Plugin manager configuration
 " Add Plugins to section below then run :PluginInstall inside vim
