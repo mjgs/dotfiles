@@ -23,6 +23,7 @@ gem install -N bson_ext
 gem install -N jekyll
 gem install -N sass
 gem install -N rouge
+gem install -H tmuxinator
 
 if [ -x $CONFIGS_DIR/ruby_local.sh ]; then
   $CONFIGS_DIR/ruby_local.sh			
