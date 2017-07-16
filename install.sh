@@ -84,7 +84,7 @@ echo "Cloning dotfiles_local repo...$DOTFILES_LOCAL_URL"
 git clone $DOTFILES_LOCAL_URL $CONFIGS_DIR
 
 echo "Cloning dotfiles repo...$DOTFILES_URL"
-git clone $DOTFILES_URL $DOTFILES_DIR
+git clone $DOTFILES_URL $CONFIGS_DIR
 
 echo "Running install scripts..."
 $DOTFILES_DIR/bin/install/dotfiles.sh
