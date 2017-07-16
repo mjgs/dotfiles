@@ -13,15 +13,10 @@
 # Set env variables, using default values for unset variables
 CURRENT_DIR=`pwd`
 
-${REPO_URL:=http://github.com/mjgs}
-${REPO_URL_LOCAL:=http://github.com/mjgs}
-${CONFIGS_DIR:=$CURRENT_DIR/Configs}
-${CODES_DIR:=$CURRENT_DIR/Codes}
-
-export REPO_URL=$REPO_URL
-export REPO_URL_LOCAL=$REPO_URL_LOCAL
-export CONFIGS_DIR=$CONFIGS_DIR
-export CODES_DIR=$CODES_DIR
+export REPO_URL=${REPO_URL:=http://github.com/mjgs}
+export REPO_URL_LOCAL=${REPO_URL_LOCAL:=http://github.com/mjgs}
+export CONFIGS_DIR=${CONFIGS_DIR:=$CURRENT_DIR/Configs}
+export CODES_DIR=${CODES_DIR:=$CURRENT_DIR/Codes}
 
 DOTFILES_URL=$REPO_URL/dotfiles.git
 DOTFILES_LOCAL_URL=$REPO_URL_LOCAL/dotfiles_local.git
