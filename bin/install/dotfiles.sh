@@ -12,8 +12,6 @@ if [ ! $CODES_DIR ]; then
   exit 1
 fi
 
-DOTFILES_DIR=$CONFIGS_DIR/dotfiles 
-
 if [ ! -e $DOTFILES_DIR ]; then 
   echo ERROR: Dotfiles directory does not exist
   exit 1
@@ -41,7 +39,7 @@ if [ ! -d $HOME/.config ]; then
   mkdir -p $HOME/.config
 fi
 
-CONFIGS=$( find -H "$DOTFILES_DIR/config" -maxdepth 1 -name '*.symlink' )
+CONFIGS=$( find -H "$DOTFILES_DIR/dotfiles/config" -maxdepth 1 -name '*.symlink' )
 
 for CONFIG in $CONFIGS; do
   TARGET="$HOME/.config/$( basename $CONFIG ".symlink" )"
