@@ -11,12 +11,12 @@ if [ ! $CONFIGS_DIR ]; then
 fi
 
 if [ ! $CODES_DIR ]; then
-  echo ERROR: CONFIGS_DIR environment variable is not defined
+  echo ERROR: CODES_DIR environment variable is not defined
   exit 1
 fi
 
 if [ ! $REPO_URL ]; then
-  echo ERROR: CONFIGS_DIR environment variable is not defined
+  echo ERROR: REPO_URL environment variable is not defined
   exit 1
 fi
 
