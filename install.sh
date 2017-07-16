@@ -2,10 +2,41 @@
 #
 # Description: Installs fresh Mac OSX environment
 #
-# Usage: 
-# export CONFIGS_DIR=/path/to/dir (optional)
-# export CODES_DIR=/path/to/dir (optional)
+# Usage (note optional env variables):
+#
+# export CONFIGS_DIR=/path/to/dir
+# export CODES_DIR=/path/to/dir
+# export REPO_URL=repository url
+# export REPO_URL_LOCAL=local repository url
 # install.sh
+
+# Set env variables, using default values for unset variables
+CURRENT_DIR=`pwd`
+
+${REPO_URL:=http://github.com/mjgs}
+${REPO_URL_LOCAL:=http://github.com/mjgs}
+${CONFIGS_DIR:=$CURRENT_DIR/Configs}
+${CODES_DIR:=$CURRENT_DIR/Codes}
+
+export REPO_URL=$REPO_URL
+export REPO_URL_LOCAL=$REPO_URL_LOCAL
+export CONFIGS_DIR=$CONFIGS_DIR
+export CODES_DIR=$CODES_DIR
+
+DOTFILES_URL=$REPO_URL/dotfiles.git
+DOTFILES_LOCAL_URL=$REPO_URL_LOCAL/dotfiles_local.git
+
+# Create directories
+if [ ! -e $CONFIGS_DIR ]; then
+  echo "Creating config directory: $CONFIGS_DIR"
+  mkdir $CONFIGS_DIR
+fi
+
+export CODES_DIR=$CODES_DIR
+if [ ! -e $CODES_DIR ]; then
+  echo "Creating codes directory: $CODES_DIR"
+  mkdir $CODES_DIR
+fi
 
 # Ask for the administrator password upfront.
 echo "Admin password is required for install..."
@@ -54,37 +85,11 @@ then
   exit 1
 fi
 
-echo "Checking Config directory..."
-CURRENT_DIR=`pwd`
-
-if [ ! $CONFIGS_DIR ]; then
-  CONFIGS_DIR=$CURRENT_DIR/Configs
-fi
-
-export CONFIGS_DIR=$CONFIGS_DIR
-
-echo "Cloning dotfiles_local repo..."
-echo "dotfiles_local repository: $DOTFILES_LOCAL_URL"
+echo "Cloning dotfiles_local repo...$DOTFILES_LOCAL_URL"
 git clone $DOTFILES_LOCAL_URL $CONFIGS_DIR
 
-echo "Cloning dotfiles repo..."
-DOTFILES_DIR=$CONFIGS_DIR/dotfiles
-echo "dotfiles repository: $DOTFILES_URL"
+echo "Cloning dotfiles repo...$DOTFILES_URL"
 git clone $DOTFILES_URL $DOTFILES_DIR
-
-echo "Checking Codes directory..."
-if [ ! $CODES_DIR ]; then
-  CODES_DIR=$CURRENT_DIR/Codes
-fi
-
-if [ ! -e $CODES_DIR ]; then
-  echo "Creating codes directory: $CODES_DIR"
-  mkdir $CODES_DIR
-fi
-
-export CODES_DIR=$CODES_DIR
-
-exit
 
 echo "Running install scripts..."
 $DOTFILES_DIR/bin/install/dotfiles.sh
