@@ -3,7 +3,22 @@
 # Description: installs user projects
 #
 # Env overrides:
-# CODES_DIR, GIT_USER, GIT_URL
+# CONFIGS_DIR, CODES_DIR, REPO_URL
+
+if [ ! $CONFIGS_DIR ]; then
+  echo ERROR: CONFIGS_DIR environment variable is not defined
+  exit 1
+fi
+
+if [ ! $CODES_DIR ]; then
+  echo ERROR: CONFIGS_DIR environment variable is not defined
+  exit 1
+fi
+
+if [ ! $REPO_URL ]; then
+  echo ERROR: CONFIGS_DIR environment variable is not defined
+  exit 1
+fi
 
 if [ ! -x /usr/local/bin/git ]; then
   echo "ERROR: Git must be installed to run the projects.sh installer script"
@@ -11,9 +26,6 @@ if [ ! -x /usr/local/bin/git ]; then
 fi
 
 echo "Installing github projects (will not overwrite existing projects)..."
-GIT_USER=$GIT_USER && [ ! $GIT_USER ] && GIT_USER=mjgs
-GIT_URL=$GIT_URL/$GIT_USER && [ ! $GIT_URL ] && GIT_URL=http://github.com/$GIT_USER
-
 if [ ! -e $CONFIGS_DIR/project_info ]; then
   echo "ERROR: Project info directory must exist to run the project.sh installer script"
   exit 1
@@ -24,7 +36,7 @@ for PROJECT in `ls $CONFIGS_DIR/project_info`; do
     echo "${PROJECT} already exists... Skipping."
   else
     echo "Cloning project $PROJECT..."
-    git clone $GIT_URL/$PROJECT.git $CODES_DIR/$PROJECT
+    git clone $REPO_URL/$PROJECT.git $CODES_DIR/$PROJECT
   fi
 done
 
