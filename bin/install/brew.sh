@@ -32,6 +32,7 @@ sudo brew install Caskroom/cask/tuntap # Needed for openvpn
 brew install openvpn
 brew install redis
 brew install tree
+brew install watch
 brew install wget
 brew install youtube-dl
 
