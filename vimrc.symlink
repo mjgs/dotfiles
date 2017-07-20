@@ -1,13 +1,43 @@
 "SECTION 1: Basic vim config
 
+" Leaders
 let mapleader=","    "set the leader key
+let maplocalleader="\\" "set the local leader key
 
+" Settings
 set ts=2
 set showcmd          "shows the current command, see your <leader> key appear in the bottom right hand corner
 set number           "turn line numbers on 'set nonumber' to turn them off
 set relativenumber   "show the line number relative to the line with the cursor
 set foldmethod=indent "create folds based on indent 
 set foldlevelstart=1 "default fold level for newly opened files
+
+" Mappings
+nnoremap <leader>- dd<esc>p      |"move line down
+nnoremap <leader>_ dd<esc>kkp    |"move line up
+vnoremap <leader>\ U             |"upper case visual mode selection
+inoremap <leader><c-d> <esc>dd   |"delete line in insert mode
+inoremap <leader><c-u> <esc>viwU<esc>i |"upper case curent word in insert mode
+nnoremap <leader><c-u> viwU<esc> |"upper case current word in normal mode
+nnoremap <leader>ev :vsplit $MYVIMRC<cr> |"open vimrc in vertical split
+nnoremap <leader>sv :source $MYVIMRC<cr> |"source vimrc file
+nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel |" surround current word with double quotes
+nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel |" surround current word with single quotes
+inoremap jk <esc> |" alternative exit from insert mode
+inoremap <esc> <nop> |" unmap esc to force using <leader>jk
+nnoremap <Up> <nop>   |" unmap arrow keys to force using hjkl for navigation 
+nnoremap <Down> <nop> |" unmap arrow keys to force using hjkl for navigation
+nnoremap <Left> <nop> |" unmap arrow keys to force using hjkl for navigation
+nnoremap <Right> <nop>|" unmap arrow keys to force using hjkl for navigation
+
+" Abbreviations
+iabbrev adn and
+iabbrev waht what
+iabbrev tehn then
+iabbrev @@ markjgsmith@gmail.com
+iabbrev ccopy Copyright 2013-2017 Mark Smith, all rights reserved.
+iabbrev ssig -- <cr>Mark Smith<cr>markjgsmith@gmail.com
+iabbrev mweb http://markjgsmith.com
 
 autocmd filetype crontab setlocal nobackup nowritebackup "needed to edit crontab using mvim
 
