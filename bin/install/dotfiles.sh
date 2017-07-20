@@ -39,7 +39,7 @@ if [ ! -d $HOME/.config ]; then
   mkdir -p $HOME/.config
 fi
 
-CONFIGS=$( find -H "$DOTFILES_DIR/dotfiles/config" -maxdepth 1 -name '*.symlink' )
+CONFIGS=$( find -H "$DOTFILES_DIR/config" -maxdepth 2 -name '*.symlink' )
 
 for CONFIG in $CONFIGS; do
   TARGET="$HOME/.config/$( basename $CONFIG ".symlink" )"
