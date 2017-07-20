@@ -16,8 +16,6 @@ fi
 echo "Installing homebrew packages..."
 brew install ack
 brew install cmake
-brew install fontconfig
-brew install freetype
 brew install git
 brew install git-extras
 brew install heroku-toolbelt
@@ -28,8 +26,6 @@ brew install mongodb
 brew install neovim/neovim/neovim
 brew install nvm
 brew install openssl
-sudo brew install Caskroom/cask/tuntap # Needed for openvpn
-brew install openvpn
 brew install redis
 brew install tree
 brew install watch
