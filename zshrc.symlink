@@ -11,6 +11,8 @@ source $HOME/.functions
 source $HOME/.oh-my-zshrc
 
 # nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # local zsh configuration
 source $HOME/.zshrc_local
