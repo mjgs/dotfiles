@@ -39,6 +39,8 @@ brew cask install opera
 brew cask install shiftit
 brew cask install skype
 brew cask install sublime-text
+brew cask install torbrowser
+brew cask install virtualbox
 brew cask install vlc
 brew cask install wd-security
 brew cask install webstorm
