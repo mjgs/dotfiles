@@ -80,6 +80,22 @@ then
   exit 1
 fi
 
+# Backup dotfiles
+cd $CONFIGS_DIR
+
+if [ -d $CONFIGS_DIR/dotfiles_local ]
+then
+  tar cvfz dotfiles_local-$(date +%Y-%m-%d-%H%M).tar.gz $CONFIGS_DIR/dotfiles_local
+  rm -rf $CONFIGS_DIR/dotfiles_local
+fi
+
+if [ -d $CONFIGS_DIR/dotfiles ]
+then
+  tar cvfz dotfiles-$(date +%Y-%m-%d-%H%M).tar.gz $CONFIGS_DIR/dotfiles
+  rm -rf $CONFIGS_DIR/dotfiles
+fi
+
+# Install latest dotfiles from repos
 echo "Cloning dotfiles_local repo...$DOTFILES_LOCAL_URL"
 git clone $DOTFILES_LOCAL_URL $CONFIGS_DIR
 
