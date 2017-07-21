@@ -11,10 +11,6 @@ source $HOME/.functions
 source $HOME/.oh-my-zshrc
 
 # nvm
-source ~/.nvm/nvm.sh
-
-# z
-source `brew --prefix`/etc/profile.d/z.sh
 
 # local zsh configuration
 source $HOME/.zshrc_local
