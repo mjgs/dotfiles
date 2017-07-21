@@ -1,6 +1,7 @@
+# local variable exports
+source $HOME/.exports_local
+
 export PATH="/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 export PATH="$DOTFILES_DIR/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
-# local variable exports
-source $HOME/.exports_local
