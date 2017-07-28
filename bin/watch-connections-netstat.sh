@@ -1,3 +1,3 @@
 #!/bin/bash
 
-watch -d -n0 "netstat -atn | grep ESTA"
+watch -d -n0 "netstat -atnv | grep ESTA"
