@@ -24,6 +24,7 @@ alias scripts='cd $HOME/bin'
 alias cheats='cd $CHEATSHEETS_DIR'
 alias cproj='cd $PROJECTS_DIR'
 alias cplay='cd $PLAYGROUND_DIR' 
+alias ebooks='cd $EBOOKS'
 
 # fast file editing
 alias zshrc='e $HOME/.zshrc'
