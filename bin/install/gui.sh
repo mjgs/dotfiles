@@ -44,6 +44,7 @@ brew cask install virtualbox
 brew cask install vlc
 brew cask install wd-security
 brew cask install webstorm
+brew cask install docker
 
 if [ -x $CONFIGS_DIR/gui_local.sh ]; then
   $CONFIGS_DIR/gui_local.sh
