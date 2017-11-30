@@ -23,8 +23,6 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr> |"open vimrc in vertical split
 nnoremap <leader>sv :source $MYVIMRC<cr> |"source vimrc file
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel |" surround current word with double quotes
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel |" surround current word with single quotes
-inoremap jk <esc> |" alternative exit from insert mode
-inoremap <esc> <nop> |" unmap esc to force using <leader>jk
 nnoremap <Up> <nop>   |" unmap arrow keys to force using hjkl for navigation 
 nnoremap <Down> <nop> |" unmap arrow keys to force using hjkl for navigation
 nnoremap <Left> <nop> |" unmap arrow keys to force using hjkl for navigation
