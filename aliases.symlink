@@ -1,4 +1,5 @@
 # general
+alias ll='ls -la'
 alias ag='alias | grep'
 alias e='$EDITOR'
 alias w='/usr/local/bin/wstorm'
@@ -43,8 +44,7 @@ alias cnotes='e $NOTES_DIR/coding_notes.txt'
 alias szshrc='source $HOME/.zshrc'
 
 # list linked dotfiles
-alias dot='echo "$HOME dotfiles:"; ls -la $HOME | grep "\->"; \
-  echo "$HOME/.config dotfiles:"; ls -la $HOME/.config | grep "\->";' 
+alias dot='echo "$HOME dotfiles:"; ls -la $HOME | grep "\->"; echo "$HOME/.config dotfiles:"; ls -la $HOME/.config | grep "\->";' 
 
 # logging
 alias lg="logger -p $LGF.info"

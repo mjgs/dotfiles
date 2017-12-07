@@ -1,14 +1,6 @@
 # local bash configuration
 source $HOME/.bash_profile_local
 
-# {{{
-# Node Completion - Auto-generated, do not touch.
-shopt -s progcomp
-for f in $(command ls ~/.node-completion); do
-  f="$HOME/.node-completion/$f"
-  test -f "$f" && . "$f"
-done
-# }}}
+# Main bash configuration
+source $HOME/.bashrc
 
-export NVM_DIR="/Users/marksmith/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
