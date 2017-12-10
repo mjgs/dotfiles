@@ -36,7 +36,6 @@ brew cask install malwarebytes-anti-malware
 brew cask install mongohub
 brew cask install omnidisksweeper
 brew cask install opera
-brew cask install shiftit
 brew cask install skype
 brew cask install sublime-text
 brew cask install torbrowser
