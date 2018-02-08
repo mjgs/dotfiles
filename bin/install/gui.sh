@@ -44,6 +44,7 @@ brew cask install vlc
 brew cask install wd-security
 brew cask install webstorm
 brew cask install docker
+brew cask install caskroom/versions/firefox-developer-edition
 
 if [ -x $CONFIGS_DIR/gui_local.sh ]; then
   $CONFIGS_DIR/gui_local.sh
