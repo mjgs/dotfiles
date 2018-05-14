@@ -1,5 +1,6 @@
 # general
-alias ll='ls -la'
+alias ls='ls -G'
+alias ll='ls -Gla'
 alias ag='alias | grep'
 alias e='$EDITOR'
 alias w='/usr/local/bin/wstorm'
