@@ -31,6 +31,7 @@ brew install tree
 brew install watch
 brew install wget
 brew install youtube-dl
+brew install doctl
 
 if [ -x $CONFIGS_DIR/brew_local.sh ]; then
   $CONFIGS_DIR/brew_local.sh			
