@@ -11,6 +11,8 @@ alias t='traceroute'
 alias uuid="uuidgen | tr 'A-Z' 'a-z'"
 alias wip1="curl ipinfo.io/ip"
 alias wip2="curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
+alias 'ehosts=sudo nvim /etc/hosts'
+alias 'khosts=nvim ~/.ssh/known_hosts'
 
 # fast navigation
 alias dt='cd $HOME/Desktop'
