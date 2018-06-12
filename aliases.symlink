@@ -18,7 +18,6 @@ alias 'khosts=nvim ~/.ssh/known_hosts'
 alias dt='cd $HOME/Desktop'
 alias dl='cd $HOME/Downloads'
 alias ulogs='cd $HOME/Library/Logs'
-
 alias backups='cd $BACKUPS_DIR'
 alias codes='cd $CODES_DIR'
 alias configs='cd $CONFIGS_DIR'
@@ -50,9 +49,6 @@ alias szshrc='source $HOME/.zshrc'
 
 # list linked dotfiles
 alias dot='echo "$HOME dotfiles:"; ls -la $HOME | grep "\->"; echo "$HOME/.config dotfiles:"; ls -la $HOME/.config | grep "\->";' 
-
-# logging
-alias lg="logger -p $LGF.info"
 
 # local aliases
 source $HOME/.aliases_local
