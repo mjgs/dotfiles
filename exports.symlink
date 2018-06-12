@@ -9,4 +9,4 @@ export PATH="$DOTFILES_DIR/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 PS1='\w $ '
 
 # Adds debugging info to the prompt for bash set -x
-export PS4='+(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
+export PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
