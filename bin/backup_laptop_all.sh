@@ -13,6 +13,8 @@ rsync -avh --delete --progress $HOME/Downloads/ $USB_DRIVE_DIR/$(basename $HOME)
 rsync -avh --delete --progress $HOME/Dropbox/ $USB_DRIVE_DIR/$(basename $HOME)/Dropbox
 rsync -avh --delete --progress $HOME/Movies/ $USB_DRIVE_DIR/$(basename $HOME)/Movies
 rsync -avh --delete --progress $HOME/Music/ $USB_DRIVE_DIR/$(basename $HOME)/Music
+rsync -avh --delete --progress $HOME/Library/ $USB_DRIVE_DIR/$(basename $HOME)/Library
 rsync -avh --delete --progress $HOME/Pictures/ $USB_DRIVE_DIR/$(basename $HOME)/Pictures
 rsync -avh --delete --progress $HOME/Public/ $USB_DRIVE_DIR/$(basename $HOME)/Public
 rsync -avh --delete --progress $HOME/Sites/ $USB_DRIVE_DIR/$(basename $HOME)/Sites
+rsync -avh --delete --progress /usr/local/ $USB_DRIVE_DIR/USRLOCALBACKUP/usr/local
