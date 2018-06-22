@@ -1,10 +1,29 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-echo "Admin password is required for backup..."
-sudo -v
+function printUsage() {
+  cat << EOF
+Usage: sudo $(basename $0)
+  
+Envrionment variables:
 
+USB_DRIVE_DIR - the path to the mounted usb drive
+
+EOF
+}
+
+USER=$(whoami)
+USB_DRIVE_DIR=${USB_DRIVE_DIR:-/Volumes/WDMyPassUltra}
+
+if [ $USER != "root" ]; then
+  echo "ERROR: $(basename $0) needs to be run as root, re-run using sudo"
+  echo
+  printUsage
+  exit 0
+fi
+
+# The next two lines stopped working so commenting them out (execute using sudo instead)
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+# while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 rsync -avh --delete --progress $HOME/Applications/ $USB_DRIVE_DIR/$(basename $HOME)/Applications
 rsync -avh --delete --progress $HOME/Desktop/ $USB_DRIVE_DIR/$(basename $HOME)/Desktop
@@ -18,3 +37,8 @@ rsync -avh --delete --progress $HOME/Pictures/ $USB_DRIVE_DIR/$(basename $HOME)/
 rsync -avh --delete --progress $HOME/Public/ $USB_DRIVE_DIR/$(basename $HOME)/Public
 rsync -avh --delete --progress $HOME/Sites/ $USB_DRIVE_DIR/$(basename $HOME)/Sites
 rsync -avh --delete --progress /usr/local/ $USB_DRIVE_DIR/USRLOCALBACKUP/usr/local
+rsync -avh --delete --progress /usr/local/ $USB_DRIVE_DIR/USRLOCALBACKUP/usr/local
+rsync -avh --delete --progress $HOME/.* $USB_DRIVE_DIR/OLDHOMEDIRDOTFILES
+
+echo "THERE ARE DOT FILES IN THIS FOLDER: ls -la to see them" > $USB_DRIVE_DIR/OLDHOMEDIRDOTFILES/README.txt
+
