@@ -36,8 +36,8 @@ rsync -avh --delete --progress $HOME/Library/ $USB_DRIVE_DIR/$(basename $HOME)/L
 rsync -avh --delete --progress $HOME/Pictures/ $USB_DRIVE_DIR/$(basename $HOME)/Pictures
 rsync -avh --delete --progress $HOME/Public/ $USB_DRIVE_DIR/$(basename $HOME)/Public
 rsync -avh --delete --progress $HOME/Sites/ $USB_DRIVE_DIR/$(basename $HOME)/Sites
-rsync -avh --delete --progress /usr/local/ $USB_DRIVE_DIR/USRLOCALBACKUP/usr/local
-rsync -avh --delete --progress /usr/local/ $USB_DRIVE_DIR/USRLOCALBACKUP/usr/local
+rsync -avh --delete --progress /usr/local/ $USB_DRIVE_DIR/USBLOCALBACKUP/usr/local
+rsync -avh --delete --progress /usr/local/ $USB_DRIVE_DIR/USBLOCALBACKUP/usr/local
 rsync -avh --delete --progress $HOME/.* $USB_DRIVE_DIR/OLDHOMEDIRDOTFILES
 
 echo "THERE ARE DOT FILES IN THIS FOLDER: ls -la to see them" > $USB_DRIVE_DIR/OLDHOMEDIRDOTFILES/README.txt
