@@ -40,5 +40,15 @@ rsync -avh --delete --progress /usr/local/ $USB_DRIVE_DIR/USBLOCALBACKUP/usr/loc
 rsync -avh --delete --progress /usr/local/ $USB_DRIVE_DIR/USBLOCALBACKUP/usr/local
 rsync -avh --delete --progress $HOME/.* $USB_DRIVE_DIR/OLDHOMEDIRDOTFILES
 
-echo "THERE ARE DOT FILES IN THIS FOLDER: ls -la to see them" > $USB_DRIVE_DIR/OLDHOMEDIRDOTFILES/README.txt
+# Having to use zsh here because bash does wierd filename expansion when matching
+# dotfiles, gnu bash reference and all scripting ebooks on my laptop are useless 
+# and the internet has been cut off again so there is no way of finding how to get 
+# bash to match dotfiles in a sane way. Will someone write a bash book that isn't a 
+# total waste of time?
+# TODO - Find a way to match dotfiles using bash, remove this winey comment
+zsh -c 'rsync -avh --delete --progress $HOME/.* $USB_DRIVE_DIR/OLDHOMEDIRDOTFILES'
+
+echo "THERE ARE DOT FILES IN THIS FOLDER" > $USB_DRIVE_DIR/OLDHOMEDIRDOTFILES/DOTFILES_IN_THIS_FOLDER.txt
+echo "Listing folder contents:"
+ls -la $USB_DRIVE_DIR/OLDHOMEDIRDOTFILES >> $USB_DRIVE_DIR/OLDHOMEDIRDOTFILES/DOTFILES_IN_THIS_FOLDER.txt
 
