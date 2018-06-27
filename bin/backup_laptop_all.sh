@@ -38,7 +38,6 @@ rsync -avh --delete --progress $HOME/Public/ $USB_DRIVE_DIR/$(basename $HOME)/Pu
 rsync -avh --delete --progress $HOME/Sites/ $USB_DRIVE_DIR/$(basename $HOME)/Sites
 rsync -avh --delete --progress /usr/local/ $USB_DRIVE_DIR/USBLOCALBACKUP/usr/local
 rsync -avh --delete --progress /usr/local/ $USB_DRIVE_DIR/USBLOCALBACKUP/usr/local
-rsync -avh --delete --progress $HOME/.* $USB_DRIVE_DIR/OLDHOMEDIRDOTFILES
 rsync -avh --delete --progress $HOME/.??* $USB_DRIVE_DIR/OLDHOMEDIRDOTFILES # dotfiles
 
 echo "THERE ARE DOT FILES IN THIS FOLDER" > $USB_DRIVE_DIR/OLDHOMEDIRDOTFILES/DOTFILES_IN_THIS_FOLDER.txt
