@@ -1,48 +1,24 @@
 # general
 alias ls='ls -G'
 alias ll='ls -Gla'
-alias ag='alias | grep'
 alias e='$EDITOR'
-alias w='/usr/local/bin/wstorm'
+alias uuid="uuidgen | tr 'A-Z' 'a-z'"
+
+# networking
 alias p='ping'
 alias p1='ping -c 1'
 alias p1g='ping -c 1 google.com'
 alias t='traceroute'
-alias uuid="uuidgen | tr 'A-Z' 'a-z'"
 alias wip1="curl ipinfo.io/ip"
 alias wip2="curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
-alias 'ehosts=sudo nvim /etc/hosts'
-alias 'khosts=nvim ~/.ssh/known_hosts'
-
-# fast navigation
-alias dt='cd $HOME/Desktop'
-alias dl='cd $HOME/Downloads'
-alias ulogs='cd $HOME/Library/Logs'
-alias backups='cd $BACKUPS_DIR'
-alias codes='cd $CODES_DIR'
-alias configs='cd $CONFIGS_DIR'
-alias courses='cd $COURSES_DIR'
-alias notes='cd $NOTES_DIR'
-alias dots='cd $CONFIGS_DIR/dotfiles'
-alias usb='cd $USB_DRIVE_DIR'
-alias scripts='cd $HOME/bin'
-alias cheats='cd $CHEATSHEETS_DIR'
-alias cproj='cd $PROJECTS_DIR'
-alias cplay='cd $PLAYGROUND_DIR' 
-alias ebooks='cd $EBOOKS'
 
 # fast file editing
-alias zshrc='e $HOME/.zshrc'
-alias zshrcl='e $HOME/.zshrc_local'
 alias aliases='e $HOME/.aliases'
-alias aliasesl='e $HOME/.aliases_local'
 alias exports='e $HOME/.exports'
-alias exportsl='e $HOME/.exports_local'
-alias ohmyzshrc='e $HOME/.oh-my-zshrc'
 alias vimrc='e $HOME/.vimrc'
 alias tmuxc='e $HOME/.tmux.conf'
-alias npmrc='e $HOME/.npmrc'
-alias cnotes='e $NOTES_DIR/coding_notes.txt'
+alias ehosts='sudo e /etc/hosts'
+alias khosts='e ~/.ssh/known_hosts'
 
 # reload config files
 alias szshrc='source $HOME/.zshrc'
@@ -51,6 +27,25 @@ alias saliases='source $HOME/.aliases'
 
 # list linked dotfiles
 alias dot='echo "$HOME dotfiles:"; ls -la $HOME | grep "\->"; echo "$HOME/.config dotfiles:"; ls -la $HOME/.config | grep "\->";' 
+
+# git
+alias 'gs=git status'
+alias 'gd=git diff'
+alias 'gdc=gd --cached'
+alias 'gu=git reset HEAD~'
+alias 'ga=git add '
+alias 'gcm=git commit -m '
+
+# todos
+alias 'todos=cd $TODOS_DIR'
+alias 'tdf=echo $TODOS_DIR/$(ls $TODOS_DIR | tail -n 1)'
+alias 'tdt=echo $TODOS_DIR/$(slugd).txt'
+alias 'tde=e $(tdf)'
+alias 'tdd=echo "### $(date "+%A %d %B, %Y") ###"'
+alias 'tda=cat $(tdf); echo'
+alias 'tdc=cat $(tdf) | grep "[x]"'
+alias 'tdi=cat $(tdf) | grep "\[ ]"'
+alias 'tdn=TODOS=$(tdi); ! test -f $(tdt) && tdd > $TODOS_DIR/$(slugd).txt && echo >> $(tdf) && echo "$TODOS" >> $(tdf) && tda'
 
 # local aliases
 source $HOME/.aliases_local
