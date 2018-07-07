@@ -1,9 +1,10 @@
 # local variable exports
 source $HOME/.exports_local
 
-export PATH="/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
-
-export PATH="$DOTFILES_DIR/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="$HOME/.rbenv/shims:$PATH"
+export PATH="$DOTFILES_DIR/bin:$PATH"
 
 # Add the current path to the bash shell
 PS1='\w $ '
