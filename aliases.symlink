@@ -44,8 +44,10 @@ alias tmuxc='e $HOME/.tmux.conf'
 alias npmrc='e $HOME/.npmrc'
 alias cnotes='e $NOTES_DIR/coding_notes.txt'
 
-# reload the shell dotfiles into current shell
+# reload config files
 alias szshrc='source $HOME/.zshrc'
+alias sbashrc='source $HOME/.bashrc'
+alias saliases='source $HOME/.aliases'
 
 # list linked dotfiles
 alias dot='echo "$HOME dotfiles:"; ls -la $HOME | grep "\->"; echo "$HOME/.config dotfiles:"; ls -la $HOME/.config | grep "\->";' 
