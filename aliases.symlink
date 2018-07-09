@@ -17,7 +17,7 @@ alias aliases='e $HOME/.aliases'
 alias exports='e $HOME/.exports'
 alias vimrc='e $HOME/.vimrc'
 alias tmuxc='e $HOME/.tmux.conf'
-alias ehosts='sudo e /etc/hosts'
+alias ehosts='sudo $EDITOR /etc/hosts'
 alias khosts='e ~/.ssh/known_hosts'
 
 # reload config files
