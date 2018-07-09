@@ -24,6 +24,7 @@ alias khosts='e ~/.ssh/known_hosts'
 alias szshrc='source $HOME/.zshrc'
 alias sbashrc='source $HOME/.bashrc'
 alias saliases='source $HOME/.aliases'
+alias sexports='source $HOME/.exports'
 
 # list linked dotfiles
 alias dot='echo "$HOME dotfiles:"; ls -la $HOME | grep "\->"; echo "$HOME/.config dotfiles:"; ls -la $HOME/.config | grep "\->";' 
