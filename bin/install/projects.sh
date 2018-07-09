@@ -31,12 +31,12 @@ if [ ! -e $CONFIGS_DIR/project_info ]; then
   exit 1
 fi
 
-for PROJECT in `ls $CONFIGS_DIR/project_info`; do
-  if [ -e $CODES_DIR/PROJECT ]; then
-    echo "${PROJECT} already exists... Skipping."
+for PROJECT_NAME in `ls $CONFIGS_DIR/project_info`; do
+  if [ -e $CODES_DIR/projects/$PROJECT_NAME ]; then
+    echo "${PROJECT_NAME} already exists... Skipping."
   else
-    echo "Cloning project $PROJECT..."
-    git clone $REPO_URL/$PROJECT.git $CODES_DIR/$PROJECT
+    echo "Cloning project $PROJECT_NAME..."
+    git clone $REPO_URL/$PROJECT_NAME.git $CODES_DIR/projects/$PROJECT_NAME
   fi
 done
 
