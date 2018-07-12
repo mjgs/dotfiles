@@ -11,3 +11,4 @@ PS1='\w $ '
 
 # Adds debugging info to the prompt for bash set -x
 export PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
+
