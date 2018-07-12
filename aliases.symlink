@@ -13,16 +13,19 @@ alias wip1="curl ipinfo.io/ip"
 alias wip2="curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
 
 # fast file editing
+alias bashrc='e $HOME/.bashrc'
 alias aliases='e $HOME/.aliases'
 alias exports='e $HOME/.exports'
+
 alias vimrc='e $HOME/.vimrc'
 alias tmuxc='e $HOME/.tmux.conf'
+
 alias ehosts='sudo $EDITOR /etc/hosts'
-alias khosts='e ~/.ssh/known_hosts'
+alias khosts='e $HOME/.ssh/known_hosts'
 
 # reload config files
-alias szshrc='source $HOME/.zshrc'
 alias sbashrc='source $HOME/.bashrc'
+alias szshrc='source $HOME/.zshrc'
 alias saliases='source $HOME/.aliases'
 alias sexports='source $HOME/.exports'
 
