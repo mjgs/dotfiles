@@ -43,15 +43,15 @@ alias gcm='git commit -m '
 alias gp='git push'
 
 # todos
-alias 'todos=cd $TODOS_DIR'
-alias 'tdf=echo $TODOS_DIR/$(ls $TODOS_DIR | tail -n 1)'
-alias 'tdt=echo $TODOS_DIR/$(slugd).txt'
-alias 'tde=e $(tdf)'
-alias 'tdd=echo "### $(date "+%A %d %B, %Y") ###"'
-alias 'tda=cat $(tdf); echo'
-alias 'tdc=cat $(tdf) | grep "[x]"'
-alias 'tdi=cat $(tdf) | grep "\[ ]"'
-alias 'tdn=TODOS=$(tdi); ! test -f $(tdt) && tdd > $TODOS_DIR/$(slugd).txt && echo >> $(tdf) && echo "$TODOS" >> $(tdf) && tda'
+alias todos='cd $TODOS_DIR'
+alias df='echo $TODOS_DIR/$(ls $TODOS_DIR | tail -n 1)'
+alias tdt='echo $TODOS_DIR/$(slugd).txt'
+alias tde='e $(tdf)'
+alias tdd='echo "### $(date "+%A %d %B, %Y") ###"'
+alias tda='cat $(tdf); echo'
+alias tdc='cat $(tdf) | grep "[x]"'
+alias tdi='cat $(tdf) | grep "\[ ]"'
+alias tdn='TODOS=$(tdi); ! test -f $(tdt) && tdd > $TODOS_DIR/$(slugd).txt && echo >> $(tdf) && echo "$TODOS" >> $(tdf) && tda'
 
 # local aliases
 source $HOME/.aliases_local
