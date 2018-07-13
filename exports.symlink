@@ -1,4 +1,5 @@
 # local variable exports
+[ -n "$DEBUG" ] && echo "sourcing $HOME/.exports_local"
 source $HOME/.exports_local
 
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
