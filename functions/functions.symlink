@@ -1,0 +1,7 @@
+[ -n "$DEBUG" ] && echo "sourcing $(pwd)/functions/functions_mathiasbynens"
+source $DOTFILES_DIR/functions/functions_mathiasbynens
+
+if [ -f $HOME/.functions_local ]; then
+  [ -n "$DEBUG" ] && echo "sourcing $HOME/.functions_local"
+  source $HOME/.functions_local
+fi
