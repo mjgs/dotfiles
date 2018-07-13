@@ -26,7 +26,6 @@ alias khosts='e $HOME/.ssh/known_hosts'
 
 # reload config files
 alias sbashrc='source $HOME/.bashrc'
-alias szshrc='source $HOME/.zshrc'
 alias saliases='source $HOME/.aliases'
 alias sexports='source $HOME/.exports'
 alias sfunctions='source $HOME/.functions'
