@@ -15,8 +15,5 @@ source $HOME/.functions
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# local zsh configuration
-if [ -f $HOME/.bashrc_local ]; then 
-  [ -n "$DEBUG" ] && echo "sourcing $HOME/.bashrc_local"
-  source $HOME/.bashrc_local
-fi
+[ -n "$DEBUG" ] && echo "sourcing $HOME/.bashrc_local"
+source $HOME/.bashrc_local
