@@ -10,5 +10,3 @@ source $HOME/.functions
 [ -n "$DEBUG" ] && echo "sourcing $HOME/.aliases"
 source $HOME/.aliases
 
-[ -n "$DEBUG" ] && echo "sourcing $HOME/.bashrc_local"
-source $HOME/.bashrc_local
