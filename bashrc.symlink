@@ -1,19 +1,14 @@
-# variable exports
+# exports
 [ -n "$DEBUG" ] && echo "sourcing $HOME/.exports"
 source $HOME/.exports
-
-# aliases
-[ -n "$DEBUG" ] && echo "sourcing $HOME/.aliases"
-source $HOME/.aliases
 
 # functions
 [ -n "$DEBUG" ] && echo "sourcing $HOME/.functions"
 source $HOME/.functions
 
-# nvm
-[ -n "$DEBUG" ] && echo "sourcing $NVM_DIR/nvm.sh"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# aliases
+[ -n "$DEBUG" ] && echo "sourcing $HOME/.aliases"
+source $HOME/.aliases
 
 [ -n "$DEBUG" ] && echo "sourcing $HOME/.bashrc_local"
 source $HOME/.bashrc_local
