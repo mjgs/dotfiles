@@ -13,6 +13,7 @@ echo "Configuring git..."
 git config --global user.name $NAME
 git config --global user.email $EMAIL
 git config --global push.default simple
+git config --global core.excludesfile '$HOME/.gitignore'
 
 echo "Configuring nvim..."
 
