@@ -34,13 +34,14 @@ alias sfunctions='source $HOME/.functions'
 alias dot='echo "$HOME dotfiles:"; ls -la $HOME | grep "\->"; echo "$HOME/.config dotfiles:"; ls -la $HOME/.config | grep "\->";' 
 
 # git
-alias gs='git status'
-alias gd='git diff'
-alias gdc='gd --cached'
-alias gu='git reset HEAD~'
 alias ga='git add '
 alias gcm='git commit -m '
-alias gp='git push'
+alias gd='git diff'
+alias gs='git status'
+alias gpush='git push'
+alias gpull='git pull'
+alias gdc='git diff --cached'
+alias gu='git reset HEAD~'
 
 # todos
 alias todos='cd $TODOS_DIR'
