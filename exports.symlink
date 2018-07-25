@@ -16,7 +16,3 @@ export PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0
 [ -n "$VERBOSE" ] && echo "sourcing $NVM_DIR/nvm.sh"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-[ -n "$DEBUG" ] && echo "sourcing $HOME/.wprojects/wproject.sh"
-export WPROJECTS_DIR="$HOME/.wprojects"
-[ -s "$WPROJECTS_DIR/wprojects.sh" ] && source "$WPROJECTS_DIR/wprojects.sh"
