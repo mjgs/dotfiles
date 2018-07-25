@@ -54,5 +54,5 @@ alias tdi='cat $(tdf) | grep "\[ ]"'
 alias tdn='TODOS=$(tdi); ! test -f $(tdt) && tdd > $TODOS_DIR/$(slugd).txt && echo >> $(tdf) && echo "$TODOS" >> $(tdf) && tda'
 
 # local aliases
-[ -n "$DEBUG" ] && echo "sourcing $HOME/.aliases_local"
+[ -n "$VERBOSE" ] && echo "sourcing $HOME/.aliases_local"
 source $HOME/.aliases_local

@@ -1,5 +1,5 @@
-[ -n "$DEBUG" ] && echo "sourcing $DOTFILES_DIR/functions/functions_mathiasbynens"
+[ -n "$VERBOSE" ] && echo "sourcing $DOTFILES_DIR/functions/functions_mathiasbynens"
 source $DOTFILES_DIR/functions/functions_mathiasbynens
 
-[ -n "$DEBUG" ] && echo "sourcing $HOME/.functions_local"
+[ -n "$VERBOSE" ] && echo "sourcing $HOME/.functions_local"
 source $HOME/.functions_local

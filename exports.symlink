@@ -1,5 +1,5 @@
 # local variable exports
-[ -n "$DEBUG" ] && echo "sourcing $HOME/.exports_local"
+[ -n "$VERBOSE" ] && echo "sourcing $HOME/.exports_local"
 source $HOME/.exports_local
 
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
@@ -13,7 +13,7 @@ PS1='\w $ '
 # Adds debugging info to the prompt for bash set -x
 export PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
                             
-[ -n "$DEBUG" ] && echo "sourcing $NVM_DIR/nvm.sh"
+[ -n "$VERBOSE" ] && echo "sourcing $NVM_DIR/nvm.sh"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
