@@ -42,6 +42,8 @@ alias gpush='git push'
 alias gpull='git pull'
 alias gdc='git diff --cached'
 alias gu='git reset HEAD~'
+alias grh='git reset HEAD'
+alias glog='git log'
 
 # todos
 alias todos='cd $TODOS_DIR'
