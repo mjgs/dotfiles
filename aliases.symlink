@@ -18,6 +18,7 @@ alias bashrc='e $HOME/.bashrc'
 alias exports='e $HOME/.exports'
 alias aliases='e $HOME/.aliases'
 alias functions='e $HOME/.functions'
+alias pf='sudo nvim /etc/pf.conf'
 
 alias vimrc='e $HOME/.vimrc'
 alias tmuxc='e $HOME/.tmux.conf'
@@ -30,6 +31,7 @@ alias sbashrc='source $HOME/.bashrc'
 alias saliases='source $HOME/.aliases'
 alias sexports='source $HOME/.exports'
 alias sfunctions='source $HOME/.functions'
+alias spf='sudo pfctl -ef /etc/pf.conf'
 
 # list linked dotfiles
 alias dot='echo "$HOME dotfiles:"; ls -la $HOME | grep "\->"; echo "$HOME/.config dotfiles:"; ls -la $HOME/.config | grep "\->";' 
