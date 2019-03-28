@@ -10,6 +10,9 @@ export PATH="$DOTFILES_DIR/bin:$PATH"
 # Add the current path to the bash shell
 PS1='\w $ '
 
+# Bash history timestamp
+export HISTTIMEFORMAT="%d/%m/%Y %T "
+
 # Adds debugging info to the prompt for bash set -x
 export PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
                             
