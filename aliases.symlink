@@ -3,6 +3,7 @@ alias ls='ls -G'
 alias ll='ls -Gla'
 alias e='$EDITOR'
 alias uuid="uuidgen | tr 'A-Z' 'a-z'"
+alias h="history"
 
 # networking
 alias p='ping'
