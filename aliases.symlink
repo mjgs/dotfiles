@@ -4,6 +4,7 @@ alias ll='ls -Gla'
 alias e='$EDITOR'
 alias uuid="uuidgen | tr 'A-Z' 'a-z'"
 alias h="history"
+alias fka="fs-and-kernel-access.sh"
 
 # networking
 alias p='ping'
