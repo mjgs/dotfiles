@@ -41,7 +41,7 @@ alias dot='echo "$HOME dotfiles:"; ls -la $HOME | grep "\->"; echo "$HOME/.confi
 # git
 alias ga='git add '
 alias gap='git add -p'
-alias gcm='git commit -m '
+alias gcm='git commit -m'
 alias gd='git diff'
 alias gs='git status'
 alias gpush='git push'
@@ -49,7 +49,12 @@ alias gpull='git pull'
 alias gdc='git diff --cached'
 alias gu='git reset HEAD~'
 alias grh='git reset HEAD'
-alias glog='git log'
+alias gl='git log'
+alias glo='git log --oneline'
+alias gcl='git show --pretty="" --name-only'
+alias gca='git commit --amend'
+alias gsd='git show --decorate'
+alias gri='git rebase -i'
 
 # todos
 alias todos='cd $TODOS_DIR'
