@@ -55,6 +55,7 @@ alias gcl='git show --pretty="" --name-only'
 alias gca='git commit --amend'
 alias gsd='git show --decorate'
 alias gri='git rebase -i'
+alias gb='git branch'
 
 # todos
 alias todos='cd $TODOS_DIR'
