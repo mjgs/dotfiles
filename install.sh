@@ -124,12 +124,6 @@ echo "########################################################################"
 $DOTFILES_DIR/bin/install/gui.sh
 $DOTFILES_DIR/bin/install/gui-configuration.sh
 
-echo "########################################################################"
-echo "#               Installing Developmement Projects [4/4]                #"
-echo "########################################################################"
-
-$DOTFILES_DIR/bin/install/projects.sh
-
 echo "Installation complete"
 
 echo "Make sure all nvim plugins got installed, open nvim and run:"
