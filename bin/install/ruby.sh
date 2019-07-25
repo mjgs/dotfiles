@@ -22,7 +22,7 @@ echo "Current rubygems: `which gem`"
 
 echo "Installing ruby packages..."
 # gem install -N [ruby app]
-
+gem install jekyll bundler
 
 if [ -x $CONFIGS_DIR/ruby_local.sh ]; then
   $CONFIGS_DIR/ruby_local.sh			
