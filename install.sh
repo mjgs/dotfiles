@@ -43,9 +43,6 @@ export NAME
 read -p "What is your email address? " EMAIL
 export EMAIL
 
-read -p "What is your favorite colour? " COLOUR
-export COLOUR
-
 # Keep-alive: update existing `sudo` time stamp until the script has finished.
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
