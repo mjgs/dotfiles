@@ -12,15 +12,12 @@ if [ ! -x /usr/local/bin/brew ]; then
   exit 1
 fi
 
-if [ ! -x /usr/local/bin/zsh ]; then
-  echo "Installing zsh..."
-  brew install zsh
+if [ ! -x /usr/local/bin/bash ]; then
+  echo "Installing latest bash version..."
+  brew install bash
+  echo /usr/local/bin/bash >> /private/etc/shells
+  chsh -s /usr/local/bin/bash
 fi
-
-echo "Installing oh-my-zsh..."
-# Use manual instalation method - clone repo, then change shell
-git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-chsh -s /bin/zsh
 
 if [ -x $CONFIGS_DIR/shell_local.sh ]; then
   $CONFIGS_DIR/shell_local.sh			
