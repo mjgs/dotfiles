@@ -1,11 +1,19 @@
 #!/bin/sh
+
 #
 # Description: installs shell
+#
 
-if [ ! $CONFIGS_DIR ]; then
-  echo ERROR: CONFIGS_DIR environment variable is not defined
-  exit 1
+if [ -n "$DEBUG" ]; then
+  echo "$0: Setting bash option -x for debug"
+  PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
+  set -x
 fi
+
+# Exit on error
+set -e; set -o pipefail
+
+CONFIGS_DIR=${CONFIGS_DIR:?}
 
 if [ ! -x /usr/local/bin/brew ]; then
   echo "ERROR: Homebrew must be installed to run the shell.sh installer script"

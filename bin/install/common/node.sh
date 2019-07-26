@@ -1,6 +1,17 @@
 #!/bin/sh
+
 #
 # Description: installs node and node modules
+#
+
+if [ -n "$DEBUG" ]; then
+  echo "$0: Setting bash option -x for debug"
+  PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
+  set -x
+fi
+
+# Exit on error
+set -e; set -o pipefail
 
 BASH_PROFILE=$HOME/.bash_profile
 

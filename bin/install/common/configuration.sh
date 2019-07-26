@@ -1,10 +1,21 @@
 #!/bin/sh
+
 #
 # Description: configures installed apps
-# 
+#
+ 
 # Run configuration.sh after all items have been installed since some
 # configuration requires that certain environments are installed.
 # e.g. YouCompleteMe requires node and npm to be installed to compile
+
+if [ -n "$DEBUG" ]; then
+  echo "$0: Setting bash option -x for debug"
+  PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
+  set -x
+fi
+
+# Exit on error
+set -e; set -o pipefail
 
 # Homebrew packages
 echo "Configuring installed homebrew packages..."
