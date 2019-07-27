@@ -16,7 +16,7 @@ set -e; set -o pipefail
 PFX=${PFX:-==>}
 
 if [ ! $CONFIGS_DIR ]; then
-  echo ERROR: CONFIGS_DIR environment variable is not defined
+  echo "ERROR: CONFIGS_DIR environment variable is not defined"
   exit 1
 fi
 

@@ -17,7 +17,7 @@ PFX=${PFX:-==>}
 BASH_PROFILE=$HOME/.bash_profile
 
 if [ ! $CONFIGS_DIR ]; then
-  echo ERROR: CONFIGS_DIR environment variable is not defined
+  echo "ERROR: CONFIGS_DIR environment variable is not defined"
   exit 1
 fi
 
