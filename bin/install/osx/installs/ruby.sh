@@ -17,21 +17,33 @@ PFX=${PFX:-==>}
 CONFIGS_DIR=${CONFIGS_DIR:?}
 
 if [ ! -x /usr/local/bin/brew ]; then
-  echo "ERROR: Homebrew must be installed to run the ruby.sh installer script"
+  echo "ERROR: Homebrew must be installed"
   exit 1
 fi
 
-if [ ! -x /usr/local/bin/ruby ]; then
+function installRuby() {
   echo "$PFX Installing ruby..."
-  brew install ruby
-fi
+  
+  if [ ! -x /usr/local/bin/ruby ]; then
+    echo "$PFX Installing ruby..."
+    brew install ruby
+  fi
 
-echo "$PFX Current ruby: `which ruby`"
-echo "$PFX Current rubygems: `which gem`"
+  echo "$PFX Current ruby: `which ruby`"
+  echo "$PFX Current rubygems: `which gem`"
+}
 
-echo "$PFX Installing ruby packages..."
-# gem install -N [ruby app]
-gem install jekyll bundler
+function installRubyGems() {
+  echo "$PFX Installing ruby gems..."
+  gem install jekyll bundler
+}
+
+#
+# Main
+#
+
+installRuby
+installRubyGems
 
 if [ -x $CONFIGS_DIR/ruby_local.sh ]; then
   $CONFIGS_DIR/ruby_local.sh			

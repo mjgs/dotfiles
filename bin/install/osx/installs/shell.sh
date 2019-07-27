@@ -21,12 +21,21 @@ if [ ! -x /usr/local/bin/brew ]; then
   exit 1
 fi
 
-if [ ! -x /usr/local/bin/bash ]; then
-  echo "$PFX Installing latest bash version..."
-  brew install bash
-  echo /usr/local/bin/bash >> /private/etc/shells
-  chsh -s /usr/local/bin/bash
-fi
+installLatestBash() {
+  if [ ! -x /usr/local/bin/bash ]; then
+    echo "$PFX Installing latest bash version..."
+
+    brew install bash
+    echo /usr/local/bin/bash >> /private/etc/shells
+    chsh -s /usr/local/bin/bash
+  fi
+}
+
+#
+# Main
+#
+
+installLatestBash
 
 if [ -x $CONFIGS_DIR/shell_local.sh ]; then
   $CONFIGS_DIR/shell_local.sh			

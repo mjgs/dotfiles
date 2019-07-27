@@ -17,19 +17,30 @@ PFX=${PFX:-==>}
 CONFIGS_DIR=${CONFIGS_DIR:?}
 
 if [ ! -x /usr/local/bin/brew ]; then
-  echo "ERROR: Homebrew must be installed to run the python.sh installer script"
+  echo "ERROR: Homebrew must be installed"
   exit 1
 fi
 
-if [ ! -x /usr/local/bin/python ]; then	
-  echo "$PFX Installing python..."
-  brew install python --framework --with-brewed-openssl
-fi
+function installPython() {
+  if [ ! -x /usr/local/bin/python ]; then	
+    echo "$PFX Installing python..."
+    brew install python --framework --with-brewed-openssl
+  fi
 
-echo "Current python: `which python`"
+  echo "Current python: `which python`"
+}
 
-echo "$PFX Installing python packages..."
-pip2 install --user neovim
+function installPythonPackages() {
+  echo "$PFX Installing python packages..."
+  pip2 install --user neovim
+}
+
+#
+# Main
+#
+
+installPython
+pythonPackages
 
 if [ -x $CONFIGS_DIR/python_local.sh ]; then
   $CONFIGS_DIR/python_local.sh			

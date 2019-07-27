@@ -11,6 +11,10 @@ set -e; set -o pipefail
 
 PFX=${PFX:-==>}
 
+#
+# Main
+#
+
 # /System/Library/CoreServices/Finder
 # /System/Library/CoreServices/HelpViewer
 # /System/Library/CoreServices/ReportCrash

@@ -26,11 +26,6 @@ REPO_URL_LOCAL=${REPO_URL_LOCAL:?}
 DOTFILES_URL=$REPO_URL/dotfiles.git
 DOTFILES_LOCAL_URL=$REPO_URL_LOCAL/dotfiles_local.git
 
-if [ ! -x /usr/bin/git ]; then
-  echo "ERROR: Apple's version of git must be installed"
-  exit 1
-fi
-
 function backupDotfiles() {
   cd $CONFIGS_DIR
 
@@ -49,7 +44,7 @@ function backupDotfiles() {
   cd $CWD
 }
 
-installLatestDotfileRepos() {
+function installLatestDotfileRepos() {
   echo "$PFX CONFIGS_DIR: $CONFIGS_DIR"
 
   echo "$PFX Cloning dotfiles_local repo: $DOTFILES_LOCAL_URL"
@@ -97,6 +92,10 @@ function createXDGDotfilesSymlinks() {
     fi
   done
 }
+
+#
+# Main
+#
 
 echo "$PFX Copy and paste your public key to your dotfiles  code repositories"
 read -p "$PFX Hit enter to continue..." enter

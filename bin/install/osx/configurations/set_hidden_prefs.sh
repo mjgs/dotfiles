@@ -11,4 +11,8 @@ set -e; set -o pipefail
 
 PFX=${PFX:-==>}
 
+#
+# Main
+#
+
 exit 0

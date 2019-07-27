@@ -11,6 +11,10 @@ set -e; set -o pipefail
 
 PFX=${PFX:-==>}
 
+#
+# Main
+#
+
 # General
 # Desktop and screensaver
 # Dock

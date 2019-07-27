@@ -19,23 +19,36 @@ HOME=${HOME:?}
 
 echo "$PFX Installing items common to all os versions"
 
-CWD=$(pwd)
-CONFIGS_DIR=${CONFIGS_DIR:?}
-CODES_DIR=${CODES_DIR:?}
-DOTFILES_DIR=${DOTFILES_DIR:?}
+function configureGit() {
+  echo "$PFX Configuring git..."
+  
+  git config --global user.name $NAME
+  git config --global user.email $EMAIL
+  git config --global push.default simple
+  git config --global core.excludesfile '$HOME/.gitignore'
+}
 
-echo "$PFX Checking public/private key pair..."
+function createPublicPrivateKeyPair() {
+  echo "$PFX Checking public/private key pair..."
 
-if [ ! -e $HOME/.ssh/id_rsa ]; then
-  echo "$PFX You don't have a public / private key pair..."
-  echo "$PFX Generating public / private key pair..."
-  ssh-keygen -t rsa -C $EMAIL
-fi
+  if [ ! -e $HOME/.ssh/id_rsa ]; then
+    echo "$PFX You don't have a public / private key pair..."
+    echo "$PFX Generating public / private key pair..."
+    ssh-keygen -t rsa -C $EMAIL
+  fi
 
-echo "$PFX Your public key:"
-cat $HOME/.ssh/id_rsa.pub
+  echo "$PFX Your public key:"
+  cat $HOME/.ssh/id_rsa.pub
+}
 
-$DOTFILES/bin/install/common/dotfiles.sh
-$DOTFILES/bin/install/common/node.sh
+#
+# Main
+#
+
+configureGit
+createPublicPrivateKeyPair
+
+$DOTFILES/bin/install/common/installs/dotfiles.sh
+$DOTFILES/bin/install/common/installs/node.sh
 
 exit 0
