@@ -100,7 +100,7 @@ fi
 TIMESTAMP_START=$(date)
 echo "$PFX Installation started: $TIMESTAMP_START"
 
-getAdminPassword
+#getAdminPassword
 getUserInfo
 createDirectories
 cloneLatestDotfileRepos
