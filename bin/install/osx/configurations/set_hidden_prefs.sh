@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 if [ -n "$DEBUG" ]; then
   echo "$0: Setting bash option -x for debug"
