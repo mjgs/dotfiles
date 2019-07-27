@@ -72,6 +72,7 @@ function runInstallScripts() {
   
   $DOTFILES_DIR/bin/install/common/install.sh
   $DOTFILES_DIR/bin/install/$OS/install.sh
+  $DOTFILES_DIR/bin/install/common/configuration.sh
 }
 
 #
