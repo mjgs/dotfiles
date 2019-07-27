@@ -26,6 +26,10 @@ export CONFIGS_DIR CODES_DIR DOTFILES_DIR REPO_URL REPO_URL_LOCAL
 function printUsage() {
   echo "Usage: install.sh <os_version>"
   echo
+  echo "os_version - osx 
+  echo
+  echo "To add support for other os versions add scripts to directory DOTFILES_DIR/bin/install/[os_version]"
+  echo
   echo "Environment variables:"
   echo
   echo "CONFIGS_DIR    - path to configs directory"
