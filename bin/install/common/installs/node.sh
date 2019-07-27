@@ -59,8 +59,4 @@ installNvm
 installLatestStableNode
 installNodeModules
 
-if [ -x $CONFIGS_DIR/node_local.sh ]; then
-  $CONFIGS_DIR/node_local.sh			
-fi
-
 exit 0

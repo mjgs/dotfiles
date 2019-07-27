@@ -118,8 +118,4 @@ backupDotfiles
 installLatestDotfileRepos
 createDotfilesSymlinks
 
-if [ -x $CONFIGS_DIR/dotfiles_local.sh ]; then
-  $CONFIGS_DIR/dotfiles_local.sh			
-fi
-
 exit 0
