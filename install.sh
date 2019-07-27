@@ -15,27 +15,28 @@ set -e; set -o pipefail
 
 CWD=$(pwd)
 PFX=${PFX:-==>}
-CONFIGS_DIR=${CONFIGS_DIR:$CWD/Configs}
-CODES_DIR=${CODES_DIR:$CWD/Codes}
-DOTFILES_DIR=${DOTFILES_DIR:?}
-DOTFILES_REPO_URL=${REPO_URL:-http://github.com/mjgs/dotfiles}
-DOTFILES_LOCAL_REPO_URL_LOCAL=${REPO_URL_LOCAL:-http://github.com/mjgs/dotfiles_local}
+CONFIGS_DIR=${CONFIGS_DIR:-$CWD/Configs}
+CODES_DIR=${CODES_DIR:-$CWD/Codes}
+DOTFILES_DIR=$CONFIGS_DIR/dotfiles
+DOTFILES_REPO_URL=${DOTFILES_REPO_URL:-http://github.com/mjgs/dotfiles}
+DOTFILES_LOCAL_REPO_URL=${DOTFILES_LOCAL_REPO_URL:-http://github.com/mjgs/dotfiles_local}
 
 export PFX CONFIGS_DIR CODES_DIR DOTFILES_DIR DOTFILES_REPO_URL DOTFILES_LOCAL_REPO_URL
 
 function printUsage() {
   echo "Usage: install.sh <os_version>"
   echo
-  echo "os_version - osx 
+  echo "  os_version - osx" 
   echo
-  echo "To add support for other os versions add scripts to directory DOTFILES_DIR/bin/install/[os_version]"
+  echo "To add support for other os versions add scripts to directory:" 
+  echo "$DOTFILES_DIR/bin/install/[os_version]"
   echo
   echo "Environment variables:"
   echo
-  echo "CONFIGS_DIR    - path to configs directory"
-  echo "CODES_DIR      - path to codes directory"
-  echo "REPO_URL       - url of repo used for dotfiles"     
-  echo "REPO_URL_LOCAL - url of repo used for local dotfiles"
+  echo "  CONFIGS_DIR             - path to configs directory"
+  echo "  CODES_DIR               - path to codes directory"
+  echo "  DOTFILES_REPO_URL       - url of repo used for dotfiles"     
+  echo "  DOTFILES_LOCAL_REPO_URL - url of repo used for local dotfiles"
   echo
 }
 
