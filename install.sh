@@ -14,6 +14,7 @@ fi
 set -e; set -o pipefail
 
 CWD=$(pwd)
+PFX="==>"
 CONFIGS_DIR=${CONFIGS_DIR:$CWD/Configs}
 CODES_DIR=${CODES_DIR:$CWD/Codes}
 DOTFILES_DIR=${DOTFILES_DIR:?}
@@ -52,8 +53,13 @@ function getUserInfo() {
 }
 
 function createDirectories() {
+  echo "$PFX Creating CONFIGS_DIR: $CONFIGS_DIR"
   mkdir -p $CONFIGS_DIR
+
+  echo "$PFX Creating $CODES_DIR: $CODES_DIR"
   mkdir -p $CODES_DIR
+
+  echo "$PFX Creating DOTFILES_DIR: $DOTFILES_DIR"
   mkdir -p $DOTFILES_DIR
 }
 
