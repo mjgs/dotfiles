@@ -64,7 +64,7 @@ function createDirectories() {
 }
 
 function runInstallScripts() {
-  echo "Running install scripts..."
+  echo "$PFX Running install scripts..."
   
   $DOTFILES_DIR/bin/install/common/install.sh
   $DOTFILES_DIR/bin/install/$OS/install.sh
@@ -80,7 +80,7 @@ if [ "$#" -ne 1 ]; then
 fi
 
 TIMESTAMP_START=$(date)
-echo "Installation started: $TIMESTAMP_START"
+echo "$PFX Installation started: $TIMESTAMP_START"
 
 getAdminPassword
 getUserInfo
@@ -88,8 +88,8 @@ createDirectories
 runInstallScripts
 
 TIMESTAMP_END=$(date)
-echo "Installation started: $TIMESTAMP_START"
-echo "Installation complete: $TIMESTAMP_END"
+echo "$PFX Installation started: $TIMESTAMP_START"
+echo "$PFX Installation complete: $TIMESTAMP_END"
 
 echo "TODO: Make sure all nvim plugins got installed, open nvim and run:"
 echo ":PluginInstall"
