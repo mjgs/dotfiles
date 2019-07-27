@@ -14,9 +14,21 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
+DOTFILES_DIR=${DOTFILES_DIR:?}
+HOME=${HOME:?}
 
 #
 # Main
 #
+
+function configureVscode() {
+  echo "$PFX Configuring vscode user settings"
+  
+  ln -sf $DOTFILES_DIR/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+  ln -sf $DOTFILES_DIR/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
+  ln -sfn $DOTFILES_DIR/vscode/snippets $HOME/Library/Application\ Support/Code/User/snippets
+}
+
+configureVscode
  
 exit 0

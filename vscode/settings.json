@@ -1,0 +1,18 @@
+{
+    "telemetry.enableTelemetry": false, 
+    "telemetry.enableCrashReporter": false,
+    "npm.enableScriptExplorer": true,
+    "editor.tabSize": 2,
+    "window.zoomLevel": 1,
+    "debug.inlineValues": true,
+    "debug.openExplorerOnEnd": true,
+    "debug.toolBarLocation": "docked",
+    "workbench.sideBar.location": "right",
+    "files.exclude": {
+        "node_modules": true
+    },
+    "workbench.editor.showTabs": false,
+    "diffEditor.ignoreTrimWhitespace": true,
+    "workbench.colorTheme": "Abyss",
+    "files.autoSave": "afterDelay"
+}

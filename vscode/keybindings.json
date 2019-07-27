@@ -1,0 +1,25 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+  {
+    "key": "cmd+t cmd+t",
+    "command": "workbench.action.tasks.test"
+  },
+  {
+    "key": "cmd+b cmd+b",
+    "command": "workbench.action.tasks.build"
+  },
+  {
+    "key": "shift+cmd+b",
+    "command": "-workbench.action.tasks.build"
+  },
+  {
+      "key": "ctrl+shift+u",
+      "command": "editor.action.transformToUppercase",
+      "when": "editorTextFocus"
+  },
+  {
+      "key": "ctrl+shift+l",
+      "command": "editor.action.transformToLowercase",
+      "when": "editorTextFocus"
+  }
+]
