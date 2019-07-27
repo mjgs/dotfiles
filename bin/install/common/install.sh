@@ -14,6 +14,8 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
+EMAIL=${EMAIL:?}
+HOME=${HOME:?}
 
 echo "$PFX Installing items common to all os versions"
 
