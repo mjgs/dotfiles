@@ -44,18 +44,6 @@ function backupDotfiles() {
   cd $CWD
 }
 
-function installLatestDotfileRepos() {
-  echo "$PFX CONFIGS_DIR: $CONFIGS_DIR"
-
-  echo "$PFX Cloning dotfiles_local repo: $DOTFILES_LOCAL_REPO_URL
-  REPO_NAME_LOCAL=$(basename $DOTFILES_LOCAL_REPO_URL)
-  git clone $DOTFILES_LOCAL_REPO_URL $DOTFILES_REPO_DIR
-
-  echo "$PFX Cloning dotfiles repo: $DOTFILES_REPO_URL"
-  REPO_NAME=$(basename $DOTFILES_REPO_URL)
-  git clone $DOTFILES_REPO_URL $DOTFILES_LOCAL_REPO_DIR
-}
-
 function createRegularDotfilesSymlinks() {
   local REPO_DIR=$1
 
@@ -115,7 +103,6 @@ echo "$PFX Copy and paste your public key to your dotfiles  code repositories"
 read -p "$PFX Hit enter to continue..." enter
 
 backupDotfiles
-installLatestDotfileRepos
 createDotfilesSymlinks
 
 exit 0

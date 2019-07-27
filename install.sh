@@ -67,6 +67,18 @@ function createDirectories() {
   mkdir -p $DOTFILES_DIR
 }
 
+function cloneLatestDotfileRepos() {
+  echo "$PFX CONFIGS_DIR: $CONFIGS_DIR"
+
+  echo "$PFX Cloning dotfiles_local repo: $DOTFILES_LOCAL_REPO_URL"
+  REPO_NAME_LOCAL=$(basename $DOTFILES_LOCAL_REPO_URL)
+  git clone $DOTFILES_LOCAL_REPO_URL $DOTFILES_REPO_DIR
+
+  echo "$PFX Cloning dotfiles repo: $DOTFILES_REPO_URL"
+  REPO_NAME=$(basename $DOTFILES_REPO_URL)
+  git clone $DOTFILES_REPO_URL $DOTFILES_LOCAL_REPO_DIR
+}
+
 function runInstallScripts() {
   echo "$PFX Running install scripts..."
   
@@ -90,6 +102,7 @@ echo "$PFX Installation started: $TIMESTAMP_START"
 getAdminPassword
 getUserInfo
 createDirectories
+cloneLatestDotfileRepos
 runInstallScripts
 
 TIMESTAMP_END=$(date)
