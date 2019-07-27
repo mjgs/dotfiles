@@ -13,6 +13,7 @@ fi
 # Exit on error
 set -e; set -o pipefail
 
+PFX=${PFX:-==>}
 BASH_PROFILE=$HOME/.bash_profile
 
 if [ ! $CONFIGS_DIR ]; then
@@ -26,7 +27,7 @@ if [ ! -x /usr/local/bin/brew ]; then
 fi
 
 if [ ! -x ~/.nvm/nvm.sh ]; then
-  echo "Installing nvm..."
+  echo "$PFX Installing nvm..."
   if [ ! -f $BASH_PROFILE ]; then
     touch $BASH_PROFILE
   fi
@@ -39,13 +40,13 @@ fi
 # reload nvm into this environment
 source $HOME/.nvm/nvm.sh
 
-echo "Installing latest stable node..."	
+echo "$PFX Installing latest stable node..."	
 nvm install stable
 nvm alias default stable
 
-echo "Current node: `which node`"
+echo "$PFX Current node: `which node`"
 
-echo "Installing node modules..."
+echo "$PFX Installing node modules..."
 npm install -g browser-sync
 npm install -g express
 npm install -g express-generator

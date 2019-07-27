@@ -12,10 +12,13 @@ fi
 
 # Exit on error
 set -e; set -o pipefail
+
+PFX=${PFX:-==>}
  
 # Run gui-configuration.sh after all items have been installed since some
 # configuration requires that certain environments are installed.
 
 # Homebrew packages
-echo "Configuring installed homebrew cask packages..."
+echo "$PFX Configuring installed homebrew cask packages..."
 
+exit 0

@@ -13,6 +13,7 @@ fi
 # Exit on error
 set -e; set -o pipefail
 
+PFX=${PFX:-==>}
 CONFIGS_DIR=${CONFIGS_DIR:?}
 
 if [ ! -x /usr/local/bin/brew ]; then
@@ -21,11 +22,11 @@ if [ ! -x /usr/local/bin/brew ]; then
 fi
 
 if [ ! -x /usr/local/Library/Taps/caskroom/homebrew-cask/cmd/brew-cask.rb ]; then
-  echo "Installing brew cask..."
+  echo "$PFX Installing brew cask..."
   brew tap caskroom/cask
 fi
 
-echo "Installing brew cask applications..."
+echo "$PFX Installing brew cask applications..."
 brew cask install alfred
 brew cask install firefox
 brew cask install google-chrome

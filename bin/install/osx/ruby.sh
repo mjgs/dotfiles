@@ -13,6 +13,7 @@ fi
 # Exit on error
 set -e; set -o pipefail
 
+PFX=${PFX:-==>}
 CONFIGS_DIR=${CONFIGS_DIR:?}
 
 if [ ! -x /usr/local/bin/brew ]; then
@@ -21,14 +22,14 @@ if [ ! -x /usr/local/bin/brew ]; then
 fi
 
 if [ ! -x /usr/local/bin/ruby ]; then
-  echo "Installing ruby..."
+  echo "$PFX Installing ruby..."
   brew install ruby
 fi
 
-echo "Current ruby: `which ruby`"
-echo "Current rubygems: `which gem`"
+echo "$PFX Current ruby: `which ruby`"
+echo "$PFX Current rubygems: `which gem`"
 
-echo "Installing ruby packages..."
+echo "$PFX Installing ruby packages..."
 # gem install -N [ruby app]
 gem install jekyll bundler
 

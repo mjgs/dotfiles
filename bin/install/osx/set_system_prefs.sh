@@ -9,6 +9,8 @@ fi
 # Exit on error
 set -e; set -o pipefail
 
+PFX=${PFX:-==>}
+
 # General
 # Desktop and screensaver
 # Dock

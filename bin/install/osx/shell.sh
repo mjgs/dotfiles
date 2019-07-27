@@ -13,6 +13,7 @@ fi
 # Exit on error
 set -e; set -o pipefail
 
+PFX=${PFX:-==>}
 CONFIGS_DIR=${CONFIGS_DIR:?}
 
 if [ ! -x /usr/local/bin/brew ]; then
@@ -21,7 +22,7 @@ if [ ! -x /usr/local/bin/brew ]; then
 fi
 
 if [ ! -x /usr/local/bin/bash ]; then
-  echo "Installing latest bash version..."
+  echo "$PFX Installing latest bash version..."
   brew install bash
   echo /usr/local/bin/bash >> /private/etc/shells
   chsh -s /usr/local/bin/bash

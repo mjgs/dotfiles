@@ -9,6 +9,8 @@ fi
 # Exit on error
 set -e; set -o pipefail
 
+PFX=${PFX:-==>}
+
 # /System/Library/CoreServices/Finder
 # /System/Library/CoreServices/HelpViewer
 # /System/Library/CoreServices/ReportCrash

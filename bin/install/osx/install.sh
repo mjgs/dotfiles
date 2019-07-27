@@ -13,17 +13,16 @@ fi
 # Exit on error
 set -e; set -o pipefail
 
-echo "########################################################################"
-echo "#                       Installing items for OSX                       #"
-echo "########################################################################"
+echo "$PFX Installing items for OSX"
 
 CWD=$(pwd)
+PFX=${PFX:-==>}
 CONFIGS_DIR=${CONFIGS_DIR:?}
 CODES_DIR=${CODES_DIR:?}
 DOTFILES_DIR=${DOTFILES_DIR:?}
 
 if [ ! -x /usr/bin/gcc ]; then
-  echo "Installing xcode..."
+  echo "$PFX Installing xcode..."
   xcode-select --install
 fi
 
@@ -32,27 +31,21 @@ if [ ! -x /usr/bin/git ]; then
   exit 1
 fi
 
-echo "########################################################################"
-echo "#                     OSX: Installing cli utilities                    #"
-echo "########################################################################"
+echo "$PFX OSX: Installing cli utilities"
 
 $DOTFILES_DIR/bin/install/osx/brew.sh
 $DOTFILES_DIR/bin/install/osx/ruby.sh
 $DOTFILES_DIR/bin/install/osx/python.sh
 $DOTFILES_DIR/bin/install/osx/shell.sh
 
-echo "########################################################################"
-echo "#                       OSX: Configuring settings                      #"
-echo "########################################################################"
+echo "$PFX OSX: Configuring settings"
 
 $DOTFILES_DIR/bin/osx/set_system_prefs.sh
 $DOTFILES_DIR/bin/osx/set_hidden_prefs.sh
 $DOTFILES_DIR/bin/osx/set_application_prefs.sh
 $DOTFILES_DIR/bin/osx/configure_dock_apps.sh
 
-echo "########################################################################"
-echo "#                    OSX: Configuring GUI applications                 #"
-echo "########################################################################"
+echo "$PFX OSX: Configuring GUI applications"
 
 $DOTFILES_DIR/bin/install/osx/gui.sh
 $DOTFILES_DIR/bin/install/osx/gui-configuration.sh

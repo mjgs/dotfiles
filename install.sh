@@ -14,14 +14,14 @@ fi
 set -e; set -o pipefail
 
 CWD=$(pwd)
-PFX="==>"
+PFX=${PFX:-==>}
 CONFIGS_DIR=${CONFIGS_DIR:$CWD/Configs}
 CODES_DIR=${CODES_DIR:$CWD/Codes}
 DOTFILES_DIR=${DOTFILES_DIR:?}
 REPO_URL=${REPO_URL:-http://github.com/mjgs}
 REPO_URL_LOCAL=${REPO_URL_LOCAL:-http://github.com/mjgs}
 
-export CONFIGS_DIR CODES_DIR DOTFILES_DIR REPO_URL REPO_URL_LOCAL
+export PFX CONFIGS_DIR CODES_DIR DOTFILES_DIR REPO_URL REPO_URL_LOCAL
 
 function printUsage() {
   echo "Usage: install.sh <os_version>"

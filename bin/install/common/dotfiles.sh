@@ -13,9 +13,9 @@ fi
 # Exit on error
 set -e; set -o pipefail
 
-echo "########################################################################"
-echo "#                      Installing dotfiles                             #"
-echo "########################################################################"
+PFX=${PFX:-==>}
+
+echo "$PFX Installing dotfiles"
 
 CWD=$(pwd)
 CONFIGS_DIR=${CONFIGS_DIR:?}
@@ -34,6 +34,8 @@ fi
 function backupDotfiles() {
   cd $CONFIGS_DIR
 
+  echo "$PFX Backing up existing dotfiles"
+
   if [ -d $CONFIGS_DIR/dotfiles_local ]; then
     tar cvfz dotfiles_local-$(date +%Y-%m-%d-%H%M).tar.gz $CONFIGS_DIR/dotfiles_local
     rm -rf $CONFIGS_DIR/dotfiles_local
@@ -48,36 +50,38 @@ function backupDotfiles() {
 }
 
 installLatestDotfileRepos() {
-  echo "Cloning dotfiles_local repo...$DOTFILES_LOCAL_URL"
+  echo "$PFX CONFIGS_DIR: $CONFIGS_DIR"
+
+  echo "$PFX Cloning dotfiles_local repo: $DOTFILES_LOCAL_URL"
   git clone $DOTFILES_LOCAL_URL $CONFIGS_DIR
 
-  echo "Cloning dotfiles repo...$DOTFILES_URL"
+  echo "$PFX Cloning dotfiles repo: $DOTFILES_URL"
   git clone $DOTFILES_URL $CONFIGS_DIR
 }
 
 function createDotfilesSymlinks() {
-  echo "Creating ~/ dotfile symlinks..."
+  echo "$PFX Creating dotfile symlinks in directory: $HOME"
 
   LINKABLES=$( find -H "$CONFIGS_DIR" -maxdepth 3 -name '*.symlink' )
 
   for FILE in $LINKABLES; do
     TARGET="$HOME/.$( basename $FILE ".symlink" )"
     if [ -e $TARGET ]; then
-      echo "${TARGET} already exists... Skipping."
+      echo "$PFX ${TARGET} already exists... Skipping."
     else
-      echo "Creating $TARGET symlink to $FILE"
+      echo "$PFX Creating $TARGET symlink to $FILE"
       ln -s $FILE $TARGET
     fi
   done
 }
 
 function createXDGDotfilesSymlinks() {
-  echo "Creating XDG ~/.config dotfile symlinks..."
+  echo "$PFX Creating XDG dotfile symlinks in directory: $HOME/.config"
   
   # XDG Base Directory Specification: 
   # http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
   if [ ! -d $HOME/.config ]; then
-    echo "Creating ~/.config"
+    echo "$PFX Creating $HOME/.config"
     mkdir -p $HOME/.config
   fi
 
@@ -86,16 +90,16 @@ function createXDGDotfilesSymlinks() {
   for CONFIG in $CONFIGS; do
     TARGET="$HOME/.config/$( basename $CONFIG ".symlink" )"
     if [ -e $TARGET ]; then
-      echo "~${TARGET#$HOME} already exists... Skipping."
+      echo "$PFX ~${TARGET#$HOME} already exists... Skipping."
     else
-      echo "Creating $TARGET symlink to $CONFIG"
+      echo "$PFX Creating $TARGET symlink to $CONFIG"
       ln -s $CONFIG $TARGET
     fi
   done
 }
 
-echo "Copy and paste your public key to your dotfiles  code repositories"
-read -p "Hit enter to continue..." enter
+echo "$PFX Copy and paste your public key to your dotfiles  code repositories"
+read -p "$PFX Hit enter to continue..." enter
 
 backupDotfiles
 installLatestDotfileRepos

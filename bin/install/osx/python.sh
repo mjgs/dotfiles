@@ -13,6 +13,7 @@ fi
 # Exit on error
 set -e; set -o pipefail
 
+PFX=${PFX:-==>}
 CONFIGS_DIR=${CONFIGS_DIR:?}
 
 if [ ! -x /usr/local/bin/brew ]; then
@@ -21,13 +22,13 @@ if [ ! -x /usr/local/bin/brew ]; then
 fi
 
 if [ ! -x /usr/local/bin/python ]; then	
-  echo "Installing python..."
+  echo "$PFX Installing python..."
   brew install python --framework --with-brewed-openssl
 fi
 
 echo "Current python: `which python`"
 
-echo "Installing python packages..."
+echo "$PFX Installing python packages..."
 pip2 install --user neovim
 
 if [ -x $CONFIGS_DIR/python_local.sh ]; then

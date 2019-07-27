@@ -13,18 +13,20 @@ fi
 # Exit on error
 set -e; set -o pipefail
 
+PFX=${PFX:-==>}
+
 if [ ! $CONFIGS_DIR ]; then
   echo ERROR: CONFIGS_DIR environment variable is not defined
   exit 1
 fi
 
 if [ ! -x /usr/local/bin/brew ]; then
-  echo "Installing homebrew..."
+  echo "$PFX Installing homebrew..."
   ruby -e "$(curl \
        -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-echo "Installing homebrew packages..."
+echo "$PFX Installing homebrew packages..."
 brew install ack
 brew install cmake
 brew install git
