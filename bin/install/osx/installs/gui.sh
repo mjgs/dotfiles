@@ -48,6 +48,7 @@ function installHomebrewCaskPackages() {
   brew cask install wd-security
   brew cask install docker
   brew cask install mongodb-compass
+  brew cask install visual-studio-code
 }
 
 installHomebrewCask
