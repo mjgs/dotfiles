@@ -48,3 +48,5 @@ PFX=${PFX:-==>}
 # Speech ? (Dictation and speech ?)
 # Time machine
 # Accessibility
+
+exit 0
