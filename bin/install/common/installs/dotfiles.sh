@@ -21,10 +21,10 @@ CWD=$(pwd)
 CONFIGS_DIR=${CONFIGS_DIR:?}
 CODES_DIR=${CODES_DIR:?}
 DOTFILES_DIR=${DOTFILES_DIR:?}
-REPO_URL=${REPO_URL:?}
-REPO_URL_LOCAL=${REPO_URL_LOCAL:?}
-DOTFILES_URL=$REPO_URL/dotfiles.git
-DOTFILES_LOCAL_URL=$REPO_URL_LOCAL/dotfiles_local.git
+DOTFILES_REPO_URL=${DOTFILES_REPO_URL:?}
+DOTFILES_LOCAL_REPO_URL=${DOTFILES_LOCAL_REPO_URL:?}
+DOTFILES_REPO_DIR=$CONFIGS_DIR/${REPO_NAME%.git}
+DOTFILES_LOCAL_REPO_DIR=$CONFIGS_DIR/${REPO_NAME_LOCAL%.git}
 
 function backupDotfiles() {
   cd $CONFIGS_DIR
@@ -47,17 +47,21 @@ function backupDotfiles() {
 function installLatestDotfileRepos() {
   echo "$PFX CONFIGS_DIR: $CONFIGS_DIR"
 
-  echo "$PFX Cloning dotfiles_local repo: $DOTFILES_LOCAL_URL"
-  git clone $DOTFILES_LOCAL_URL $CONFIGS_DIR
+  echo "$PFX Cloning dotfiles_local repo: $DOTFILES_LOCAL_REPO_URL
+  REPO_NAME_LOCAL=$(basename $DOTFILES_LOCAL_REPO_URL)
+  git clone $DOTFILES_LOCAL_REPO_URL $DOTFILES_REPO_DIR
 
-  echo "$PFX Cloning dotfiles repo: $DOTFILES_URL"
-  git clone $DOTFILES_URL $CONFIGS_DIR
+  echo "$PFX Cloning dotfiles repo: $DOTFILES_REPO_URL"
+  REPO_NAME=$(basename $DOTFILES_REPO_URL)
+  git clone $DOTFILES_REPO_URL $DOTFILES_LOCAL_REPO_DIR
 }
 
-function createDotfilesSymlinks() {
+function createRegularDotfilesSymlinks() {
+  local REPO_DIR=$1
+
   echo "$PFX Creating dotfile symlinks in directory: $HOME"
 
-  LINKABLES=$( find -H "$CONFIGS_DIR" -maxdepth 3 -name '*.symlink' )
+  LINKABLES=$( find -H "$REPO_DIR" -maxdepth 3 -name '*.symlink' )
 
   for FILE in $LINKABLES; do
     TARGET="$HOME/.$( basename $FILE ".symlink" )"
@@ -71,6 +75,8 @@ function createDotfilesSymlinks() {
 }
 
 function createXDGDotfilesSymlinks() {
+  local REPO_DIR=$1
+
   echo "$PFX Creating XDG dotfile symlinks in directory: $HOME/.config"
   
   # XDG Base Directory Specification: 
@@ -80,7 +86,7 @@ function createXDGDotfilesSymlinks() {
     mkdir -p $HOME/.config
   fi
 
-  CONFIGS=$( find -H "$DOTFILES_DIR/config" -maxdepth 2 -name '*.symlink' )
+  CONFIGS=$( find -H "$REPO_DIR/config" -maxdepth 2 -name '*.symlink' )
 
   for CONFIG in $CONFIGS; do
     TARGET="$HOME/.config/$( basename $CONFIG ".symlink" )"
@@ -93,6 +99,14 @@ function createXDGDotfilesSymlinks() {
   done
 }
 
+function createDotfilesSymlinks() {
+  createRegularDotfilesSymlinks $DOTFILES_REPO_DIR
+  createXDGDotfilesSymlinks $DOTFILES_REPO_DIR
+
+  createRegularDotfilesSymlinks $DOTFILES_LOCAL_REPO_DIR
+  createXDGDotfilesSymlinks $DOTFILES_LOCAL_REPO_DIR
+}
+
 #
 # Main
 #
@@ -103,7 +117,6 @@ read -p "$PFX Hit enter to continue..." enter
 backupDotfiles
 installLatestDotfileRepos
 createDotfilesSymlinks
-createXDGDotfilesSymlinks
 
 if [ -x $CONFIGS_DIR/dotfiles_local.sh ]; then
   $CONFIGS_DIR/dotfiles_local.sh			

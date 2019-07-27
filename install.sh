@@ -18,10 +18,10 @@ PFX=${PFX:-==>}
 CONFIGS_DIR=${CONFIGS_DIR:$CWD/Configs}
 CODES_DIR=${CODES_DIR:$CWD/Codes}
 DOTFILES_DIR=${DOTFILES_DIR:?}
-REPO_URL=${REPO_URL:-http://github.com/mjgs}
-REPO_URL_LOCAL=${REPO_URL_LOCAL:-http://github.com/mjgs}
+DOTFILES_REPO_URL=${REPO_URL:-http://github.com/mjgs/dotfiles}
+DOTFILES_LOCAL_REPO_URL_LOCAL=${REPO_URL_LOCAL:-http://github.com/mjgs/dotfiles_local}
 
-export PFX CONFIGS_DIR CODES_DIR DOTFILES_DIR REPO_URL REPO_URL_LOCAL
+export PFX CONFIGS_DIR CODES_DIR DOTFILES_DIR DOTFILES_REPO_URL DOTFILES_LOCAL_REPO_URL
 
 function printUsage() {
   echo "Usage: install.sh <os_version>"
