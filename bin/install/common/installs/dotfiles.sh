@@ -28,6 +28,7 @@ function createRegularDotfilesSymlinks() {
   local THIS_REPO_DIR=$1
 
   echo "$PFX Creating dotfile symlinks in directory: $HOME"
+  echo "$PFX Target repo: $THIS_REPO_DIR"
 
   LINKABLES=$( find -H "$THIS_REPO_DIR" -maxdepth 3 -name '*.symlink' )
 
