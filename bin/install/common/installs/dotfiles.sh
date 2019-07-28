@@ -24,26 +24,6 @@ REPO_DIR=${REPO_DIR:?}
 REPO_LOCAL=${REPO_LOCAL:?}
 REPO_LOCAL_DIR=${REPO_LOCAL_DIR:?}
 
-function backupDotfiles() {
-  cd $CONFIGS_DIR
-
-  echo "$PFX Backing up existing dotfiles"
-
-  REPO_LOCAL_NAME=$(basename ${REPO_LOCAL%.git})
-  if [ -d $REPO_LOCAL_DIR ]; then
-    tar cvfz $REPO_LOCAL_NAME-$(date +%Y-%m-%d-%H%M).tar.gz $REPO_LOCAL_DIR 
-    rm -rf $REPO_LOCAL_DIR
-  fi
-
-  REPO_NAME=$(basename ${REPO%.git})
-  if [ -d $REPO_DIR ]; then
-    tar cvfz $REPO_NAME-$(date +%Y-%m-%d-%H%M).tar.gz $REPO_DIR
-    rm -rf $REPO_DIR
-  fi
-
-  cd $CWD
-}
-
 function createRegularDotfilesSymlinks() {
   local THIS_REPO_DIR=$1
 
@@ -99,7 +79,6 @@ function createDotfilesSymlinks() {
 # Main
 #
 
-backupDotfiles
 createDotfilesSymlinks
 
 exit 0
