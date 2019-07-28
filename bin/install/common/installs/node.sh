@@ -14,30 +14,33 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
+NVM_VERSION=${NVM_VERSION:-v0.34.0}
 BASH_PROFILE=$HOME/.bash_profile
 
 function installNvm() {
+  local NVM_URL=https://raw.githubusercontent.com/nvm-sh/nvm/$NVM_VERSION/install.sh
+
   echo "$PFX Installing nvm..."
-  
+ 
   if [ ! -d $HOME/.nvm ]; then
+    echo "$PFX Nvm install url: $NVM_URL"
+    cd $HOME
+    curl -o- $NVM_URL | bash
     touch $BASH_PROFILE
-    export NVM_DIR="$HOME/.nvm" && (
-      git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
-      cd "$NVM_DIR"
-      git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
-) && \. "$NVM_DIR/nvm.sh"i
   else
     echo "$PFX nvm directory $HOME/.nvm exists, skipping..."
   fi
 }
 
-function installLatestStableNode() {
-  echo "$PFX Installing latest stable node..."	
+function installLatestNode() {
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
   
+  # Nvm installs currently silently crash the script unless exit on error is turned off
+  # TODO - Figure out why it's necessary to turn off exit on error
+  set +e
   nvm install stable
-  nvm alias default stable
-
-  echo "$PFX Current node: `which node`"
+  set -e
 }
 
 function installNodeModules() {
@@ -57,7 +60,7 @@ function installNodeModules() {
 #
 
 installNvm
-installLatestStableNode
+installLatestNode
 installNodeModules
 
 exit 0
