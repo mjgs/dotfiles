@@ -13,8 +13,6 @@ fi
 # Exit on error
 set -e; set -o pipefail
 
-echo "$PFX Installing items for OSX"
-
 CWD=$(pwd)
 PFX=${PFX:-==>}
 REPO_DIR=${REPO_DIR:?}
