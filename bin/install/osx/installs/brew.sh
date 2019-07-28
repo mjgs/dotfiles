@@ -15,6 +15,25 @@ set -e; set -o pipefail
 
 PFX=${PFX:-==>}
 HOMEBREW_URL=https://raw.githubusercontent.com/Homebrew/install/master/install
+PACKAGES=(
+   ack
+   cmake
+   git
+   git-extras
+   heroku-toolbelt
+   httpie
+   iperf
+   jq
+   mongodb
+   neovim/neovim/neovim
+   nvm
+   openssl
+   redis
+   tree
+   watch
+   wget
+)
+
 
 function installHomebrew() {
   echo "$PFX Installing homebrew..."
@@ -29,26 +48,11 @@ function installHomebrew() {
 
 function installHomebrewPackages() {
   echo "$PFX Installing homebrew packages..."
-
-  brew install ack
-  brew install cmake
-  brew install git
-  brew install git-extras
-  brew install heroku-toolbelt
-  brew install httpie
-  brew install iperf
-  brew install jq
-  brew install mongodb
-  brew install neovim/neovim/neovim
-  brew install nvm
-  brew install openssl
-  brew install redis
-  brew install tree
-  brew install watch
-  brew install wget
-  brew install youtube-dl
-  brew install doctl
-  brew install shellcheck
+  
+  for PACKAGE in "${PACKAGES[@]}"; do
+    echo "$PFX installing brew package: $PACKAGE"
+    brew install $PACKAGE
+  done
 }
 
 #

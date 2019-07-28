@@ -14,6 +14,9 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
+PACKAGES=(
+  neovim
+)
 
 if [ ! -x /usr/local/bin/brew ]; then
   echo "ERROR: Homebrew must be installed"
@@ -31,7 +34,11 @@ function installPython() {
 
 function installPythonPackages() {
   echo "$PFX Installing python packages..."
-  pip2 install --user neovim
+
+  for PACKAGE in "${PACKAGES[@]}"; do
+    echo "$PFX Installing python package: $PACKAGE"
+    pip2 install --user $PACKAGE
+  done
 }
 
 #
