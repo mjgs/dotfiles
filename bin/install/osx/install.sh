@@ -22,11 +22,6 @@ if [ ! -x /usr/bin/gcc ]; then
   xcode-select --install
 fi
 
-if [ ! -x /usr/bin/git ]; then
-  echo "ERROR: Apple's version of git must be installed" 
-  exit 1
-fi
-
 echo "$PFX Installing OSX items"
 
 $REPO_DIR/bin/install/osx/installs/brew.sh

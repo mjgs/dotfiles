@@ -108,6 +108,11 @@ fi
 TIMESTAMP_START=$(date)
 echo "$PFX Installation started: $TIMESTAMP_START"
 
+if [ ! -x /usr/bin/git ]; then
+  echo "ERROR: Apple's version of git must be installed"
+  exit 1
+fi
+
 #getAdminPassword
 getUserInfo
 createDirectories
