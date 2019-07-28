@@ -72,18 +72,10 @@ function configureNvim() {
   echo ":PluginUpdate" 
 }
 
-function configureOpenvpn() {
-  echo "$PFX Configuring openvpn..."
-  echo "$PFX Have launchd start openvpn at startup..."
-  sudo cp -fv /usr/local/opt/openvpn/*.plist /Library/LaunchDaemons
-  sudo chown root /Library/LaunchDaemons/homebrew.mxcl.openvpn.plist
-}
-
 #
 # Main
 #
 
 configureNvim
-configureOpenvpn
 
 exit 0
