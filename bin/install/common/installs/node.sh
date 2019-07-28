@@ -16,6 +16,15 @@ set -e; set -o pipefail
 PFX=${PFX:-==>}
 NVM_VERSION=${NVM_VERSION:-v0.34.0}
 BASH_PROFILE=$HOME/.bash_profile
+MODULES=(
+  browser-sync
+  express
+  express-generator
+  jshint
+  live-server
+  mocha
+  nodemon
+)
 
 function installNvm() {
   local NVM_URL=https://raw.githubusercontent.com/nvm-sh/nvm/$NVM_VERSION/install.sh
@@ -30,12 +39,13 @@ function installNvm() {
   else
     echo "$PFX nvm directory $HOME/.nvm exists, skipping..."
   fi
+ 
+  # Load nvm into current environment 
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 }
 
 function installLatestNode() {
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  
   # Nvm installs currently silently crash the script unless exit on error is turned off
   # TODO - Figure out why it's necessary to turn off exit on error
   set +e
@@ -46,13 +56,10 @@ function installLatestNode() {
 function installNodeModules() {
   echo "$PFX Installing node modules..."
 
-  npm install -g browser-sync
-  npm install -g express
-  npm install -g express-generator
-  npm install -g jshint
-  npm install -g live-server
-  npm install -g mocha
-  npm install -g nodemon
+  for MODULE in "${MODULES[@]}"; do
+    echo "$PFX Installing node module: $MODULE"
+    npm install -g $MODULE
+  done
 }
 
 #
