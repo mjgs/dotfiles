@@ -4,10 +4,6 @@
 # Description: configures installed apps
 #
  
-# Run configuration.sh after all items have been installed since some
-# configuration requires that certain environments are installed.
-# e.g. YouCompleteMe requires node and npm to be installed to compile
-
 if [ -n "$DEBUG" ]; then
   echo "$0: Setting bash option -x for debug"
   PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
@@ -18,6 +14,7 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
+CWD=$(pwd)
 
 function configureNvim() {
   echo "$PFX Configuring nvim..."
@@ -54,17 +51,6 @@ function configureNvim() {
 
   echo "$PFX Configuring vim web indent..."
   rsync -avz $HOME/.vim/bundle/vim-web-indent/indent $HOME/.vim
-
-  echo "$PFX Configuring ycm vim plugin..."
-  $HOME/.vim/bundle/YouCompleteMe/install.py --tern-completer
-
-  echo "$PFX Configuring tern_for_vim vim plugin..."
-  current_dir=`pwd`; 
-  cd $HOME/.vim/bundle/tern_for_vim
-  source ~/.nvm/nvm.sh # load nvm
-  nvm use stable
-  npm install 
-  cd $current_dir
 
   echo "$PFX When install.sh completes..."
   echo "$PFX Make sure all nvim plugins got installed, open nvim and run:"
