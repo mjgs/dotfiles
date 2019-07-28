@@ -14,6 +14,7 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
+HOMEBREW_CASK=/usr/local/Library/Taps/caskroom/homebrew-cask/cmd/brew-cask.rb
 
 if [ ! -x /usr/local/bin/brew ]; then
   echo "ERROR: Homebrew must be installed"
@@ -21,7 +22,7 @@ if [ ! -x /usr/local/bin/brew ]; then
 fi
 
 function installHomebrewCask() {
-  if [ ! -x /usr/local/Library/Taps/caskroom/homebrew-cask/cmd/brew-cask.rb ]; then
+  if [ ! -x $HOMEBREW_CASK ]; then
     echo "$PFX Installing homebrew cask..."
     brew tap caskroom/cask
   fi

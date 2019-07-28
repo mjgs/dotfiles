@@ -14,14 +14,16 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
+HOMEBREW_URL=https://raw.githubusercontent.com/Homebrew/install/master/install
 
 function installHomebrew() {
   echo "$PFX Installing homebrew..."
 
   if [ ! -x /usr/local/bin/brew ]; then
-    echo "$PFX Installing homebrew..."
-    ruby -e "$(curl \
-         -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    echo "$PFX Installing homebrew...
+    echo "$PFX Homebrew url: $HOMEBREW_URL""
+    
+    ruby -e "$(curl -fsSL $HOMEBREW_URL)" 
   fi
 }
 
