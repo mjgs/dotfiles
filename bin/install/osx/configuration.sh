@@ -13,22 +13,22 @@ fi
 # Exit on error
 set -e; set -o pipefail
 
-DOTFILES_DIR=${DOTFILES_DIR:?}
+REPO_DIR=${REPO_DIR:?}
 
 function configureOsxSettingsAndApps() {
   echo "$PFX Configuring OSX settings and applications"
 
-  $DOTFILES_DIR/bin/install/common/configurations/set_system_prefs.sh
-  $DOTFILES_DIR/bin/install/common/configurations/set_hidden_prefs.sh
-  $DOTFILES_DIR/bin/install/common/configurations/set_application_prefs.sh
-  $DOTFILES_DIR/bin/install/common/configurations/configure_dock_apps.sh
+  $REPO_DIR/bin/install/common/configurations/set_system_prefs.sh
+  $REPO_DIR/bin/install/common/configurations/set_hidden_prefs.sh
+  $REPO_DIR_DIR/bin/install/common/configurations/set_application_prefs.sh
+  $REPO_DIR/bin/install/common/configurations/configure_dock_apps.sh
 }
 
 function configure3rdPartyApps() {
   echo "$PFX Configuring OSX 3rd party application"
 
-  $DOTFILES_DIR/bin/install/common/configurations/cli-configuration.sh
-  $DOTFILES_DIR/bin/install/common/configurations/gui-configuration.sh
+  $REPO_DIR/bin/install/common/configurations/cli-configuration.sh
+  $REPO_DIR/bin/install/common/configurations/gui-configuration.sh
 }
 
 #

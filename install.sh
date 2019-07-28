@@ -91,9 +91,9 @@ function cloneLatestDotfileRepos() {
 function runInstallScripts() {
   echo "$PFX Running install scripts..."
   
-  $DOTFILES_DIR/bin/install/common/install.sh
-  $DOTFILES_DIR/bin/install/$OS/install.sh
-  $DOTFILES_DIR/bin/install/common/configuration.sh
+  $REPO_DIR/bin/install/common/install.sh
+  $REPO_DIR/bin/install/$OS/install.sh
+  $REPO_DIR/bin/install/common/configuration.sh
 }
 
 #

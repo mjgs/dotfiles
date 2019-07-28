@@ -14,7 +14,7 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-DOTFILES_DIR=${DOTFILES_DIR:?}
+REPO_DIR=${REPO_DIR:?}
 HOME=${HOME:?}
 
 #
