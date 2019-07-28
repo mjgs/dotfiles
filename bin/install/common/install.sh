@@ -19,6 +19,7 @@ HOME=${HOME:?}
 
 echo "$PFX Installing items common to all os versions"
 
+# Configure git here since it's needed during the installation
 function configureGit() {
   echo "$PFX Configuring git..."
   
