@@ -18,17 +18,17 @@ REPO_DIR=${REPO_DIR:?}
 function configureOsxSettingsAndApps() {
   echo "$PFX Configuring OSX settings and applications"
 
-  $REPO_DIR/bin/install/common/configurations/set_system_prefs.sh
-  $REPO_DIR/bin/install/common/configurations/set_hidden_prefs.sh
-  $REPO_DIR_DIR/bin/install/common/configurations/set_application_prefs.sh
-  $REPO_DIR/bin/install/common/configurations/configure_dock_apps.sh
+  $REPO_DIR/bin/install/osx/configurations/set_system_prefs.sh
+  $REPO_DIR/bin/install/osx/configurations/set_hidden_prefs.sh
+  $REPO_DIR_DIR/bin/install/osx/configurations/set_application_prefs.sh
+  $REPO_DIR/bin/install/osx/configurations/configure_dock_apps.sh
 }
 
 function configure3rdPartyApps() {
   echo "$PFX Configuring OSX 3rd party application"
 
-  $REPO_DIR/bin/install/common/configurations/cli-configuration.sh
-  $REPO_DIR/bin/install/common/configurations/gui-configuration.sh
+  $REPO_DIR/bin/install/osx/configurations/cli-configuration.sh
+  $REPO_DIR/bin/install/osx/configurations/gui-configuration.sh
 }
 
 #
