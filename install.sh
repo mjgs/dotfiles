@@ -73,15 +73,25 @@ function createDirectories() {
 }
 
 function cloneLatestDotfileRepos() {
-  echo "$PFX CONFIGS_DIR: $CONFIGS_DIR"
+  echo "$PFX Copy and paste your public key to your dotfiles code repositories:"
+  echo "$PFX $(cat $HOME/.ssh/id_rsa.pub)"
+  read -p "$PFX Hit enter to continue..." enter
 
-  echo "$PFX Cloning dotfiles_local repo: $DOTFILES_LOCAL_REPO_URL"
-  REPO_NAME_LOCAL=$(basename $DOTFILES_LOCAL_REPO_URL)
-  git clone $DOTFILES_LOCAL_REPO_URL $DOTFILES_REPO_DIR
+  echo "$PFX Cloning repo: $REPO_LOCAL"
+  echo "$PFX Target directory: $REPO_LOCAL_DIR"
+  if [ ! -e $REPO_LOCAL_DIR ]; then
+    git clone $REPO_LOCAL $REPO_LOCAL_DIR
+  else
+    echo "$PFX Target directory exists, skipping..."
+  fi
 
-  echo "$PFX Cloning dotfiles repo: $DOTFILES_REPO_URL"
-  REPO_NAME=$(basename $DOTFILES_REPO_URL)
-  git clone $DOTFILES_REPO_URL $DOTFILES_LOCAL_REPO_DIR
+  echo "$PFX Cloning repo: $REPO"
+  echo "$PFX Target directory: $REPO_DIR"
+  if [ ! -e $REPO_DIR ]; then
+    git clone $REPO $REPO_DIR
+  else
+    echo "$PFX Target directory exists, skipping..."
+  fi
 }
 
 function runInstallScripts() {
