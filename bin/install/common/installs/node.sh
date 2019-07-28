@@ -17,16 +17,18 @@ PFX=${PFX:-==>}
 BASH_PROFILE=$HOME/.bash_profile
 
 function installNvm() {
-  mkdir -p $HOME/.nvm
-  touch $BASH_PROFILE
-
-  if [ ! -x $HOME/.nvm/nvm.sh ]; then
-    echo "$PFX Installing nvm..."
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+  echo "$PFX Installing nvm..."
+  
+  if [ ! -d $HOME/.nvm ]; then
+    touch $BASH_PROFILE
+    export NVM_DIR="$HOME/.nvm" && (
+      git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
+      cd "$NVM_DIR"
+      git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+) && \. "$NVM_DIR/nvm.sh"i
+  else
+    echo "$PFX nvm directory $HOME/.nvm exists, skipping..."
   fi
-
-  # reload nvm into this environment
-  source $HOME/.nvm/nvm.sh
 }
 
 function installLatestStableNode() {
