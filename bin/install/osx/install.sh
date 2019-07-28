@@ -19,7 +19,7 @@ CWD=$(pwd)
 PFX=${PFX:-==>}
 CONFIGS_DIR=${CONFIGS_DIR:?}
 CODES_DIR=${CODES_DIR:?}
-DOTFILES_DIR=${DOTFILES_DIR:?}
+REPO_DIR=${REPO_DIR:?}
 
 if [ ! -x /usr/bin/gcc ]; then
   echo "$PFX Installing xcode..."
@@ -33,10 +33,10 @@ fi
 
 echo "$PFX Installing OSX items"
 
-$DOTFILES_DIR/bin/install/osx/installs/brew.sh
-$DOTFILES_DIR/bin/install/osx/installs/gui.sh
-$DOTFILES_DIR/bin/install/osx/installs/ruby.sh
-$DOTFILES_DIR/bin/install/osx/installs/python.sh
-$DOTFILES_DIR/bin/install/osx/installs/shell.sh
+$REPO_DIR/bin/install/osx/installs/brew.sh
+$REPO_DIR/bin/install/osx/installs/gui.sh
+$REPO_DIR/bin/install/osx/installs/ruby.sh
+$REPO_DIR/bin/install/osx/installs/python.sh
+$REPO_DIR/bin/install/osx/installs/shell.sh
 
 exit 0
