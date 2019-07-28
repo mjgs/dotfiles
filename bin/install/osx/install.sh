@@ -17,8 +17,6 @@ echo "$PFX Installing items for OSX"
 
 CWD=$(pwd)
 PFX=${PFX:-==>}
-CONFIGS_DIR=${CONFIGS_DIR:?}
-CODES_DIR=${CODES_DIR:?}
 REPO_DIR=${REPO_DIR:?}
 
 if [ ! -x /usr/bin/gcc ]; then

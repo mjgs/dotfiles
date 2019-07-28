@@ -14,7 +14,6 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-CONFIGS_DIR=${CONFIGS_DIR:?}
 
 if [ ! -x /usr/local/bin/brew ]; then
   echo "ERROR: Homebrew must be installed to run the shell.sh installer script"
@@ -36,9 +35,5 @@ installLatestBash() {
 #
 
 installLatestBash
-
-if [ -x $CONFIGS_DIR/shell_local.sh ]; then
-  $CONFIGS_DIR/shell_local.sh			
-fi
 
 exit 0

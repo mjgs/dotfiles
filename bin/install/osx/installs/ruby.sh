@@ -14,7 +14,6 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-CONFIGS_DIR=${CONFIGS_DIR:?}
 
 if [ ! -x /usr/local/bin/brew ]; then
   echo "ERROR: Homebrew must be installed"
@@ -44,9 +43,5 @@ function installRubyGems() {
 
 installRuby
 installRubyGems
-
-if [ -x $CONFIGS_DIR/ruby_local.sh ]; then
-  $CONFIGS_DIR/ruby_local.sh			
-fi
 
 exit 0

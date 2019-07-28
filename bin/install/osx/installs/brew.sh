@@ -14,7 +14,6 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-CONFIGS_DIR=${CONFIGS_DIR:?}
 
 function installHomebrew() {
   echo "$PFX Installing homebrew..."
@@ -56,9 +55,5 @@ function installHomebrewPackages() {
 
 installHomebrew
 installHomebrewPackages
-
-if [ -x $CONFIGS_DIR/brew_local.sh ]; then
-  $CONFIGS_DIR/brew_local.sh			
-fi
 
 exit 0

@@ -14,7 +14,6 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-CONFIGS_DIR=${CONFIGS_DIR:?}
 
 if [ ! -x /usr/local/bin/brew ]; then
   echo "ERROR: Homebrew must be installed"
@@ -53,9 +52,5 @@ function installHomebrewCaskPackages() {
 
 installHomebrewCask
 installHomebrewCaskPackages
-
-if [ -x $CONFIGS_DIR/gui_local.sh ]; then
-  $CONFIGS_DIR/gui_local.sh
-fi
 
 exit 0
