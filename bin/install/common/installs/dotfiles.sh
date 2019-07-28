@@ -99,9 +99,6 @@ function createDotfilesSymlinks() {
 # Main
 #
 
-echo "$PFX Copy and paste your public key to your dotfiles code repositories"
-read -p "$PFX Hit enter to continue..." enter
-
 backupDotfiles
 createDotfilesSymlinks
 
