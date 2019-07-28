@@ -17,11 +17,12 @@ CWD=$(pwd)
 PFX=${PFX:-==>}
 CONFIGS_DIR=${CONFIGS_DIR:-$CWD/Configs}
 CODES_DIR=${CODES_DIR:-$CWD/Codes}
-DOTFILES_DIR=$CONFIGS_DIR/dotfiles
-DOTFILES_REPO_URL=${DOTFILES_REPO_URL:-http://github.com/mjgs/dotfiles}
-DOTFILES_LOCAL_REPO_URL=${DOTFILES_LOCAL_REPO_URL:-http://github.com/mjgs/dotfiles_local}
+REPO=${REPO:-git@github.com:mjgs/dotfiles.git}
+REPO_LOCAL=${REPO_LOCAL:-git@github.com:mjgs/dotfiles_local.git}
+REPO_DIR=$CONFIGS_DIR/$(basename ${REPO%.git})
+REPO_LOCAL_DIR=$CONFIGS_DIR/$(basename ${REPO_LOCAL%.git})
 
-export PFX CONFIGS_DIR CODES_DIR DOTFILES_DIR DOTFILES_REPO_URL DOTFILES_LOCAL_REPO_URL
+export PFX CONFIGS_DIR CODES_DIR REPO REPO_DIR REPO_LOCAL REPO_LOCAL_DIR
 
 function printUsage() {
   echo "Usage: install.sh <os_version>"
@@ -61,11 +62,14 @@ function createDirectories() {
   echo "$PFX Creating CONFIGS_DIR: $CONFIGS_DIR"
   mkdir -p $CONFIGS_DIR
 
-  echo "$PFX Creating $CODES_DIR: $CODES_DIR"
+  echo "$PFX Creating CODES_DIR: $CODES_DIR"
   mkdir -p $CODES_DIR
 
-  echo "$PFX Creating DOTFILES_DIR: $DOTFILES_DIR"
-  mkdir -p $DOTFILES_DIR
+  echo "$PFX Creating REPO_DIR: $REPO_DIR"
+  mkdir -p $REPO_DIR
+  
+  echo "$PFX Creating REPO_LOCAL_DIR: $REPO_LOCAL_DIR"
+  mkdir -p $REPO_LOCAL_DIR
 }
 
 function cloneLatestDotfileRepos() {
