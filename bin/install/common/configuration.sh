@@ -31,14 +31,14 @@ function configureNvim() {
   fi
 
   if [ -e $NVIM_INIT ]; then 
-    echo "$PFX $NVIM_INIT already exists... Skipping."    
+    echo "$PFX $NVIM_INIT already exists... Skipping." 
   else
     echo "$PFX Creating $HOME/.vimrc symlink to $NVIM_INIT"
     ln -s $HOME/.vimrc $HOME/.config/nvim/init.vim
   fi
 
   echo "$PFX Installing vim plugin manager Vundle..."
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+  git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 
   # Silent install of vim plugins doesn't work
   #echo "$PFX Installing vim plugins to $HOME/.vim/bundle (no output to console, might take a while)..."
