@@ -64,12 +64,6 @@ function createDirectories() {
 
   echo "$PFX Creating CODES_DIR: $CODES_DIR"
   mkdir -p $CODES_DIR
-
-  echo "$PFX Creating REPO_DIR: $REPO_DIR"
-  mkdir -p $REPO_DIR
-  
-  echo "$PFX Creating REPO_LOCAL_DIR: $REPO_LOCAL_DIR"
-  mkdir -p $REPO_LOCAL_DIR
 }
 
 function cloneLatestDotfileRepos() {
