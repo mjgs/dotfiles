@@ -58,7 +58,7 @@ function createPublicPrivateKeyPair() {
 configureGit
 createPublicPrivateKeyPair
 
-$DOTFILES/bin/install/common/installs/dotfiles.sh
-$DOTFILES/bin/install/common/installs/node.sh
+$REPO_DIR/bin/install/common/installs/dotfiles.sh
+$REPO_DIR/bin/install/common/installs/node.sh
 
 exit 0
