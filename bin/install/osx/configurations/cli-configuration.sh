@@ -17,8 +17,9 @@ PFX=${PFX:-==>}
 HOME=${HOME:?}
 
 function configureRedis() {
+  echo "$PFX Configuring redis..."
+
   if which redis > /dev/null; then
-    echo "$PFX Configuring redis..."
     launchctl load $HOME/Library/LaunchAgents/homebrew.mxcl.redis.plist
   else
     echo "ERROR: redis must be installed"
