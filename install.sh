@@ -15,6 +15,7 @@ set -e; set -o pipefail
 
 CWD=$(pwd)
 PFX=${PFX:-==>}
+HOME=${HOME:?}
 CONFIGS_DIR=${CONFIGS_DIR:-$CWD/Configs}
 CODES_DIR=${CODES_DIR:-$CWD/Codes}
 REPO=${REPO:-git@github.com:mjgs/dotfiles.git}
