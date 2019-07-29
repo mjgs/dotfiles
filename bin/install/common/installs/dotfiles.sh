@@ -19,9 +19,7 @@ PFX=${PFX:-==>}
 
 CWD=$(pwd)
 CONFIGS_DIR=${CONFIGS_DIR:?}
-REPO=${REPO:?}
 REPO_DIR=${REPO_DIR:?}
-REPO_LOCAL=${REPO_LOCAL:?}
 REPO_LOCAL_DIR=${REPO_LOCAL_DIR:?}
 
 function createRegularDotfilesSymlinks() {
