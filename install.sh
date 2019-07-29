@@ -24,9 +24,9 @@ REPO_DIR=$CONFIGS_DIR/$(basename ${REPO%.git})
 REPO_LOCAL_DIR=$CONFIGS_DIR/$(basename ${REPO_LOCAL%.git})
 
 function printUsage() {
-  echo "Usage: install.sh <os_version>"
+  echo "Usage: install.sh <os_type>"
   echo
-  echo "  os_version - osx" 
+  echo "  os_type - osx" 
   echo
   echo "To add support for other os versions add scripts to directory:" 
   echo "$DOTFILES_DIR/bin/install/[os_version]"
@@ -102,13 +102,15 @@ function runInstallScripts() {
   echo "$PFX Running install scripts..."
   
   $REPO_DIR/bin/install/common/install.sh
-  $REPO_DIR/bin/install/$OS/install.sh
+  $REPO_DIR/bin/install/$OS_TYPE/install.sh
   $REPO_DIR/bin/install/common/configuration.sh
 }
 
 #
 # Main
 #
+
+OS_TYPE=$1
 
 if [ "$#" -ne 1 ]; then
   printUsage
