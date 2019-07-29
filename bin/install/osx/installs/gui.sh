@@ -45,7 +45,7 @@ function installHomebrewCask() {
   echo "$PFX Installing homebrew cask..."
   
   if [ ! -x $HOMEBREW_CASK ]; then
-    echo "brew tap caskroom/cask"
+    brew tap caskroom/cask
   else
     echo "$PFX Homebrew cask already installed, skipping..."
   fi
