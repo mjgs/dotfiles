@@ -28,8 +28,9 @@ function installRuby() {
   echo "$PFX Installing ruby..."
   
   if [ ! -x /usr/local/bin/ruby ]; then
-    echo "$PFX Installing ruby..."
     brew install ruby
+  else
+    echo "$PFX Ruby already installed, skipping..."
   fi
 
   echo "$PFX Current ruby: `which ruby`"

@@ -24,9 +24,12 @@ if [ ! -x /usr/local/bin/brew ]; then
 fi
 
 function installPython() {
+  echo "$PFX Installing python..."
+  
   if [ ! -x /usr/local/bin/python ]; then	
-    echo "$PFX Installing python..."
     brew install python --framework --with-brewed-openssl
+  else
+    echo "$PFX Python already installed, skipping..."
   fi
 
   echo "Current python: `which python`"
