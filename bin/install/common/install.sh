@@ -25,8 +25,8 @@ echo "$PFX Installing items common to all os versions"
 function configureGit() {
   echo "$PFX Configuring git..."
   
-  echo "PFX Setting git user.name: $NAME"
-  git config --global user.name $NAME
+  echo "$PFX Setting git user.name: $NAME"
+  git config --global user.name \"$NAME\"
 
   echo "$PFX Setting git user.email: $EMAIL"
   git config --global user.email $EMAIL
