@@ -47,7 +47,7 @@ function installNvm() {
 
 function installLatestNode() {
   # Nvm installs currently silently crash the script unless exit on error is turned off
-  # TODO - Figure out why it's necessary to turn off exit on error
+  # TODO - Figure out why it's necessary to turn off exit on error https://github.com/nvm-sh/nvm/issues/2080
   set +e
   nvm install stable
   set -e
