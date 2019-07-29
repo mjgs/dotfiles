@@ -33,10 +33,13 @@ function printUsage() {
   echo
   echo "Environment variables:"
   echo
-  echo "  CONFIGS_DIR             - path to configs directory"
-  echo "  CODES_DIR               - path to codes directory"
-  echo "  DOTFILES_REPO_URL       - url of repo used for dotfiles"     
-  echo "  DOTFILES_LOCAL_REPO_URL - url of repo used for local dotfiles"
+  echo "  HOME                    - user home directory"
+  echo "  CONFIGS_DIR             - path to configs directory (d)"
+  echo "  CODES_DIR               - path to codes directory (d)"
+  echo "  REPO                    - ssh connection string for dotfiles repository (d)
+  echo "  REPO_LOCAL              - ssh connection string for dotfiles_local repository (d)
+  echo "  REPO_DIR                - directory to clone the dotfiles repo to"
+  echo "  REPO_LOCAL_DIR          - directory to clone the dotfiles_local repo to"
   echo
 }
 
