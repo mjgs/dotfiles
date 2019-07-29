@@ -49,6 +49,6 @@ function installPythonPackages() {
 #
 
 installPython
-pythonPackages
+installPythonPackages
 
 exit 0
