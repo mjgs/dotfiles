@@ -34,11 +34,6 @@ PACKAGES=(
    wget
 )
 
-if [ ! -x /usr/local/bin/brew ]; then
-  echo "ERROR: Homebrew must be installed"
-  exit 1
-fi
-
 function installHomebrew() {
   echo "$PFX Installing homebrew..."
 
