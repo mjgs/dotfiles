@@ -14,7 +14,6 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-CWD=$(pwd)
 
 function configureNvim() {
   echo "$PFX Configuring nvim..."
