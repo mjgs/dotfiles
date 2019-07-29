@@ -32,7 +32,8 @@ function installPython() {
     echo "$PFX Python already installed, skipping..."
   fi
 
-  echo "Current python: `which python`"
+  echo "Current python: $(which python)"
+  echo "Current python version: $(python --version)"
 }
 
 function installPythonPackages() {

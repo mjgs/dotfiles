@@ -33,8 +33,9 @@ function installRuby() {
     echo "$PFX Ruby already installed, skipping..."
   fi
 
-  echo "$PFX Current ruby: `which ruby`"
-  echo "$PFX Current rubygems: `which gem`"
+  echo "$PFX Current ruby: $(which ruby)"
+  echo "$PFX Current ruby version: $(ruby --version)"
+  echo "$PFX Current rubygems: $(which gem)"
 }
 
 function installRubyGems() {

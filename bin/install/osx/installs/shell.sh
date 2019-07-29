@@ -30,6 +30,9 @@ installLatestBash() {
   else
     echo "$PFX Lastest bash already installed, skipping..."
   fi
+
+  echo "$PFX Current bash: $(which bash)"
+  echo "$PFX Current bash version: $(bash --version)"
 }
 
 #
