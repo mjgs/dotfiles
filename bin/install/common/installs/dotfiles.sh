@@ -15,7 +15,7 @@ set -e; set -o pipefail
 
 PFX=${PFX:-==>}
 
-echo "$PFX Installing dotfiles"
+
 
 CWD=$(pwd)
 CONFIGS_DIR=${CONFIGS_DIR:?}
@@ -75,6 +75,8 @@ function createXDGDotfilesSymlinks() {
 }
 
 function createDotfilesSymlinks() {
+  echo "$PFX Installing dotfiles"
+ 
   createRegularDotfilesSymlinks $REPO_DIR
   createXDGDotfilesSymlinks $REPO_DIR
 
