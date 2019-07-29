@@ -38,6 +38,8 @@ function printUsage() {
   echo "  CODES_DIR               - path to codes directory (d)"
   echo "  REPO                    - ssh connection string for dotfiles repository (d)"
   echo "  REPO_LOCAL              - ssh connection string for dotfiles_local repository (d)"
+  echo 
+  echo "  (d) - indicates that a default is set, see code for details"
   echo
 }
 
