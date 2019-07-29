@@ -22,8 +22,6 @@ REPO_LOCAL=${REPO_LOCAL:-git@github.com:mjgs/dotfiles_local.git}
 REPO_DIR=$CONFIGS_DIR/$(basename ${REPO%.git})
 REPO_LOCAL_DIR=$CONFIGS_DIR/$(basename ${REPO_LOCAL%.git})
 
-export PFX CONFIGS_DIR CODES_DIR REPO REPO_DIR REPO_LOCAL REPO_LOCAL_DIR
-
 function printUsage() {
   echo "Usage: install.sh <os_version>"
   echo
@@ -52,10 +50,7 @@ function getAdminPassword() {
 
 function getUserInfo() {
   read -p "What is your name? " NAME
-  export NAME
-
   read -p "What is your email address? " EMAIL
-  export EMAIL
 }
 
 function createDirectories() {
@@ -88,6 +83,17 @@ function cloneLatestDotfileRepos() {
   fi
 }
 
+function exportVariables() {
+  export PFX
+  export CONFIGS_DIR
+  export CODES_DIR
+  export REPO
+  export REPO_DIR
+  export REPO_LOCAL
+  export REPO_LOCAL_DIR
+  export NAME EMAIL
+}
+
 function runInstallScripts() {
   echo "$PFX Running install scripts..."
   
@@ -117,6 +123,7 @@ fi
 getUserInfo
 createDirectories
 cloneLatestDotfileRepos
+exportVariables
 runInstallScripts
 
 TIMESTAMP_END=$(date)
