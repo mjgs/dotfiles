@@ -28,8 +28,9 @@ function printUsage() {
   echo
   echo "  os_type - osx" 
   echo
-  echo "To add support for other os versions add scripts to directory:" 
-  echo "$DOTFILES_DIR/bin/install/[os_version]"
+  echo "Add other os types scripts to the dotfiles repo in directory:" 
+  echo
+  echo "  /bin/install/<os_type>"
   echo
   echo "Environment variables:"
   echo
