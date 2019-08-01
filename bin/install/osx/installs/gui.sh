@@ -21,7 +21,7 @@ APPLICATIONS=(
  google-chrome
  imageoptim
  libreoffice
- malwarebytes-anti-malware
+ malwarebytes
  mongohub
  omnidisksweeper
  opera
