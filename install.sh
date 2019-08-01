@@ -44,6 +44,18 @@ function printUsage() {
   echo
 }
 
+function printVariables() {
+  echo "$PFX Environment variables set:"
+  echo
+  echo "  OS_TYPE: $OS_TYPE"
+  echo "  HOME: $HOME"
+  echo "  CONFIGS_DIR: $CONFIGS_DIR"
+  echo "  CODES_DIR: $CODES_DIR"
+  echo "  REPO: $REPO"
+  echo "  REPO_LOCAL: $REPO_LOCAL"
+  echo
+}
+
 function getAdminPassword() {
   # Ask for the administrator password upfront.
   echo "Admin password is required for install..."
@@ -111,9 +123,7 @@ function runInstallScripts() {
 # Main
 #
 
-OS_TYPE=$1
-
-if [ "$1" -eq "-h" ] || [ "$1" -eq "--help" ]; then
+if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
   printUsage
   exit 1
 fi
@@ -126,6 +136,7 @@ if [ ! -x /usr/bin/git ]; then
   exit 1
 fi
 
+printVariables
 #getAdminPassword
 getUserInfo
 createDirectories
