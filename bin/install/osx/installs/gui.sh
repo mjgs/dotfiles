@@ -26,7 +26,7 @@ APPLICATIONS=(
  opera
  skype
  sublime-text
- torbrowser
+ tor-browser 
  vlc
  wd-security
  docker
