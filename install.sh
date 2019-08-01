@@ -15,6 +15,7 @@ set -e; set -o pipefail
 
 CWD=$(pwd)
 PFX=${PFX:-==>}
+OS_TYPE=${OS_TYPE:?}
 HOME=${HOME:?}
 CONFIGS_DIR=${CONFIGS_DIR:-$CWD/Configs}
 CODES_DIR=${CODES_DIR:-$CWD/Codes}
@@ -24,23 +25,22 @@ REPO_DIR=$CONFIGS_DIR/$(basename ${REPO%.git})
 REPO_LOCAL_DIR=$CONFIGS_DIR/$(basename ${REPO_LOCAL%.git})
 
 function printUsage() {
-  echo "Usage: install.sh <os_type>"
+  echo "Usage: install.sh"
   echo
-  echo "  os_type - osx" 
-  echo
-  echo "Add other os types scripts to the dotfiles repo in directory:" 
-  echo
-  echo "  /bin/install/<os_type>"
+
   echo
   echo "Environment variables:"
-  echo
-  echo "  HOME                    - user home directory"
-  echo "  CONFIGS_DIR             - path to configs directory (d)"
-  echo "  CODES_DIR               - path to codes directory (d)"
-  echo "  REPO                    - ssh connection string for dotfiles repository (d)"
-  echo "  REPO_LOCAL              - ssh connection string for dotfiles_local repository (d)"
+  echo 
+  echo "  OS_TYPE     - osx (*)"
+  echo "  HOME        - user home directory"
+  echo "  CONFIGS_DIR - path to configs directory (d)"
+  echo "  CODES_DIR   - path to codes directory (d)"
+  echo "  REPO        - ssh connection string for dotfiles repository (d)"
+  echo "  REPO_LOCAL  - ssh connection string for dotfiles_local repository (d)"
   echo 
   echo "  (d) - indicates that a default is set, see code for details"
+  echo
+  echo "  (*) - add other os types scripts to bin/install/<os_type>"
   echo
 }
 
