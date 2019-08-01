@@ -19,13 +19,15 @@ directories in current directory.
 
 Environment variables that you should set before install:
 
-    # Directories
-    export CONFIGS_DIR=~/Documents/Configs
-    export CODES_DIR=~/Documents/Codes
-    
-    # Location of dotfiles repos
-    export DOTFILES_URL=https://path/to/public/dotfiles/repo
-    export DOTFILES_LOCAL_URL=https://path/to/private/dotfiles/repo
+```
+  HOME        - user home directory"
+  CONFIGS_DIR - path to configs directory (d)"
+  CODES_DIR   - path to codes directory (d)"
+  REPO        - ssh connection string for dotfiles repository (d)"
+  REPO_LOCAL  - ssh connection string for dotfiles_local repository (d)"
+
+ (d) - Have default values (check the code for details)
+```
 
 ## Thanks to…
 
