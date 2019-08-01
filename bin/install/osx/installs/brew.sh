@@ -20,7 +20,7 @@ PACKAGES=(
    cmake
    git
    git-extras
-   heroku-toolbelt
+#   heroku-toolbelt
    httpie
    iperf
    jq
