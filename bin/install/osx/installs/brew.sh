@@ -72,7 +72,7 @@ configureMongodb() {
 function configureRedis() {
   echo "$PFX Configuring redis..."
 
-  if which redis > /dev/null; then
+  if which redis-server > /dev/null; then
     launchctl load $HOME/Library/LaunchAgents/homebrew.mxcl.redis.plist
   else
     echo "ERROR: redis must be installed"
