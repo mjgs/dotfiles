@@ -24,18 +24,10 @@ function configureOsxSettingsAndApps() {
   $REPO_DIR/bin/install/osx/configurations/configure_dock_apps.sh
 }
 
-function configure3rdPartyApps() {
-  echo "$PFX Configuring OSX 3rd party application"
-
-  $REPO_DIR/bin/install/osx/configurations/cli-configuration.sh
-  $REPO_DIR/bin/install/osx/configurations/gui-configuration.sh
-}
-
 #
 # Main
 #
 
 configureOsxSettingsAndApps
-configure3rdPartyApps
 
 exit 0
