@@ -24,18 +24,20 @@ echo "$PFX Installing items common to all os versions"
 # Configure git here since it's needed during the installation
 function configureGit() {
   echo "$PFX Configuring git..."
-  
-  echo "$PFX Setting git user.name: $NAME"
-  git config --global user.name \"$NAME\"
 
-  echo "$PFX Setting git user.email: $EMAIL"
-  git config --global user.email $EMAIL
+  if [ ! -e $HOME/.gitconfig ]; then
+    echo "$PFX Setting git user.name: $NAME"
+    git config --global user.name \"$NAME\"
 
-  echo "$PFX Setting git push.default: simple"
-  git config --global push.default simple
+    echo "$PFX Setting git user.email: $EMAIL"
+    git config --global user.email $EMAIL
 
-  echo "$PFX Setting git core.excludesfile: $HOME/.gitignore"
-  git config --global core.excludesfile '$HOME/.gitignore'
+    echo "$PFX Setting git push.default: simple"
+    git config --global push.default simple
+
+    echo "$PFX Setting git core.excludesfile: $HOME/.gitignore"
+    git config --global core.excludesfile '$HOME/.gitignore'
+  fi
 }
 
 function createPublicPrivateKeyPair() {
