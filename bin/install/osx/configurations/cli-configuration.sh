@@ -16,6 +16,14 @@ set -e; set -o pipefail
 PFX=${PFX:-==>}
 HOME=${HOME:?}
 
+configureMongodb() {
+  echo "$PFX Configuring mongodb..."
+
+  if ! grep $HOME/.bash_profile mongodb-community; then
+    echo 'export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"' >> $HOME/.bash_profile
+  fi
+}
+
 function configureRedis() {
   echo "$PFX Configuring redis..."
 
@@ -31,6 +39,7 @@ function configureRedis() {
 # Main
 #
 
+configureMongodb
 configureRedis
 
 exit 0
