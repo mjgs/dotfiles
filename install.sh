@@ -113,7 +113,7 @@ function runInstallScripts() {
 
 OS_TYPE=$1
 
-if [ "$#" -ne 1 ]; then
+if [ "$1" -eq "-h" ] || [ "$1" -eq "--help" ]; then
   printUsage
   exit 1
 fi
