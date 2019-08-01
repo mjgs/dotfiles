@@ -22,6 +22,7 @@ PACKAGES=(
    git-extras
    mongodb-community@4.0
    httpie
+   heroku
    iperf
    jq
    neovim
@@ -48,6 +49,7 @@ function addHomebrewTaps() {
   echo "$PFX Adding homebrew taps..."
 
   brew tap mongodb/brew
+  brew tap heroku/brew
 }
 
 function installHomebrewPackages() {
