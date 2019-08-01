@@ -20,6 +20,7 @@ PACKAGES=(
    cmake
    git
    git-extras
+   mongodb-community@4.0
    httpie
    iperf
    jq
@@ -43,9 +44,15 @@ function installHomebrew() {
   fi
 }
 
+function addHomebrewTaps() {
+  echo "$PFX Adding homebrew taps..."
+
+  brew tap mongodb/brew
+}
+
 function installHomebrewPackages() {
   echo "$PFX Installing homebrew packages..."
-  
+ 
   for PACKAGE in "${PACKAGES[@]}"; do
     echo "$PFX installing brew package: $PACKAGE"
     brew install $PACKAGE
@@ -57,6 +64,7 @@ function installHomebrewPackages() {
 #
 
 installHomebrew
+addHomebrewTaps
 installHomebrewPackages
 
 exit 0
