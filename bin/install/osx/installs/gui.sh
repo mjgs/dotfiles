@@ -22,7 +22,6 @@ APPLICATIONS=(
  imageoptim
  libreoffice
  malwarebytes
- mongohub
  omnidisksweeper
  opera
  skype
