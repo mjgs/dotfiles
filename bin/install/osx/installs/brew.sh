@@ -23,7 +23,7 @@ PACKAGES=(
    httpie
    iperf
    jq
-   mongodb@3.6.0
+   mongodb@3.6
    neovim/neovim/neovim
    nvm
    openssl
