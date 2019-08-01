@@ -28,7 +28,6 @@ APPLICATIONS=(
  sublime-text
  tor-browser 
  vlc
- wd-security
  docker
  mongodb-compass
  visual-studio-code
