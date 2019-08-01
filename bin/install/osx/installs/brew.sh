@@ -61,6 +61,37 @@ function installHomebrewPackages() {
   done
 }
 
+configureMongodb() {
+  echo "$PFX Configuring mongodb..."
+
+  if ! grep $HOME/.bash_profile mongodb-community; then
+    echo 'export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"' >> $HOME/.bash_profile
+  fi
+}
+
+function configureRedis() {
+  echo "$PFX Configuring redis..."
+
+  if which redis > /dev/null; then
+    launchctl load $HOME/Library/LaunchAgents/homebrew.mxcl.redis.plist
+  else
+    echo "ERROR: redis must be installed"
+    exit 1
+  fi
+}
+
+function configureOpenssl() {
+  echo "$PFX Configuring openssl..."
+
+  echo 'export PATH="/usr/local/opt/openssl/bin:$PATH"' >> $HOME/.bash_profile
+}
+
+function configurePackages() {
+  configureMongodb
+  configureRedis
+  configureOpenssl
+}
+
 #
 # Main
 #
@@ -68,5 +99,6 @@ function installHomebrewPackages() {
 installHomebrew
 addHomebrewTaps
 installHomebrewPackages
+configurePackages
 
 exit 0
