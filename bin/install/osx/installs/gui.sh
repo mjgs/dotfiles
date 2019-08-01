@@ -64,9 +64,9 @@ function installHomebrewCaskPackages() {
 function configureVscode() {
   echo "$PFX Configuring vscode user settings"
     
-  ln -sf $VSCODE_DOTFILES_DIR/settings.json $VSCODE_USER_SETTINGS_DIR/settings.json
-  ln -sf $VSCODE_DOTFILES_DIR/keybindings.json $VSCODE_USER_SETTINGS_DIR/keybindings.json
-  ln -sfn $VSCODE_DOTFILES_DIR/snippets $VSCODE_USER_SETTINGS_DIR/Code/User/snippets
+  ln -sf "$VSCODE_DOTFILES_DIR"/settings.json "$VSCODE_USER_SETTINGS_DIR"/settings.json
+  ln -sf "$VSCODE_DOTFILES_DIR"/keybindings.json "$VSCODE_USER_SETTINGS_DIR"/keybindings.json
+  ln -sfn "$VSCODE_DOTFILES_DIR"/snippets "$VSCODE_USER_SETTINGS_DIR"/Code/User/snippets
 }
 
 configurePackages() {
