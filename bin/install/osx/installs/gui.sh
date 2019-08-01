@@ -20,7 +20,6 @@ APPLICATIONS=(
  firefox
  google-chrome
  imageoptim
- iterm2@3.1.7
  libreoffice
  malwarebytes-anti-malware
  mongohub
