@@ -13,7 +13,6 @@ fi
 # Exit on error
 set -e; set -o pipefail
 
-CWD=$(pwd)
 PFX=${PFX:-==>}
 REPO_DIR=${REPO_DIR:?}
 
