@@ -64,7 +64,7 @@ function installHomebrewPackages() {
 configureMongodb() {
   echo "$PFX Configuring mongodb..."
 
-  if ! grep $HOME/.bash_profile mongodb-community; then
+  if ! grep mongodb-community $HOME/.bash_profile; then
     echo 'export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"' >> $HOME/.bash_profile
   fi
 }
@@ -72,7 +72,7 @@ configureMongodb() {
 function configureRedis() {
   echo "$PFX Configuring redis..."
 
-  if which redis > /dev/null; then
+  if which redis-server > /dev/null; then
     launchctl load $HOME/Library/LaunchAgents/homebrew.mxcl.redis.plist
   else
     echo "ERROR: redis must be installed"
