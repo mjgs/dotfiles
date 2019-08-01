@@ -24,7 +24,7 @@ PACKAGES=(
    httpie
    iperf
    jq
-   neovim/neovim/neovim
+   neovim
    nvm
    openssl
    redis
