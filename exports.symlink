@@ -8,6 +8,14 @@ export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="$DOTFILES_DIR/bin:$PATH"
 export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# for compilers to find ruby
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
+
+# For pkg-config to find ruby
+export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 
 # Add the current path to the bash shell
 PS1='\w $ '
