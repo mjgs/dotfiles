@@ -15,6 +15,7 @@ set -e; set -o pipefail
 
 PFX=${PFX:-==>}
 HOMEBREW_CASK=/usr/local/Library/Taps/caskroom/homebrew-cask/cmd/brew-cask.rb
+
 APPLICATIONS=(
  alfred
  firefox

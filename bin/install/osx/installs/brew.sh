@@ -14,24 +14,27 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
+REPO_DIR=${REPO_DIR:?}
+OS_TYPE=${OS_TYPE:?}
 HOMEBREW_URL=https://raw.githubusercontent.com/Homebrew/install/master/install
+CONFIGURES_DIR=$REPO_DIR/$(dirname $0)/../configurations/cli
 PACKAGES=(
-   ack
-   cmake
-   git
-   git-extras
-   mongodb-community@4.0
-   httpie
-   heroku
-   iperf
-   jq
-   neovim
-   nvm
-   openssl
-   redis
-   tree
-   watch
-   wget
+  ack
+  cmake
+  git
+  git-extras
+  mongodb-community@4.0
+  httpie
+  heroku
+  iperf
+  jq
+  neovim
+  nvm
+  openssl
+  redis
+  tree
+  watch
+  wget
 )
 
 function installHomebrew() {
@@ -56,40 +59,23 @@ function installHomebrewPackages() {
   echo "$PFX Installing homebrew packages..."
  
   for PACKAGE in "${PACKAGES[@]}"; do
-    echo "$PFX installing brew package: $PACKAGE"
+    echo "$PFX Installing package: $PACKAGE"
     brew install $PACKAGE
+    configurePackage $PACKAGE
+    echo "$PFX Install complete: $(date +"%Y-%m-%d-%H%M%S")"
   done
 }
 
-configureMongodb() {
-  echo "$PFX Configuring mongodb..."
-
-  if ! grep mongodb-community $HOME/.bash_profile; then
-    echo 'export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"' >> $HOME/.bash_profile
-  fi
-}
-
-function configureRedis() {
-  echo "$PFX Configuring redis..."
-
-  if which redis-server > /dev/null; then
-    launchctl load $HOME/Library/LaunchAgents/homebrew.mxcl.redis.plist
+function configurePackage() {
+  local PACKAGE=$1
+  
+  local CONFIGURATION_SCRIPT=$CONFIGURES_DIR/$(echo $PACKAGE | cut -d@ -f1).sh
+  
+  if [ -e $CONFIGURATION_SCRIPT ]; then
+    $CONFIGURATION_SCRIPT
   else
-    echo "ERROR: redis must be installed"
-    exit 1
-  fi
-}
-
-function configureOpenssl() {
-  echo "$PFX Configuring openssl..."
-
-  echo 'export PATH="/usr/local/opt/openssl/bin:$PATH"' >> $HOME/.bash_profile
-}
-
-function configurePackages() {
-  configureMongodb
-  configureRedis
-  configureOpenssl
+    echo "$PFX No configuration script..."
+  fi 
 }
 
 #
@@ -99,6 +85,5 @@ function configurePackages() {
 installHomebrew
 addHomebrewTaps
 installHomebrewPackages
-configurePackages
 
 exit 0
