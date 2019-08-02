@@ -15,9 +15,8 @@ set -e; set -o pipefail
 
 PFX=${PFX:-==>}
 REPO_DIR=${REPO_DIR:?}
-OS_TYPE=${OS_TYPE:?}
 HOMEBREW_URL=https://raw.githubusercontent.com/Homebrew/install/master/install
-CONFIGURES_DIR=$REPO_DIR/$(dirname $0)/../configurations/cli
+CONFIGURATIONS_DIR=$REPO_DIR/$(dirname $0)/../configurations/cli
 PACKAGES=(
   ack
   cmake
@@ -69,7 +68,7 @@ function installHomebrewPackages() {
 function configurePackage() {
   local PACKAGE=$1
   
-  local CONFIGURATION_SCRIPT=$CONFIGURES_DIR/$(echo $PACKAGE | cut -d@ -f1).sh
+  local CONFIGURATION_SCRIPT=$CONFIGURATIONS_DIR/$(echo $PACKAGE | cut -d@ -f1).sh
   
   if [ -e $CONFIGURATION_SCRIPT ]; then
     $CONFIGURATION_SCRIPT

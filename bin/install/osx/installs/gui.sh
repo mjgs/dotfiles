@@ -14,8 +14,9 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
+REPO_DIR=${REPO_DIR:?}
 HOMEBREW_CASK=/usr/local/Library/Taps/caskroom/homebrew-cask/cmd/brew-cask.rb
-
+CONFIGURATIONS_DIR=$REPO_DIR/$(dirname $0)/../configurations/gui
 APPLICATIONS=(
  alfred
  firefox
@@ -33,10 +34,6 @@ APPLICATIONS=(
  mongodb-compass
  visual-studio-code
 )
-REPO_DIR=${REPO_DIR:?}
-HOME=${HOME:?}
-VSCODE_DOTFILES_DIR=$REPO_DIR/vscode
-VSCODE_USER_SETTINGS_DIR="$HOME/Library/Application\ Support/Code/User"
 
 if [ ! -x /usr/local/bin/brew ]; then
   echo "ERROR: Homebrew must be installed"
@@ -59,22 +56,21 @@ function installHomebrewCaskPackages() {
   for APPLICATION in "${APPLICATIONS[@]}"; do
     echo "$PFX Installing application: $APPLICATION"
     brew cask install $APPLICATION
+    configureApplication #APPLICATION
+    echo "$PFX Install complete: $(date +"%Y-%m-%d-%H%M%S")"
   done
 }
 
-function configureVscode() {
-  echo "$PFX Configuring vscode user settings"
+function configureApplication() {
+  local APPLICATION=$1
 
-  mkdir -p "$VSCODE_DOTFILES_DIR"
-  mkdir -p "$VSCODE_USER_SETTINGS_DIR"
-
-  ln -sf "$VSCODE_DOTFILES_DIR"/settings.json "$VSCODE_USER_SETTINGS_DIR"/settings.json
-  ln -sf "$VSCODE_DOTFILES_DIR"/keybindings.json "$VSCODE_USER_SETTINGS_DIR"/keybindings.json
-  ln -sfn "$VSCODE_DOTFILES_DIR"/snippets "$VSCODE_USER_SETTINGS_DIR"/snippets
-}
-
-configurePackages() {
-  configureVscode
+  local CONFIGURATION_SCRIPT=$CONFIGURATIONS_DIR/$(echo $APPLICATION | cut -d@ -f1).sh
+      
+  if [ -e $CONFIGURATION_SCRIPT ]; then
+    $CONFIGURATION_SCRIPT
+  else
+    echo "$PFX No configuration script..."
+  fi 
 }
 
 #
@@ -83,6 +79,5 @@ configurePackages() {
 
 installHomebrewCask
 installHomebrewCaskPackages
-configurePackages
 
 exit 0
