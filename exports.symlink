@@ -4,7 +4,6 @@ source $HOME/.exports_local
 
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$DOTFILES_DIR/bin:$PATH"
 
 # Add the current path to the bash shell
