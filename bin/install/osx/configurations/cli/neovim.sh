@@ -10,9 +10,9 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-BASE_DIR=${BASE_DIR:?}
+REPO_DIR=${REPO_DIR:?}
 
 # Run the common configuration
-$BASE_DIR/bin/install/common/configurations/cli/neovim.sh
+$REPO_DIR/bin/install/common/configurations/cli/neovim.sh
 
 exit 0

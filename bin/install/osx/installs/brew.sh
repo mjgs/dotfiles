@@ -14,7 +14,7 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-BASE_DIR=${BASE_DIR:?}
+REPO_DIR=${REPO_DIR:?}
 HOMEBREW_URL=https://raw.githubusercontent.com/Homebrew/install/master/install
 PACKAGES=(
   ack
@@ -67,7 +67,7 @@ function installHomebrewPackages() {
 function configurePackage() {
   local PACKAGE=$1
  
-  local CONFIGURATIONS_DIR=$BASE_DIR/bin/install/osx/configurations/cli 
+  local CONFIGURATIONS_DIR=$REPO_DIR/bin/install/osx/configurations/cli 
   local CONFIGURATION_SCRIPT_NAME=$(echo $PACKAGE | cut -d@ -f1).sh
   local CONFIGURATION_SCRIPT=$CONFIGURATIONS_DIR/$CONFIGURATION_SCRIPT_NAME
   

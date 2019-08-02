@@ -14,7 +14,7 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-BASE_DIR=${BASE_DIR:?}
+REPO_DIR=${REPO_DIR:?}
 
 if [ ! -x /usr/bin/gcc ]; then
   echo "$PFX Installing xcode..."
@@ -23,17 +23,17 @@ fi
 
 echo "$PFX Installing OSX items"
 
-$BASE_DIR/bin/install/osx/installs/brew.sh
-$BASE_DIR/bin/install/osx/installs/gui.sh
-$BASE_DIR/bin/install/osx/installs/ruby.sh
-$BASE_DIR/bin/install/osx/installs/python.sh
-$BASE_DIR/bin/install/osx/installs/shell.sh
+$REPO_DIR/bin/install/osx/installs/brew.sh
+$REPO_DIR/bin/install/osx/installs/gui.sh
+$REPO_DIR/bin/install/osx/installs/ruby.sh
+$REPO_DIR/bin/install/osx/installs/python.sh
+$REPO_DIR/bin/install/osx/installs/shell.sh
 
 echo "$PFX Configuring OSX settings and applications"
 
-$BASE_DIR/bin/install/osx/configurations/system/set_system_prefs.sh
-$BASE_DIR/bin/install/osx/configurations/system/set_hidden_prefs.sh
-$BASE_DIR/bin/install/osx/configurations/set_application_prefs.sh
-$BASE_DIR/bin/install/osx/configurations/system/configure_dock_apps.sh
+$REPO_DIR/bin/install/osx/configurations/system/set_system_prefs.sh
+$REPO_DIR/bin/install/osx/configurations/system/set_hidden_prefs.sh
+$REPO_DIR/bin/install/osx/configurations/set_application_prefs.sh
+$REPO_DIR/bin/install/osx/configurations/system/configure_dock_apps.sh
 
 exit 0

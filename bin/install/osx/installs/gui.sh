@@ -14,7 +14,7 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-BASE_DIR=${BASE_DIR:?}
+REPO_DIR=${REPO_DIR:?}
 HOMEBREW_CASK=/usr/local/Library/Taps/caskroom/homebrew-cask/cmd/brew-cask.rb
 APPLICATIONS=(
  alfred
@@ -63,7 +63,7 @@ function installHomebrewCaskPackages() {
 function configureApplication() {
   local APPLICATION=$1
 
-  local CONFIGURATIONS_DIR=$BASE_DIR/bin/install/osx/configurations/gui
+  local CONFIGURATIONS_DIR=$REPO_DIR/bin/install/osx/configurations/gui
   local CONFIGURATION_SCRIPT_NAME=$(echo $APPLICATION | cut -d@ -f1).sh
   local CONFIGURATION_SCRIPT=$CONFIGURATIONS_DIR/$CONFIGURATION_SCRIPT_NAME
       

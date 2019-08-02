@@ -4,7 +4,7 @@
 # Description: installs items common to all os installations
 #
 
-if [ -n "$DEBUG" ]; then
+f [ -n "$DEBUG" ]; then
   echo "$0: Setting bash option -x for debug"
   PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
   set -x
@@ -14,7 +14,7 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-BASE_DIR=${BASE_DIR:?}
+REPO_DIR=${REPO_DIR:?}
 
 echo "$PFX Installing items common to all os versions"
 
@@ -23,10 +23,10 @@ echo "$PFX Installing items common to all os versions"
 #
 
 # Configure git and ssh keys since they are needed during the installation
-$BASE_DIR/bin/install/common/configurations/cli/git.sh
-$BASE_DIR/bin/install/common/configurations/cli/publicPrivateKeyPair.sh
+$REPO_DIR/bin/install/common/configurations/cli/git.sh
+$REPO_DIR/bin/install/common/configurations/cli/publicPrivateKeyPair.sh
 
-$BASE_DIR/bin/install/common/installs/dotfiles.sh
-$BASE_DIR/bin/install/common/installs/node.sh
+$REPO_DIR/bin/install/common/installs/dotfiles.sh
+$REPO_DIR/bin/install/common/installs/node.sh
 
 exit 0
