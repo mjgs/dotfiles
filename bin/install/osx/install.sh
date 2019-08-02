@@ -14,7 +14,6 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-REPO_DIR=${REPO_DIR:?}
 
 if [ ! -x /usr/bin/gcc ]; then
   echo "$PFX Installing xcode..."
@@ -23,10 +22,17 @@ fi
 
 echo "$PFX Installing OSX items"
 
-$REPO_DIR/bin/install/osx/installs/brew.sh
-$REPO_DIR/bin/install/osx/installs/gui.sh
-$REPO_DIR/bin/install/osx/installs/ruby.sh
-$REPO_DIR/bin/install/osx/installs/python.sh
-$REPO_DIR/bin/install/osx/installs/shell.sh
+./installs/brew.sh
+./installs/gui.sh
+./installs/ruby.sh
+./installs/python.sh
+./installs/shell.sh
+
+echo "$PFX Configuring OSX settings and applications"
+
+../configurations/system/set_system_prefs.sh
+../configurations/system/set_hidden_prefs.sh
+../configurations/system/set_application_prefs.sh
+../configurations/system/configure_dock_apps.sh
 
 exit 0
