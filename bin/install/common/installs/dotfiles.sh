@@ -14,7 +14,6 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-CONFIGS_DIR=${CONFIGS_DIR:?}
 REPO_DIR=${REPO_DIR:?}
 REPO_LOCAL_DIR=${REPO_LOCAL_DIR:?}
 

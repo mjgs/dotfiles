@@ -18,23 +18,20 @@ PFX=${PFX:-==>}
 OS_TYPE=${OS_TYPE:?}
 HOME=${HOME:?}
 REPO_DIR=$(dirname $0)
-CONFIGS_DIR=${CONFIGS_DIR:-$CWD/Configs}
 CODES_DIR=${CODES_DIR:-$CWD/Codes}
 REPO=${REPO:-git@github.com:mjgs/dotfiles.git}
 REPO_LOCAL=${REPO_LOCAL:-git@github.com:mjgs/dotfiles_local.git}
-REPO_DIR=$CONFIGS_DIR/$(basename ${REPO%.git})
-REPO_LOCAL_DIR=$CONFIGS_DIR/$(basename ${REPO_LOCAL%.git})
+REPO_DIR=$CODES_DIR/$(basename ${REPO%.git})
+REPO_LOCAL_DIR=$CODES_DIR/$(basename ${REPO_LOCAL%.git})
 
 function printUsage() {
   echo "Usage: install.sh"
   echo
-
   echo
   echo "Environment variables:"
   echo 
   echo "  OS_TYPE     - osx (*)"
   echo "  HOME        - user home directory"
-  echo "  CONFIGS_DIR - path to configs directory (d)"
   echo "  CODES_DIR   - path to codes directory (d)"
   echo "  REPO        - ssh connection string for dotfiles repository (d)"
   echo "  REPO_LOCAL  - ssh connection string for dotfiles_local repository (d)"
@@ -50,7 +47,6 @@ function printVariables() {
   echo
   echo "  OS_TYPE: $OS_TYPE"
   echo "  HOME: $HOME"
-  echo "  CONFIGS_DIR: $CONFIGS_DIR"
   echo "  CODES_DIR: $CODES_DIR"
   echo "  REPO: $REPO"
   echo "  REPO_LOCAL: $REPO_LOCAL"
@@ -72,9 +68,6 @@ function getUserInfo() {
 }
 
 function createDirectories() {
-  echo "$PFX Creating CONFIGS_DIR: $CONFIGS_DIR"
-  mkdir -p $CONFIGS_DIR
-
   echo "$PFX Creating CODES_DIR: $CODES_DIR"
   mkdir -p $CODES_DIR
 }
@@ -104,7 +97,6 @@ function cloneLatestDotfileRepos() {
 function exportVariables() {
   export PFX
   export REPO_DIR
-  export CONFIGS_DIR
   export CODES_DIR
   export REPO
   export REPO_DIR
