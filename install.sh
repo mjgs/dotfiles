@@ -17,6 +17,7 @@ CWD=$(pwd)
 PFX=${PFX:-==>}
 OS_TYPE=${OS_TYPE:?}
 HOME=${HOME:?}
+BASE_DIR=$(dirname $0)
 CONFIGS_DIR=${CONFIGS_DIR:-$CWD/Configs}
 CODES_DIR=${CODES_DIR:-$CWD/Codes}
 REPO=${REPO:-git@github.com:mjgs/dotfiles.git}
@@ -102,6 +103,7 @@ function cloneLatestDotfileRepos() {
 
 function exportVariables() {
   export PFX
+  export BASE_DIR
   export CONFIGS_DIR
   export CODES_DIR
   export REPO
@@ -114,9 +116,9 @@ function exportVariables() {
 function runInstallScripts() {
   echo "$PFX Running install scripts..."
   
-  $REPO_DIR/bin/install/common/install.sh
-  $REPO_DIR/bin/install/$OS_TYPE/install.sh
-  $REPO_DIR/bin/install/common/configuration.sh
+  $BASE_DIR/bin/install/common/install.sh
+  $BASE_DIR/bin/install/$OS_TYPE/install.sh
+  $BASE_DIR/bin/install/common/configuration.sh
 }
 
 #

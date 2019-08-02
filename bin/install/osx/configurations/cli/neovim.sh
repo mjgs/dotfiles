@@ -4,8 +4,9 @@
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
+BASE_DIR=${BASE_DIR:?}
 
 # Run the common configuration
-../../../common/configurations/cli/neovim.sh
+$BASE_DIR/bin/install/common/configurations/cli/neovim.sh
 
 exit 0

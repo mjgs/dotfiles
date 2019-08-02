@@ -29,6 +29,10 @@ Environment variables that you should set before install:
  (d) - Have default values (check the code for details)
 ```
 
+## TODO
+
+- Update the git clone commands to be idempodent
+
 ## Thanks to…
 
 * Nick Nisi [dotfiles repository](https://github.com/nicknisi/dotfiles)

@@ -7,7 +7,6 @@ PFX=${PFX:-==>}
 HOME=${HOME:?}
 XDG_CONFIG_DIR=$HOME/.config
 NVIM_DIR=$XDG_CONFIG_DIR/nvim
-NVIM_INIT=$XDG_CONFIG_DIR/init.vim
 VIM_DIR=$HOME/.vim
 
 echo "$PFX Configuring package: neovim"
@@ -21,11 +20,11 @@ else
   ln -s $HOME/.vim $NVIM_DIR
 fi
 
-if [ -e $NVIM_INIT ]; then 
-  echo "$PFX $NVIM_INIT already exists... Skipping." 
+if [ -e $NVIM_DIR/init.vim ]; then 
+  echo "$PFX $NVIM_DIR/init.vim already exists... Skipping." 
 else
-  echo "$PFX Creating $HOME/.vimrc symlink to $NVIM_INIT"
-  ln -s $HOME/.vimrc $NVIM_INIT
+  echo "$PFX Creating $HOME/.vimrc symlink to $NVIM_DIR/init.vim"
+  ln -s $HOME/.vimrc $NVIM_DIR/init.vim
 fi
 
 echo "$PFX Installing vim plugin manager Vundle..."

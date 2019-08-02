@@ -14,9 +14,7 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-REPO_DIR=${REPO_DIR:?}
-INSTALLS_DIR=$REPO_DIR/$(dirname $0)/../installs
-CONFIGURATIONS_DIR=$REPO_DIR/$(dirname $0)/../configurations
+BASE_DIR=${BASE_DIR:?}
 
 echo "$PFX Installing items common to all os versions"
 
@@ -25,10 +23,10 @@ echo "$PFX Installing items common to all os versions"
 #
 
 # Configure git and ssh keys since they are needed during the installation
-$CONFIGURATIONS_DIR/cli/git.sh
-$CONFIGURATIONS_DIR/cli/publicPrivateKeyPair
+$BASE_DIR/bin/install/common/configurations/cli/git.sh
+$BASE_DIR/bin/install/common/configurations/cli/publicPrivateKeyPair.sh
 
-$INSTALLS_DIR/dotfiles.sh
-$INSTALLS_DIR/node.sh
+$BASE_DIR/bin/install/common/installs/dotfiles.sh
+$BASE_DIR/bin/install/common/installs/node.sh
 
 exit 0
