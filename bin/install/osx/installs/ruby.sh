@@ -51,6 +51,8 @@ function installRubyGems() {
 # Main
 #
 
+source $HOME/.bash_profile
+
 installRuby
 installRubyGems
 
