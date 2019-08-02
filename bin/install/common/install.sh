@@ -4,7 +4,7 @@
 # Description: installs items common to all os installations
 #
 
-f [ -n "$DEBUG" ]; then
+if [ -n "$DEBUG" ]; then
   echo "$0: Setting bash option -x for debug"
   PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
   set -x
