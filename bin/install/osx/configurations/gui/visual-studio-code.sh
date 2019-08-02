@@ -4,7 +4,7 @@
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-HOME={HOME:?}
+HOME=${HOME:?}
 REPO_DIR=${REPO_DIR:?}
 VSCODE_DOTFILES_DIR=$REPO_DIR/vscode
 VSCODE_USER_SETTINGS_DIR="$HOME/Library/Application\ Support/Code/User"
