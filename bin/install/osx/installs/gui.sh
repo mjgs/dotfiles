@@ -55,7 +55,7 @@ function installHomebrewCaskPackages() {
   for APPLICATION in "${APPLICATIONS[@]}"; do
     echo "$PFX Installing application: $APPLICATION"
     brew cask install $APPLICATION
-    configureApplication #APPLICATION
+    configureApplication $APPLICATION
     echo "$PFX Install complete: $(date +"%Y-%m-%d-%H%M%S")"
   done
 }
