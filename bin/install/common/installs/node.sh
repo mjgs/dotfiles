@@ -15,7 +15,6 @@ set -e; set -o pipefail
 
 PFX=${PFX:-==>}
 NVM_VERSION=${NVM_VERSION:-v0.34.0}
-BASH_PROFILE=$HOME/.bash_profile
 MODULES=(
   browser-sync
   express
@@ -35,7 +34,6 @@ function installNvm() {
     echo "$PFX Nvm install url: $NVM_URL"
     cd $HOME
     curl -o- $NVM_URL | bash
-    touch $BASH_PROFILE
   else
     echo "$PFX nvm directory $HOME/.nvm exists, skipping..."
   fi
