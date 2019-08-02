@@ -2,9 +2,12 @@
 [ -n "$VERBOSE" ] && echo "sourcing $HOME/.exports_local"
 source $HOME/.exports_local
 
+# Add to the path
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export PATH="$DOTFILES_DIR/bin:$PATH"
+export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
 
 # Add the current path to the bash shell
 PS1='\w $ '
@@ -14,7 +17,8 @@ export HISTTIMEFORMAT="%d/%m/%Y %T "
 
 # Adds debugging info to the prompt for bash set -x
 export PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
-                            
+
+# Nvm                            
 [ -n "$VERBOSE" ] && echo "sourcing $NVM_DIR/nvm.sh"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
