@@ -15,8 +15,6 @@ set -e; set -o pipefail
 
 PFX=${PFX:-==>}
 BASE_DIR=${BASE_DIR:?}
-INSTALLS_DIR=$DOTFILES_DIR/$(dirname $0)/../installs
-CONFIGURATIONS_DIR=$DOTFILES_DIR/$(dirname $0)/../configurations
 
 if [ ! -x /usr/bin/gcc ]; then
   echo "$PFX Installing xcode..."
