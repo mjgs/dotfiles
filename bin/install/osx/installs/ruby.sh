@@ -16,7 +16,6 @@ set -e; set -o pipefail
 PFX=${PFX:-==>}
 GEMS=(
   jekyll
-  bundler
 )
 
 if [ ! -x /usr/local/bin/brew ]; then
