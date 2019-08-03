@@ -2,10 +2,16 @@
 [ -n "$VERBOSE" ] && echo "sourcing $HOME/.exports_local"
 source $HOME/.exports_local
 
-# Add to the path
+# Basic PATH setup
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+# Add brew executables (take precendence)
+export PATH="$PATH:/usr/local/bin:/usr/local/sbin"
+
+# Add dotfiles executables
 export PATH="$DOTFILES_DIR/bin:$PATH"
+
+# Add specific application executables
 export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
