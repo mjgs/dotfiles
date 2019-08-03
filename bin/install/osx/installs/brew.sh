@@ -15,7 +15,7 @@ set -e; set -o pipefail
 
 PFX=${PFX:-==>}
 REPO_DIR=${REPO_DIR:?}
-HOMEBREW_URL=https://raw.githubusercontent.com/Homebrew/install/master/install
+HOMEBREW_URL=${HOMEBREW_URL:?}
 PACKAGES=(
   ack
   cmake

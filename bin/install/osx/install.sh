@@ -15,11 +15,25 @@ set -e; set -o pipefail
 
 PFX=${PFX:-==>}
 REPO_DIR=${REPO_DIR:?}
+HOMEBREW_URL=${HOMEBREW_URL:?}
 
 if [ ! -x /usr/bin/gcc ]; then
   echo "$PFX Installing xcode..."
   xcode-select --install
 fi
+
+function installHomebrew() {
+  echo "$PFX Installing homebrew..."
+
+  if [ ! -x /usr/local/bin/brew ]; then
+    echo "$PFX Homebrew url: $HOMEBREW_URL"
+    ruby -e "$(curl -fsSL $HOMEBREW_URL)"
+  else
+    echo "$PFX Homebrew already installed, skipping..."
+  fi
+}
+
+installHomebrew
 
 echo "$PFX Installing OSX items"
 

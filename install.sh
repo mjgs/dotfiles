@@ -23,6 +23,7 @@ REPO=${REPO:-git@github.com:mjgs/dotfiles.git}
 REPO_LOCAL=${REPO_LOCAL:-git@github.com:mjgs/dotfiles_local.git}
 REPO_DIR=$CODES_DIR/$(basename ${REPO%.git})
 REPO_LOCAL_DIR=$CODES_DIR/$(basename ${REPO_LOCAL%.git})
+HOMEBREW_URL=https://raw.githubusercontent.com/Homebrew/install/master/install
 
 function printUsage() {
   echo "Usage: install.sh"
@@ -102,7 +103,9 @@ function exportVariables() {
   export REPO_DIR
   export REPO_LOCAL
   export REPO_LOCAL_DIR
-  export NAME EMAIL
+  export NAME
+  export EMAIL
+  export HOMEBREW_URL
 }
 
 function runInstallScripts() {
