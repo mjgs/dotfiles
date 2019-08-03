@@ -50,7 +50,7 @@ function installRubyGems() {
 
   for GEM in "${GEMS[@]}"; do
     echo "$PFX Installing gem: $GEM"
-    gem install $GEM
+    gem install --source https://rubygems.org $GEM
   done
 }
 
