@@ -2,11 +2,11 @@
 [ -n "$VERBOSE" ] && echo "sourcing $HOME/.exports_local"
 source $HOME/.exports_local
 
-# Basic PATH setup
+# Basic PATH setup (read from left to right by the shell)
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Add brew executables (take precendence)
-export PATH="$PATH:/usr/local/bin:/usr/local/sbin"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
 # Add dotfiles executables
 export PATH="$DOTFILES_DIR/bin:$PATH"
