@@ -24,6 +24,11 @@ if [ ! -x /usr/local/bin/brew ]; then
   exit 1
 fi
 
+function installOpenssl() {
+  echo "$PFX Installing openssl..."
+  brew install opemssl
+}
+
 function installRuby() {
   echo "$PFX Installing ruby..."
   
@@ -51,8 +56,7 @@ function installRubyGems() {
 # Main
 #
 
-source $HOME/.bash_profile
-
+installOpenssl
 installRuby
 installRubyGems
 
