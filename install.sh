@@ -113,7 +113,6 @@ function runInstallScripts() {
   
   $REPO_DIR/bin/install/common/install.sh
   $REPO_DIR/bin/install/$OS_TYPE/install.sh
-  $REPO_DIR/bin/install/common/configuration.sh
 }
 
 #
