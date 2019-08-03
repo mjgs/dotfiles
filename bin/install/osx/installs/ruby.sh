@@ -26,7 +26,8 @@ fi
 
 function installOpenssl() {
   echo "$PFX Installing openssl..."
-  brew install opemssl
+  brew install openssl
+  echo "$PFX Current openssl version: $(openssl version)"
 }
 
 function installRuby() {
