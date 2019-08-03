@@ -24,7 +24,6 @@ fi
 echo "$PFX Installing OSX items"
 
 $REPO_DIR/bin/install/osx/installs/ruby.sh
-$REPO_DIR/bin/install/osx/installs/python.sh
 $REPO_DIR/bin/install/osx/installs/shell.sh
 $REPO_DIR/bin/install/osx/installs/brew.sh
 $REPO_DIR/bin/install/osx/installs/gui.sh
