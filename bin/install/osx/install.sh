@@ -46,7 +46,7 @@ echo "$PFX Configuring OSX settings and applications"
 
 $REPO_DIR/bin/install/osx/configurations/system/set_system_prefs.sh
 $REPO_DIR/bin/install/osx/configurations/system/set_hidden_prefs.sh
-$REPO_DIR/bin/install/osx/configurations/set_application_prefs.sh
+$REPO_DIR/bin/install/osx/configurations/system/set_application_prefs.sh
 $REPO_DIR/bin/install/osx/configurations/system/configure_dock_apps.sh
 
 exit 0
