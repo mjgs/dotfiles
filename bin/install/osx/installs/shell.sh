@@ -25,7 +25,11 @@ installLatestBash() {
   
   if [ ! -x /usr/local/bin/bash ]; then
     brew install bash
-    echo /usr/local/bin/bash >> /private/etc/shells
+
+    echo "$PFX Adding /usr/local/bin/bash to /etc/shells..."
+    sudo bash -c 'echo /usr/local/bin/bash >> /etc/shells'
+
+    echo "$PFX Setting shell to /usr/local/bin/bash..."
     chsh -s /usr/local/bin/bash
   else
     echo "$PFX Lastest bash already installed, skipping..."
