@@ -75,7 +75,6 @@ Plugin 'scrooloose/nerdtree'     "explore your filesystem, open files and direct
 Plugin 'lukaszb/vim-web-indent'  "javascript indent plugin
 Plugin 'digitaltoad/vim-jade'    "syntax highlighting for jade templates
 Plugin 'rstacruz/sparkup'        "write html faster http://bit.ly/1FYVBSx
-Plugin 'SirVer/ultisnips'        "ultimate solution for snippets in Vim
 Plugin 'honza/vim-snippets'      "snipmate dependency
 Plugin 'tpope/vim-surround'      "quoting/parenthesizing made simple - http://bit.ly/1Gbwk94
 Plugin 'wavded/vim-stylus'       "syntax highlighting for stylus
