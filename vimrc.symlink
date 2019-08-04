@@ -83,7 +83,6 @@ Plugin 'tpope/vim-git'           "just another git plugin
 Plugin 'Raimondi/delimitMate'    "insert mode auto-completion for quotes, parens, brackets, etc
 Plugin 'nathanaelkane/vim-indent-guides' "visually displaying indent levels in code, toggle with <Leader>ig
 Plugin 'tpope/vim-commentary'    "comment easily with gcc
-Plugin 'bling/vim-airline'       "lean & mean status/tabline for vim that's light as air
 
 "vim-scripts repos:
 Plugin 'L9'
