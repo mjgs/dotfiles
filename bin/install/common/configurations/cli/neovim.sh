@@ -55,6 +55,11 @@ function installAndConfigureVimPluginManager() {
   read -p "Open nvim / vim and update plugins :PluginUpdate" enter2
 }
 
+function configureNodeForNeovim() {
+  echo "$PFX Configuring node for neovim..."
+  npm install -g neovim 
+}
+
 function configureVimColorScheme() {
   echo "$PFX Configuring vim color schemes..."
   rsync -avz $VIM_DIR/bundle/vim-colorschemes/colors $VIM_DIR
@@ -66,6 +71,7 @@ function configureVimWebIndent() {
 }
 
 createNvimConfiguration
+configureNodeForNeovim
 installAndConfigureVimPluginManager
 configureVimColorScheme
 configureVimWebIndent
