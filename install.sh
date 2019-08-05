@@ -129,7 +129,7 @@ if [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
 fi
 
 TIMESTAMP_START=$(date)
-echo "$PFX Installation started: $TIMESTAMP_START"
+echo "$PFX dotfiles installation started: $TIMESTAMP_START"
 
 if [ ! -x /usr/bin/git ]; then
   echo "ERROR: Apple's version of git must be installed"
@@ -145,8 +145,8 @@ exportVariables
 runInstallScripts
 
 TIMESTAMP_END=$(date)
-echo "$PFX Installation started: $TIMESTAMP_START"
-echo "$PFX Installation complete: $TIMESTAMP_END"
+echo "$PFX dotfiles installation started: $TIMESTAMP_START"
+echo "$PFX dotfiles installation complete: $TIMESTAMP_END"
 
 echo "TODO: Make sure all nvim plugins got installed, open nvim and run:"
 echo ":PluginInstall"
