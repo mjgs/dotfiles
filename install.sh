@@ -111,6 +111,10 @@ function exportVariables() {
 function runInstallScripts() {
   echo "$PFX Running install scripts..."
   
+  if [ -d "$REPO_LOCAL_DIR"  ]; then
+    $REPO_LOCAL_DIR/install.sh
+  fi
+
   $REPO_DIR/bin/install/common/install.sh
   $REPO_DIR/bin/install/$OS_TYPE/install.sh
 }
