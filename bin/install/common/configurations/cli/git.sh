@@ -16,16 +16,24 @@ EMAIL=${EMAIL:?}
 
 echo "$PFX Configuring package: git"
 
-echo "$PFX Setting git user.name: $NAME"
-git config --global user.name \"$NAME\"
+if ! git config user.name > /dev/null; then
+  echo "$PFX Setting git user.name: $NAME"
+  git config --global user.name "$NAME"
+fi
 
-echo "$PFX Setting git user.email: $EMAIL"
-git config --global user.email $EMAIL
+if ! git config user.email > /dev/null; then
+  echo "$PFX Setting git user.email: $EMAIL"
+  git config --global user.email "$EMAIL"
+fi
 
-echo "$PFX Setting git push.default: simple"
-git config --global push.default simple
+if ! git config push.default > /dev/null; then
+  echo "$PFX Setting git push.default: simple"
+  git config --global push.default simple
+fi
 
-echo "$PFX Setting git core.excludesfile: $HOME/.gitignore"
-git config --global core.excludesfile '$HOME/.gitignore'
+if ! git config core.excludefile > /dev/null; then
+  echo "$PFX Setting git core.excludesfile: ~/.gitignore"
+  git config --global core.excludesfile \~/.gitignore
+fi
 
 exit 0
