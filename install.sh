@@ -80,7 +80,7 @@ function cloneLatestDotfileRepos() {
 
   echo "$PFX Cloning repo: $REPO_LOCAL"
   echo "$PFX Target directory: $REPO_LOCAL_DIR"
-  if [ ! -e $REPO_LOCAL_DIR ]; then
+  if [ ! -e "$REPO_LOCAL_DIR" ]; then
     git clone $REPO_LOCAL $REPO_LOCAL_DIR
   else
     echo "$PFX Target directory exists, skipping..."
@@ -88,7 +88,7 @@ function cloneLatestDotfileRepos() {
 
   echo "$PFX Cloning repo: $REPO"
   echo "$PFX Target directory: $REPO_DIR"
-  if [ ! -e $REPO_DIR ]; then
+  if [ ! -e "$REPO_DIR" ]; then
     git clone $REPO $REPO_DIR
   else
     echo "$PFX Target directory exists, skipping..."
