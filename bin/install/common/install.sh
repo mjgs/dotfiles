@@ -22,11 +22,6 @@ echo "$PFX Installing items common to all os versions"
 # Main
 #
 
-# Configure git and ssh keys since they are needed during the installation
-$REPO_DIR/bin/install/common/configurations/cli/git.sh
-$REPO_DIR/bin/install/common/configurations/cli/publicPrivateKeyPair.sh
-
-$REPO_DIR/bin/install/common/installs/dotfiles.sh
 $REPO_DIR/bin/install/common/installs/node.sh
 
 exit 0

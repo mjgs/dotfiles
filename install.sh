@@ -110,11 +110,18 @@ function exportVariables() {
 
 function runInstallScripts() {
   echo "$PFX Running install scripts..."
-  
+
+  # Configure git, ssh keys and dotfiles here since they are needed during the installation
+  $REPO_DIR/bin/install/common/configurations/cli/git.sh
+  $REPO_DIR/bin/install/common/configurations/cli/publicPrivateKeyPair.sh
+  $REPO_DIR/bin/install/common/installs/dotfiles.sh
+
+  # dotfiles_local install
   if [ -d "$REPO_LOCAL_DIR"  ]; then
     $REPO_LOCAL_DIR/install.sh
   fi
 
+  # dotfiles install
   $REPO_DIR/bin/install/common/install.sh
   $REPO_DIR/bin/install/$OS_TYPE/install.sh
 }
