@@ -28,7 +28,7 @@ function createRegularDotfilesSymlinks() {
   cd $CWD
 
   for FILE in $LINKABLES; do
-    DOTFILE=$HOME/.$(basename $FILE)
+    DOTFILE=$HOME/.$(basename $FILE '.symlink')
     if [ -e $DOTFILE ]; then
       echo "$PFX Skipping ${DOTFILE}, already exists..."
     else
@@ -62,7 +62,7 @@ function createXDGDotfilesSymlinks() {
     cd $CWD
 
     for CONFIG in $CONFIGS; do
-      DOTFILE=$HOME/.config/$(basename $CONFIG)
+      DOTFILE=$HOME/.config/$(basename $CONFIG '.symlink')
       if [ -e $DOTFILE ]; then
         echo "$PFX Skipping ~${DOTFILE#$HOME} already exists..."
       else
