@@ -74,8 +74,7 @@ function createDirectories() {
 }
 
 function cloneLatestDotfileRepos() {
-  echo "$PFX Copy and paste your public key to your dotfiles code repositories:"
-  echo "$PFX $(cat $HOME/.ssh/id_rsa.pub)"
+  echo "$PFX Add your public key to your dotfiles code repositories before continuing"
   read -p "$PFX Hit enter to continue..." enter
 
   echo "$PFX Cloning repo: $REPO_LOCAL"
