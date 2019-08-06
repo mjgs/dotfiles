@@ -22,8 +22,5 @@ if [ ! -e $SSH_DIR/id_rsa ]; then
   echo "$PFX Generating public / private key pair..."
   ssh-keygen -t rsa -C $EMAIL
 fi
-                      
-echo "$PFX Your public key:"
-cat $SSH_DIR/id_rsa.pub
 
 exit 0
