@@ -23,15 +23,21 @@ function createRegularDotfilesSymlinks() {
   echo "$PFX Creating dotfile symlinks in directory: $HOME"
   echo "$PFX Target repo: $THIS_REPO_DIR"
 
-  LINKABLES=$( find -H "$THIS_REPO_DIR" -maxdepth 3 -name '*.symlink' )
+  cd $THIS_REPO_DIR
+  LINKABLES=$( find -H . -maxdepth 3 -name '*.symlink' )
+  cd $CWD
 
   for FILE in $LINKABLES; do
-    TARGET="$HOME/.$( basename $FILE ".symlink" )"
-    if [ -e $TARGET ]; then
-      echo "$PFX ${TARGET} already exists... Skipping."
+    DOTFILE=$HOME/.$(basename $FILE)
+    if [ -e $DOTFILE ]; then
+      echo "$PFX Skipping ${DOTFILE}, already exists..."
     else
-      echo "$PFX Creating $TARGET symlink to $FILE"
-      ln -s $FILE $TARGET
+      local BASE_PATH=Documents/Codes/projects
+      local SOURCE=$BASE_PATH/$(basename $THIS_REPO_DIR)/${FILE:2}
+      local TARGET=$HOME/.$(basename $FILE '.symlink')
+
+      echo "$PFX Creating $TARGET symlink to $SOURCE"
+      ln -s $SOURCE $TARGET
     fi
   done
 }
@@ -51,15 +57,21 @@ function createXDGDotfilesSymlinks() {
       mkdir -p $HOME/.config
     fi
 
+    cd $XDG_CONFIG_DIR
     CONFIGS=$( find -H "$XDG_CONFIG_DIR" -maxdepth 2 -name '*.symlink' )
+    cd $CWD
 
     for CONFIG in $CONFIGS; do
-      TARGET="$HOME/.config/$( basename $CONFIG ".symlink" )"
-      if [ -e $TARGET ]; then
-        echo "$PFX ~${TARGET#$HOME} already exists... Skipping."
+      DOTFILE=$HOME/.config/$(basename $CONFIG)
+      if [ -e $DOTFILE ]; then
+        echo "$PFX Skipping ~${DOTFILE#$HOME} already exists..."
       else
-        echo "$PFX Creating $TARGET symlink to $CONFIG"
-        ln -s $CONFIG $TARGET
+        local BASE_PATH=Documents/Codes/projects
+        local SOURCE=$BASE_PATH/$(basename $THIS_REPO_DIR)/config/${CONFIG:2}
+        local TARGET=$HOME/.config/$(basename $CONFIG '.symlink')
+
+        echo "$PFX Creating $TARGET symlink to $SOURCE"
+        ln -s $SOURCE $TARGET
       fi
     done
   else
