@@ -23,6 +23,7 @@ MODULES=(
   live-server
   mocha
   nodemon
+  npm-check-updates
 )
 
 function installNvm() {
