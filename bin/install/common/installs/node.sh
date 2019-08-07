@@ -24,6 +24,7 @@ MODULES=(
   mocha
   nodemon
   npm-check-updates
+  npm-check
 )
 
 function installNvm() {
