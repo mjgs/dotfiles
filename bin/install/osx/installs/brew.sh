@@ -33,6 +33,7 @@ PACKAGES=(
   tree
   watch
   wget
+  doctl
 )
 
 function installHomebrew() {
