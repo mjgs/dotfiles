@@ -31,11 +31,11 @@ function printUsage() {
   echo
   echo "Environment variables:"
   echo 
-  echo "  OS_TYPE     - osx (*)"
-  echo "  HOME        - user home directory"
-  echo "  CODES_DIR   - path to codes directory (d)"
-  echo "  DOTFILES_REPO        - ssh connection string for dotfiles repository (d)"
-  echo "  DOTFILES_LOCAL_REPO  - ssh connection string for dotfiles_local repository (d)"
+  echo "  HOME                - user home directory"
+  echo "  OS_TYPE             - osx (*)"
+  echo "  CODES_DIR           - path to directory where dotfiles repos will be cloned (d)"
+  echo "  DOTFILES_REPO       - ssh connection string for dotfiles repository (d)"
+  echo "  DOTFILES_LOCAL_REPO - ssh connection string for dotfiles_local repository (d)"
   echo 
   echo "  (d) - indicates that a default is set, see code for details"
   echo

@@ -33,12 +33,15 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjgs/dotfiles/master/insta
 You'll need to set a few environment variables in your shell before you run the script:
 
 ```
-  HOME                - user home directory"
-  CODES_DIR           - path to codes directory (d)"
-  DOTFILES_REPO       - ssh connection string for dotfiles repository (d)"
-  DOTFILES_LOCAL_REPO - ssh connection string for dotfiles_local repository (d)"
+  HOME                - user home directory
+  OS_TYPE             - osx (*)
+  CODES_DIR           - path to codes directory (d)
+  DOTFILES_REPO       - ssh connection string for dotfiles repository (d)
+  DOTFILES_LOCAL_REPO - ssh connection string for dotfiles_local repository (d)
 
- (d) - Indicates that there is a default values (check the code for details)
+  (d) - indicates that a default is set, see code for details
+  
+  (*) - add other os types scripts to bin/install/<os_type>
 ```
 
 ## Development
