@@ -17,7 +17,6 @@ CWD=$(pwd)
 PFX=${PFX:-==>}
 OS_TYPE=${OS_TYPE:?}
 HOME=${HOME:?}
-REPO_DIR=$(dirname $0)
 CODES_DIR=${CODES_DIR:-$CWD/Codes}
 REPO=${REPO:-git@github.com:mjgs/dotfiles.git}
 REPO_LOCAL=${REPO_LOCAL:-git@github.com:mjgs/dotfiles_local.git}
