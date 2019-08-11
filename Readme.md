@@ -1,23 +1,36 @@
-This is a collection of zsh, jshint, and vim configuration files that I use in my 
-development environment.
+sdfs# Dotfiles
 
-Includes an install script to setup fresh OSX environments.
+## Description
 
-# Adding dotfiles
+This is a collection of bash, jshint, and vim configuration files that I use in my 
+development environment. Dotfiles are a convenient way to setup your development environment enabling easy backup and restore of application configurations.
+
+Includes an install script to setup fresh environment. Currenly supports osx but other unixy operating systems could quite easily be added.
+
+The install script is written to be indempodent, which means that you should be able to run it easily again if something goes wrong during the install, and it should normally just skip the parts that are already complete.
+
+If you want to know how dotfiles function, search online there are lots of tutorials that have been written.
+
+## Warning
+
+Use at your own risk - these scripts run commands that could break your operating system.
+
+I publish this repo publically mainly so that other developers that are setting up their dotfiles have some examples to base their setup on. 
+
+Having said that, I use it myself to build my own system, so it should be functional, that's the intention, but you should definitely know what you are doing if you do run this and I would advise reading and understanding the code before running it.
+
+## Adding dotfiles
 
 1) Add items you don't want tracked in .gitignore
 
 2) Add .symlink in filename to files to be symlinked
-e.g. zshrc.symlink
+e.g. bash.symlink
 
-# Install fresh OSX dev environment
+## Install fresh OSX dev environment
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjgs/dotfiles/master/install.sh)"
 
-Typically run from user's home directory, defaults to creating Configs and Codes 
-directories in current directory.
-
-Environment variables that you should set before install:
+You'll need to set a few environment variables in your shell before you run the script:
 
 ```
   HOME                - user home directory"
@@ -28,9 +41,13 @@ Environment variables that you should set before install:
  (d) - Indicates that there is a default values (check the code for details)
 ```
 
+## Development
+
+I am currently making modifications that will make it easier to test on an existing operating system by setting the HOME variable to a temporary location.
+
 ## TODO
 
-- Update the git clone commands to be idempodent
+- Make it easier to test on an existing system
 
 ## Thanks to…
 
