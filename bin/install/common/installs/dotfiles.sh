@@ -30,7 +30,7 @@ function createRegularDotfilesSymlinks() {
 
   for FILE in $LINKABLES; do
     DOTFILE=$HOME/.$(basename $FILE '.symlink')
-    if [ -e $DOTFILE ]; then
+    if [ -L $DOTFILE ]; then
       echo "$PFX Skipping ${DOTFILE}, already exists..."
     else
       local BASE_PATH=Documents/Codes/projects
@@ -64,7 +64,7 @@ function createXDGDotfilesSymlinks() {
 
     for CONFIG in $CONFIGS; do
       DOTFILE=$HOME/.config/$(basename $CONFIG '.symlink')
-      if [ -e $DOTFILE ]; then
+      if [ -L $DOTFILE ]; then
         echo "$PFX Skipping ~${DOTFILE#$HOME} already exists..."
       else
         local BASE_PATH=Documents/Codes/projects
