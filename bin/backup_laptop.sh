@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
 
 #
-# Description: Creates a backup 
+# Description: Creates a backup
 #
 
+# This is a straight up file backup, nothing fancy like incremental 
+# backups happening, it's just an rsync of important files that are currently
+# on the filesystem, each backup overwrites the previous backup. It's a good
+# compliment to a fancy pants Time Machine backup, in case of emergency.
+
 if [ -n "$DEBUG" ]; then
-  echo "$0: Setting bash option -x for debug"
-  PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
-  set -x
+echo "$0: Setting bash option -x for debug"
+PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
+set -x
 fi
 
 # Exit on error
@@ -21,17 +26,17 @@ USRLOCAL_BACKUP_NAME=${USRLOCAL_BACKUP_NAME:-USRLOCAL_BACKUP}
 DOTFILES_BACKUP_NAME=${DOTFILES_BACKUP_NAME:-DOTFILES_BACKUP}
 
 if [ $(whoami) != "root" ]; then
-  echo "ERROR: $(basename $0) needs to be run as root, re-run using sudo"
-  exit 1
+echo "ERROR: $(basename $0) needs to be run as root, re-run using sudo"
+exit 1
 fi
 
 function backupDirectory() {
-  echo "$PFX Backing up $1..."
-  echo "$PFX Source dir: $2"
-  echo "$PFX Target dir: $3"
+echo "$PFX Backing up $1..."
+echo "$PFX Source dir: $2"
+echo "$PFX Target dir: $3"
 
-  mkdir -p $3
-  rsync -avh --delete --progress $2 $3
+mkdir -p $3
+rsync -avh --delete --progress $2 $3
   echo
 }
 

@@ -4,6 +4,8 @@
 # Description: Restores a backup
 #
 
+# Intended to be run to restore the files created using backup-laptop.sh
+
 if [ -n "$DEBUG" ]; then
   echo "$0: Setting bash option -x for debug"
   PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
