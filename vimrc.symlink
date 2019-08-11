@@ -57,7 +57,7 @@ autocmd filetype crontab setlocal nobackup nowritebackup "needed to edit crontab
 
 set nocompatible                 " be iMproved
 filetype off                     " required!
-set rtp+=~/.vim/bundle/Vundle.vim" set the runtime path to include Vundle and initialize
+set rtp+=$HOME/.vim/bundle/Vundle.vim" set the runtime path to include Vundle and initialize
 
 call vundle#begin()              " Keep Plugin commands between vundle#begin/end
 
@@ -140,6 +140,6 @@ colorscheme solarized
 
 "SECTION 4: Load local vimrc file if it exists
 
-if filereadable(glob("~/.vimrc.local")) 
-  source ~/.vimrc.local
+if filereadable(glob("$HOME/.vimrc_local"))
+  source $HOME/.vimrc_local
 endif
