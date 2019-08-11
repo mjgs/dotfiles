@@ -7,7 +7,7 @@ development environment. Dotfiles are a convenient way to setup your development
 
 Includes an install script to setup fresh environment. Currenly supports osx but other unixy operating systems could quite easily be added.
 
-The install script is written to be indempodent, which means that you should be able to run it easily again if something goes wrong during the install, and it should normally just skip the parts that are already complete.
+The install script is written to be idempodent, which means that you should be able to run it easily again if something goes wrong during the install, and it should normally just skip the parts that are already complete.
 
 If you want to know how dotfiles function, search online there are lots of tutorials that have been written.
 
