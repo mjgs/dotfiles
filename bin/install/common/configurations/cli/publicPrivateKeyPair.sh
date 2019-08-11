@@ -18,6 +18,8 @@ echo "$PFX Checking public/private key pair..."
 
 SSH_DIR=$HOME/.ssh
 
+mkdir -p $SSH_DIR
+
 if [ ! -e $SSH_DIR ]; then
   echo "$PFX You don't have a public / private key pair..."
   echo "$PFX Generating public / private key pair..."
