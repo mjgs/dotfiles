@@ -45,6 +45,8 @@ You'll need to set a few environment variables in your shell before you run the 
 
 I am currently making modifications that will make it easier to test on an existing operating system by setting the HOME variable to a temporary location.
 
+Set environment variable DEBUG=1 to see debug logging as the scripts runs.
+
 ## TODO
 
 - Make it easier to test on an existing system
