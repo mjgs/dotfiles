@@ -11,8 +11,8 @@ set -e; set -o pipefail
 
 PFX=${PFX:-==>}
 HOME=${HOME:?}
-REPO_DIR=${REPO_DIR:?}
-VSCODE_DOTFILES_DIR=$REPO_DIR/vscode
+DOTFILES_DIR=${DOTFILES_DIR:?}
+VSCODE_DOTFILES_DIR=$DOTFILES_DIR/vscode
 VSCODE_USER_SETTINGS_DIR="$HOME/Library/Application\ Support/Code/User"
 
 echo "$PFX Configuring application: visual-studio-code"

@@ -14,7 +14,7 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-REPO_DIR=${REPO_DIR:?}
+DOTFILES_DIR=${DOTFILES_DIR:?}
 
 echo "$PFX Installing items common to all os versions"
 
@@ -22,6 +22,6 @@ echo "$PFX Installing items common to all os versions"
 # Main
 #
 
-$REPO_DIR/bin/install/common/installs/node.sh
+$DOTFILES_DIR/bin/install/common/installs/node.sh
 
 exit 0

@@ -20,12 +20,12 @@ directories in current directory.
 Environment variables that you should set before install:
 
 ```
-  HOME        - user home directory"
-  CODES_DIR   - path to codes directory (d)"
-  REPO        - ssh connection string for dotfiles repository (d)"
-  REPO_LOCAL  - ssh connection string for dotfiles_local repository (d)"
+  HOME                - user home directory"
+  CODES_DIR           - path to codes directory (d)"
+  DOTFILES_REPO       - ssh connection string for dotfiles repository (d)"
+  DOTFILES_LOCAL_REPO - ssh connection string for dotfiles_local repository (d)"
 
- (d) - Have default values (check the code for details)
+ (d) - Indicates that there is a default values (check the code for details)
 ```
 
 ## TODO

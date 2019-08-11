@@ -17,12 +17,12 @@ PFX=${PFX:-==>}
 OS_TYPE=${OS_TYPE:?}
 HOME=${HOME:?}
 CODES_DIR=${CODES_DIR:-$HOME/Codes}
-REPO=${REPO:-git@github.com:mjgs/dotfiles.git}
-REPO_LOCAL=${REPO_LOCAL:-git@github.com:mjgs/dotfiles_local.git}
+DOTFILES_REPO=${DOTFILES_REPO:-git@github.com:mjgs/dotfiles.git}
+DOTFILES_LOCAL_REPO=${DOTFILES_LOCAL_REPO:-git@github.com:mjgs/dotfiles_local.git}
 
 CWD=$(pwd)
-REPO_DIR=$CODES_DIR/$(basename ${REPO%.git})
-REPO_LOCAL_DIR=$CODES_DIR/$(basename ${REPO_LOCAL%.git})
+DOTFILES_DIR=$CODES_DIR/$(basename ${DOTFILES_REPO%.git})
+DOTFILES_LOCAL_DIR=$CODES_DIR/$(basename ${DOTFILES_LOCAL_REPO%.git})
 HOMEBREW_URL=https://raw.githubusercontent.com/Homebrew/install/master/install
 
 function printUsage() {
@@ -34,8 +34,8 @@ function printUsage() {
   echo "  OS_TYPE     - osx (*)"
   echo "  HOME        - user home directory"
   echo "  CODES_DIR   - path to codes directory (d)"
-  echo "  REPO        - ssh connection string for dotfiles repository (d)"
-  echo "  REPO_LOCAL  - ssh connection string for dotfiles_local repository (d)"
+  echo "  DOTFILES_REPO        - ssh connection string for dotfiles repository (d)"
+  echo "  DOTFILES_LOCAL_REPO  - ssh connection string for dotfiles_local repository (d)"
   echo 
   echo "  (d) - indicates that a default is set, see code for details"
   echo
@@ -49,8 +49,8 @@ function printVariables() {
   echo "  OS_TYPE: $OS_TYPE"
   echo "  HOME: $HOME"
   echo "  CODES_DIR: $CODES_DIR"
-  echo "  REPO: $REPO"
-  echo "  REPO_LOCAL: $REPO_LOCAL"
+  echo "  DOTFILES_REPO: $DOTFILES_REPO"
+  echo "  DOTFILES_LOCAL_REPO: $DOTFILES_LOCAL_REPO"
   echo
 }
 
@@ -77,18 +77,18 @@ function cloneLatestDotfileRepos() {
   echo "$PFX Add your public key to your dotfiles code repositories before continuing"
   read -p "$PFX Hit enter to continue..." enter
 
-  echo "$PFX Cloning repo: $REPO_LOCAL"
-  echo "$PFX Target directory: $REPO_LOCAL_DIR"
-  if [ ! -e "$REPO_LOCAL_DIR" ]; then
-    git clone $REPO_LOCAL $REPO_LOCAL_DIR
+  echo "$PFX Cloning repo: $DOTFILES_LOCAL_REPO"
+  echo "$PFX Target directory: $DOTFILES_LOCAL_DIR"
+  if [ ! -e "$DOTFILES_LOCAL_DIR" ]; then
+    git clone $DOTFILES_LOCAL_REPO $DOTFILES_LOCAL_DIR
   else
     echo "$PFX Target directory exists, skipping..."
   fi
 
-  echo "$PFX Cloning repo: $REPO"
-  echo "$PFX Target directory: $REPO_DIR"
-  if [ ! -e "$REPO_DIR" ]; then
-    git clone $REPO $REPO_DIR
+  echo "$PFX Cloning repo: $DOTFILES_REPO"
+  echo "$PFX Target directory: $DOTFILES_DIR"
+  if [ ! -e "$DOTFILES_DIR" ]; then
+    git clone $DOTFILES_REPO $DOTFILES_DIR
   else
     echo "$PFX Target directory exists, skipping..."
   fi
@@ -96,12 +96,12 @@ function cloneLatestDotfileRepos() {
 
 function exportVariables() {
   export PFX
-  export REPO_DIR
+  export DOTFILES_DIR
   export CODES_DIR
-  export REPO
-  export REPO_DIR
-  export REPO_LOCAL
-  export REPO_LOCAL_DIR
+  export DOTFILES_REPO
+  export DOTFILES_DIR
+  export DOTFILES_LOCAL_REPO
+  export DOTFILES_LOCAL_DIR
   export NAME
   export EMAIL
   export HOMEBREW_URL
@@ -111,18 +111,18 @@ function runInstallScripts() {
   echo "$PFX Running install scripts..."
 
   # Configure git, ssh keys and dotfiles here since they are needed during the installation
-  $REPO_DIR/bin/install/common/configurations/cli/git.sh
-  $REPO_DIR/bin/install/common/configurations/cli/publicPrivateKeyPair.sh
-  $REPO_DIR/bin/install/common/installs/dotfiles.sh
+  $DOTFILES_DIR/bin/install/common/configurations/cli/git.sh
+  $DOTFILES_DIR/bin/install/common/configurations/cli/publicPrivateKeyPair.sh
+  $DOTFILES_DIR/bin/install/common/installs/dotfiles.sh
 
   # dotfiles_local install
-  if [ -d "$REPO_LOCAL_DIR"  ]; then
-    $REPO_LOCAL_DIR/install.sh
+  if [ -d "$DOTFILES_LOCAL_DIR"  ]; then
+    $DOTFILES_LOCAL_DIR/install.sh
   fi
 
   # dotfiles install
-  $REPO_DIR/bin/install/common/install.sh
-  $REPO_DIR/bin/install/$OS_TYPE/install.sh
+  $DOTFILES_DIR/bin/install/common/install.sh
+  $DOTFILES_DIR/bin/install/$OS_TYPE/install.sh
 }
 
 #

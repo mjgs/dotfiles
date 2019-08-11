@@ -10,9 +10,9 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-REPO_DIR=${REPO_DIR:?}
+DOTFILES_DIR=${DOTFILES_DIR:?}
 
 # Run the common configuration
-$REPO_DIR/bin/install/common/configurations/cli/neovim.sh
+$DOTFILES_DIR/bin/install/common/configurations/cli/neovim.sh
 
 exit 0

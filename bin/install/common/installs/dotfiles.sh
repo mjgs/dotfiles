@@ -14,16 +14,16 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-REPO_DIR=${REPO_DIR:?}
-REPO_LOCAL_DIR=${REPO_LOCAL_DIR:?}
+DOTFILES_DIR=${DOTFILES_DIR:?}
+DOTFILES_LOCAL_DIR=${DOTFILES_LOCAL_DIR:?}
 
 function createRegularDotfilesSymlinks() {
-  local THIS_REPO_DIR=$1
+  local THIS_DOTFILES_DIR=$1
 
   echo "$PFX Creating dotfile symlinks in directory: $HOME"
-  echo "$PFX Target repo: $THIS_REPO_DIR"
+  echo "$PFX Target repo: $THIS_DOTFILES_DIR"
 
-  cd $THIS_REPO_DIR
+  cd $THIS_DOTFILES_DIR
   LINKABLES=$( find -H . -maxdepth 3 -name '*.symlink' )
   cd $CWD
 
@@ -33,7 +33,7 @@ function createRegularDotfilesSymlinks() {
       echo "$PFX Skipping ${DOTFILE}, already exists..."
     else
       local BASE_PATH=Documents/Codes/projects
-      local SOURCE=$BASE_PATH/$(basename $THIS_REPO_DIR)/${FILE:2}
+      local SOURCE=$BASE_PATH/$(basename $THIS_DOTFILES_DIR)/${FILE:2}
       local TARGET=$HOME/.$(basename $FILE '.symlink')
 
       echo "$PFX Creating $TARGET symlink to $SOURCE"
@@ -43,9 +43,9 @@ function createRegularDotfilesSymlinks() {
 }
 
 function createXDGDotfilesSymlinks() {
-  local THIS_REPO_DIR=$1
+  local THIS_DOTFILES_DIR=$1
 
-  local XDG_CONFIG_DIR=$THIS_REPO_DIR/config
+  local XDG_CONFIG_DIR=$THIS_DOTFILES_DIR/config
 
   echo "$PFX Creating XDG dotfile symlinks in directory: $HOME/.config"
 
@@ -67,7 +67,7 @@ function createXDGDotfilesSymlinks() {
         echo "$PFX Skipping ~${DOTFILE#$HOME} already exists..."
       else
         local BASE_PATH=Documents/Codes/projects
-        local SOURCE=$BASE_PATH/$(basename $THIS_REPO_DIR)/config/${CONFIG:2}
+        local SOURCE=$BASE_PATH/$(basename $THIS_DOTFILES_DIR)/config/${CONFIG:2}
         local TARGET=$HOME/.config/$(basename $CONFIG '.symlink')
 
         echo "$PFX Creating $TARGET symlink to $SOURCE"
@@ -82,10 +82,10 @@ function createXDGDotfilesSymlinks() {
 function createDotfilesSymlinks() {
   echo "$PFX Installing dotfiles"
  
-  createRegularDotfilesSymlinks $REPO_DIR
-  createXDGDotfilesSymlinks $REPO_DIR
+  createRegularDotfilesSymlinks $DOTFILES_DIR
+  createXDGDotfilesSymlinks $DOTFILES_DIR
 
-  createRegularDotfilesSymlinks $REPO_LOCAL_DIR
+  createRegularDotfilesSymlinks $DOTFILES_LOCAL_DIR
 }
 
 #

@@ -14,7 +14,7 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-REPO_DIR=${REPO_DIR:?}
+DOTFILES_DIR=${DOTFILES_DIR:?}
 HOMEBREW_URL=${HOMEBREW_URL:?}
 
 if [ ! -x /usr/bin/gcc ]; then
@@ -37,16 +37,16 @@ installHomebrew
 
 echo "$PFX Installing OSX items"
 
-$REPO_DIR/bin/install/osx/installs/ruby.sh
-$REPO_DIR/bin/install/osx/installs/shell.sh
-$REPO_DIR/bin/install/osx/installs/brew.sh
-$REPO_DIR/bin/install/osx/installs/gui.sh
+$DOTFILES_DIR/bin/install/osx/installs/ruby.sh
+$DOTFILES_DIR/bin/install/osx/installs/shell.sh
+$DOTFILES_DIR/bin/install/osx/installs/brew.sh
+$DOTFILES_DIR/bin/install/osx/installs/gui.sh
 
 echo "$PFX Configuring OSX settings and applications"
 
-$REPO_DIR/bin/install/osx/configurations/system/set_system_prefs.sh
-$REPO_DIR/bin/install/osx/configurations/system/set_hidden_prefs.sh
-$REPO_DIR/bin/install/osx/configurations/system/set_application_prefs.sh
-$REPO_DIR/bin/install/osx/configurations/system/configure_dock_apps.sh
+$DOTFILES_DIR/bin/install/osx/configurations/system/set_system_prefs.sh
+$DOTFILES_DIR/bin/install/osx/configurations/system/set_hidden_prefs.sh
+$DOTFILES_DIR/bin/install/osx/configurations/system/set_application_prefs.sh
+$DOTFILES_DIR/bin/install/osx/configurations/system/configure_dock_apps.sh
 
 exit 0

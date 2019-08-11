@@ -14,7 +14,7 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-REPO_DIR=${REPO_DIR:?}
+DOTFILES_DIR=${DOTFILES_DIR:?}
 HOMEBREW_URL=${HOMEBREW_URL:?}
 PACKAGES=(
   ack
@@ -68,7 +68,7 @@ function installHomebrewPackages() {
 function configurePackage() {
   local PACKAGE=$1
  
-  local CONFIGURATIONS_DIR=$REPO_DIR/bin/install/osx/configurations/cli 
+  local CONFIGURATIONS_DIR=$DOTFILES_DIR/bin/install/osx/configurations/cli
   local CONFIGURATION_SCRIPT_NAME=$(echo $PACKAGE | cut -d@ -f1).sh
   local CONFIGURATION_SCRIPT=$CONFIGURATIONS_DIR/$CONFIGURATION_SCRIPT_NAME
   
