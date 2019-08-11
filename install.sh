@@ -14,8 +14,8 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-OS_TYPE=${OS_TYPE:?}
 HOME=${HOME:?}
+OS_TYPE=${OS_TYPE:?}
 CODES_DIR=${CODES_DIR:-$HOME/Codes}
 DOTFILES_REPO=${DOTFILES_REPO:-git@github.com:mjgs/dotfiles.git}
 DOTFILES_LOCAL_REPO=${DOTFILES_LOCAL_REPO:-git@github.com:mjgs/dotfiles_local.git}
