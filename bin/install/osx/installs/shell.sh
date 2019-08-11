@@ -14,6 +14,7 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
+HOME=${HOME:?}
 
 if [ ! -x /usr/local/bin/brew ]; then
   echo "ERROR: Homebrew must be installed" 

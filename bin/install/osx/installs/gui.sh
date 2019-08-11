@@ -14,6 +14,7 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
+HOME=${HOME:?}
 DOTFILES_DIR=${DOTFILES_DIR:?}
 HOMEBREW_CASK=/usr/local/Library/Taps/caskroom/homebrew-cask/cmd/brew-cask.rb
 APPLICATIONS=(

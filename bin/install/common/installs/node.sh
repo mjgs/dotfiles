@@ -14,6 +14,7 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
+HOME=${HOME:?}
 NVM_VERSION=${NVM_VERSION:-v0.34.0}
 MODULES=(
   browser-sync

@@ -14,6 +14,7 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
+HOME=${HOME:?}
 GEMS=(
 #  jekyll
 )

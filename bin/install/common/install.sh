@@ -14,6 +14,7 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
+HOME=${HOME:?}
 DOTFILES_DIR=${DOTFILES_DIR:?}
 
 echo "$PFX Installing items common to all os versions"
