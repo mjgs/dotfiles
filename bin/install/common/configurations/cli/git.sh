@@ -10,7 +10,6 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
-HOME=${HOME:?}
 NAME=${NAME:?}
 EMAIL=${EMAIL:?}
 
