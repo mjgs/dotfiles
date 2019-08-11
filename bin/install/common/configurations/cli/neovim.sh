@@ -11,6 +11,7 @@ set -e; set -o pipefail
 
 PFX=${PFX:-==>}
 HOME=${HOME:?}
+
 XDG_CONFIG_DIR=$HOME/.config
 NVIM_DIR=$XDG_CONFIG_DIR/nvim
 VIM_DIR=$HOME/.vim
@@ -40,10 +41,10 @@ function createNvimConfiguration() {
 function installAndConfigureVimPluginManager() {
   echo "$PFX Installing vim plugin manager..."
   echo "$PFX Cloning repo: $VIM_PLUGIN_MANAGER_REPO"
-  echo "$PFX Target directory: $REPO_LOCAL_DIR"
+  echo "$PFX Target directory: $VIM_BUNDLES_DIR"
 
-  if [ ! -e $REPO_LOCAL_DIR ]; then
-    git clone $VIM_PLUGIN_MANAGER_REPO $REPO_LOCAL_DIR
+  if [ ! -e $VIM_BUNDLES_DIR ]; then
+    git clone $VIM_PLUGIN_MANAGER_REPO $VIM_BUNDLES_DIR
   else
     echo "$PFX Target directory exists, skipping..."
   fi
