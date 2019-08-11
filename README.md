@@ -26,7 +26,7 @@ Having said that, I use it myself to build my own system, so it should be functi
 2) Add .symlink in filename to files to be symlinked
 e.g. bash.symlink
 
-## Install fresh OSX dev environment
+## Install fresh environment
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjgs/dotfiles/master/install.sh)"
 
