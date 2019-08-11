@@ -13,13 +13,14 @@ fi
 # Exit on error
 set -e; set -o pipefail
 
-CWD=$(pwd)
 PFX=${PFX:-==>}
 OS_TYPE=${OS_TYPE:?}
 HOME=${HOME:?}
-CODES_DIR=${CODES_DIR:-$CWD/Codes}
+CODES_DIR=${CODES_DIR:-$HOME/Codes}
 REPO=${REPO:-git@github.com:mjgs/dotfiles.git}
 REPO_LOCAL=${REPO_LOCAL:-git@github.com:mjgs/dotfiles_local.git}
+
+CWD=$(pwd)
 REPO_DIR=$CODES_DIR/$(basename ${REPO%.git})
 REPO_LOCAL_DIR=$CODES_DIR/$(basename ${REPO_LOCAL%.git})
 HOMEBREW_URL=https://raw.githubusercontent.com/Homebrew/install/master/install
