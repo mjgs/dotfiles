@@ -10,10 +10,16 @@ fi
 set -e; set -o pipefail
 
 PFX=${PFX:-==>}
+HOME=${HOME:?}
 NAME=${NAME:?}
 EMAIL=${EMAIL:?}
 
+GITCONFIG=$HOME/.gitconfig
+
 echo "$PFX Configuring package: git"
+
+mkdir -p $(dirname $GITCONFIG)
+touch $GITCONFIG
 
 if ! git config user.name > /dev/null; then
   echo "$PFX Setting git user.name: $NAME"
