@@ -13,14 +13,15 @@ PFX=${PFX:-==>}
 HOME=${HOME:?}
 NAME=${NAME:?}
 EMAIL=${EMAIL:?}
-SSH_DIR=$HOME/.ssh
 
 echo "$PFX Checking public/private key pair..."
 
-if [ ! -e $SSH_DIR/id_rsa ]; then
+SSH_DIR=$HOME/.ssh
+
+if [ ! -e $SSH_DIR ]; then
   echo "$PFX You don't have a public / private key pair..."
   echo "$PFX Generating public / private key pair..."
-  ssh-keygen -t rsa -C $EMAIL
+  ssh-keygen -f $SSH_DIR/id_rsa -t rsa -C $EMAIL
 fi
 
 exit 0
