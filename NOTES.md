@@ -6,8 +6,9 @@ The install script works for installing, I've installed my latest system using i
 
 Here is the progress on this so far, in order to run the install to a temp location:
 
-- Set environment variables HOME=/tmp/TEST_HOME CODES_DIR=/tmp/TEST_CODES BACKUP_DIR=/tmp/TEST_BACKUP
+- Set environment variables BACKUP_DIR=/tmp/TEST_BACKUP
 - Run ./bin/install/backup-laptop.sh
+- Set environment variables HOME=/tmp/TEST_HOME CODES_DIR=/tmp/TEST_CODES
 - unset NVM_DIR
 - Run dotfiles/install.sh
 
