@@ -17,6 +17,7 @@ PFX=${PFX:-==>}
 HOME=${HOME:?}
 DOTFILES_DIR=${DOTFILES_DIR:?}
 DOTFILES_LOCAL_DIR=${DOTFILES_LOCAL_DIR:?}
+DOTFILES_RELATIVE_BASE=${DOTFILES_RELATIVE_BASE:?} # used to create symlink with relative path
 
 function createRegularDotfilesSymlinks() {
   local THIS_DOTFILES_DIR=$1
@@ -33,8 +34,7 @@ function createRegularDotfilesSymlinks() {
     if [ -L $DOTFILE ]; then
       echo "$PFX Skipping ${DOTFILE}, already exists..."
     else
-      local BASE_PATH=Documents/Codes/projects
-      local SOURCE=$BASE_PATH/$(basename $THIS_DOTFILES_DIR)/${FILE:2}
+      local SOURCE=$DOTFILES_RELATIVE_BASE/$(basename $THIS_DOTFILES_DIR)/${FILE:2}
       local TARGET=$HOME/.$(basename $FILE '.symlink')
 
       echo "$PFX Creating $TARGET symlink to $SOURCE"
@@ -67,8 +67,7 @@ function createXDGDotfilesSymlinks() {
       if [ -L $DOTFILE ]; then
         echo "$PFX Skipping ~${DOTFILE#$HOME} already exists..."
       else
-        local BASE_PATH=Documents/Codes/projects
-        local SOURCE=$BASE_PATH/$(basename $THIS_DOTFILES_DIR)/config/${CONFIG:2}
+        local SOURCE=$DOTFILES_RELATIVE_BASE/$(basename $THIS_DOTFILES_DIR)/config/${CONFIG:2}
         local TARGET=$HOME/.config/$(basename $CONFIG '.symlink')
 
         echo "$PFX Creating $TARGET symlink to $SOURCE"

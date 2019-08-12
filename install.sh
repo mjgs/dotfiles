@@ -19,6 +19,7 @@ OS_TYPE=${OS_TYPE:?}
 CODES_DIR=${CODES_DIR:-$HOME/Codes}
 DOTFILES_REPO=${DOTFILES_REPO:-git@github.com:mjgs/dotfiles.git}
 DOTFILES_LOCAL_REPO=${DOTFILES_LOCAL_REPO:-git@github.com:mjgs/dotfiles_local.git}
+DOTFILES_RELATIVE_BASE=${DOTFILES_RELATIVE_BASE:-Codes}
 
 CWD=$(pwd)
 DOTFILES_DIR=$CODES_DIR/$(basename ${DOTFILES_REPO%.git})
@@ -102,6 +103,7 @@ function exportVariables() {
   export DOTFILES_DIR
   export DOTFILES_LOCAL_REPO
   export DOTFILES_LOCAL_DIR
+  export DOTFILES_RELATIVE_BASE
   export NAME
   export EMAIL
   export HOMEBREW_URL
