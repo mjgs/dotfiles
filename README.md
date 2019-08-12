@@ -52,8 +52,7 @@ Set environment variable DEBUG=1 to see debug logging as the scripts runs.
 
 ## TODO
 
-- Make it easier to test on an existing system
-
+- Make it easier to test on an existing system - [progres so far](https://github.com/mjgs/dotfiles/blob/master/NOTES.md#making-it-easier-to-test-on-an-existing-system)
 ## Thanks to…
 
 * Nick Nisi [dotfiles repository](https://github.com/nicknisi/dotfiles)
