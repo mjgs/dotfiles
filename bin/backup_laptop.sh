@@ -60,6 +60,11 @@ function backupDotfiles() {
 
 echo "$PFX Starting backup..."
 
+if [ ! -d "$BACKUP_DIR" ]; then
+  echo "ERROR: BACKUP_DIR does not exist, exiting..."
+  exit 1
+fi
+
 TIMESTAMP_START=$(date)
 echo "$PFX Backup started: $TIMESTAMP_START"
 echo "$PFX Target backup dir: $BACKUP_DIR"
