@@ -23,6 +23,9 @@ export CPPFLAGS="-I/usr/local/opt/ruby/include"
 # For pkg-config to find ruby
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 
+# Add loca install of perl
+export PATH="$HOME/.perl/versions/perl-$PERL_VERSION/bin:$PATH"
+
 # Add the current path to the bash shell
 PS1='\w $ '
 
