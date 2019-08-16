@@ -30,7 +30,7 @@ INSTALL_DIR=$PERL_ROOT/versions/$PERL_NAME
 function downloadPerl() {
   echo "$PFX Creating perl environment in directory: $PERL_ROOT"
   
-  mkdir -p $HOME/.perl/{sources,versions}
+  mkdir -p $PERL_ROOT/{sources,versions}
   
   echo "$PFX Downloading perl from: $DOWNLOAD_URL"
 
@@ -40,7 +40,7 @@ function downloadPerl() {
   
   if [ ! -e "$DOWNLOAD_TARGET" ]; then
     mkdir -p $DOWNLOAD_DIR
-    wget $DOWNLOAD_URL --timeout 10 -O $DOWNLOAD_TARGET || rm -f $DOWNLOAD_TARGET
+    wget $DOWNLOAD_URL -O $DOWNLOAD_TARGET || rm -f $DOWNLOAD_TARGET
   else
     echo "$PFX Download target already exists, skipping..."
   fi
