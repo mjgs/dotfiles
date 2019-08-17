@@ -26,5 +26,6 @@ echo "$PFX Installing items common to all os versions"
 $DOTFILES_DIR/bin/install/common/installs/dotfiles.sh
 $DOTFILES_DIR/bin/install/common/installs/node.sh
 $DOTFILES_DIR/bin/install/common/installs/perl.sh
+$DOTFILES_DIR/bin/install/common/installs/ruby.sh
 
 exit 0
