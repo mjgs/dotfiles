@@ -27,7 +27,10 @@ DOWNLOAD_URL=$DOWNLOAD_URL_BASE/$RUBY_MAJOR_VERSION/$RUBY_NAME.tar.gz
 DOWNLOAD_DIR=$RUBY_DIR/sources
 INSTALL_DIR=$RUBY_DIR/versions/$RUBY_NAME
 
-MODULES=()
+MODULES=(
+  jekyll
+)
+
 
 function downloadRuby() {
   echo "$PFX Creating ruby environment in directory: $RUBY_DIR"
