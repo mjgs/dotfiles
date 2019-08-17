@@ -15,24 +15,26 @@ set -e; set -o pipefail
 
 PFX=${PFX:-==>}
 HOME=${HOME:?}
-LANGUAGES_ROOT=${LANGUAGES_ROOT:-$HOME/.languages}
-DOTFILES_PERL_VERSION=${DOTFILES_PERL_VERSION:?}
+LANGUAGES_DIR=${LANGUAGES_DIR:?}
+LANGUAGES_PERL_VERSION=${LANGUAGES_PERL_VERSION:?}
 DOWNLOAD_URL_BASE=${DOWNLOAD_URL_BASE:-https://www.cpan.org/src}
 
 CWD=$(pwd)
-PERL_ROOT=$LANGUAGES_ROOT/.perl}
-PERL_NAME=perl-$DOTFILES_PERL_VERSION
-PERL_MAJOR_VERSION=$(echo $DOTFILES_PERL_VERSION | sed 's/\.[^.]*$//' | sed 's/\.[^.]*$//')
+PERL_DIR=$LANGUAGES_DIR/perl
+PERL_NAME=perl-$LANGUAGES_PERL_VERSION
+PERL_MAJOR_VERSION=$(echo $LANGUAGES_PERL_VERSION | sed 's/\.[^.]*$//' | sed 's/\.[^.]*$//').0
 DOWNLOAD_URL=$DOWNLOAD_URL_BASE/$PERL_MAJOR_VERSION/$PERL_NAME.tar.gz
-DOWNLOAD_DIR=$PERL_ROOT/sources
-INSTALL_DIR=$PERL_ROOT/versions/$PERL_NAME
+DOWNLOAD_DIR=$PERL_DIR/sources
+INSTALL_DIR=$PERL_DIR/versions/$PERL_NAME
+
+MODULES=()
 
 MODULES=()
 
 function downloadPerl() {
-  echo "$PFX Creating perl environment in directory: $PERL_ROOT"
+  echo "$PFX Creating perl environment in directory: $PERL_DIR"
   
-  mkdir -p $PERL_ROOT/{sources,versions}
+  mkdir -p $PERL_DIR/{sources,versions}
   
   echo "$PFX Downloading perl from: $DOWNLOAD_URL"
 

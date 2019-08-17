@@ -14,17 +14,10 @@ export PATH="$DOTFILES_DIR/bin:$PATH"
 # Add specific application executables
 export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
 
-# for compilers to find ruby
-export LDFLAGS="-L/usr/local/opt/ruby/lib"
-export CPPFLAGS="-I/usr/local/opt/ruby/include"
-
-# For pkg-config to find ruby
-export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
-
-# Add loca install of perl
-export PATH="$HOME/.perl/versions/perl-$PERL_VERSION/bin:$PATH"
+# Add languages to PATH
+export PATH="$LANGUAGES_DIR/perl/versions/perl-$LANGUAGES_PERL_VERSION/bin:$PATH"
+export PATH="$LANGUAGES_DIR/ruby/versions/ruby-$LANGUAGES_RUBY_VERSION/bin:$PATH"
 
 # Add the current path to the bash shell
 PS1='\w $ '
