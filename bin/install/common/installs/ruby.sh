@@ -15,24 +15,24 @@ set -e; set -o pipefail
 
 PFX=${PFX:-==>}
 HOME=${HOME:?}
-LANGUAGES_ROOT=${LANGUAGES_ROOT:-$HOME/.languages}
-DOTFILES_RUBY_VERSION=${DOTFILES_RUBY_VERSION:?}
+LANGUAGES_DIR=${LANGUAGES_DIR:-?}
+LANGUAGES_RUBY_VERSION=${LANGUAGES_RUBY_VERSION:?}
 DOWNLOAD_URL_BASE=${DOWNLOAD_URL_BASE:-https://cache.ruby-lang.org/pub/ruby}
 
 CWD=$(pwd)
-RUBY_ROOT=$LANGUAGES_ROOT/.ruby
-RUBY_NAME=ruby-$DOTFILES_RUBY_VERSION
-RUBY_MAJOR_VERSION=$(echo $DOTFILES_RUBY_VERSION | sed 's/\.[^.]*$//')
-DOWNLOAD_URL=$RUBY_URL_BASE/$RUBY_MAJOR_VERSION/$RUBY_NAME.tar.gz
-DOWNLOAD_DIR=$RUBY_ROOT/sources
-INSTALL_DIR=$RUBY_ROOT/versions/$RUBY_NAME
+RUBY_DIR=$LANGUAGES_DIR/ruby
+RUBY_NAME=ruby-$LANGUAGES_RUBY_VERSION
+RUBY_MAJOR_VERSION=$(echo $LANGUAGES_RUBY_VERSION | sed 's/\.[^.]*$//')
+DOWNLOAD_URL=$DOWNLOAD_URL_BASE/$RUBY_MAJOR_VERSION/$RUBY_NAME.tar.gz
+DOWNLOAD_DIR=$RUBY_DIR/sources
+INSTALL_DIR=$RUBY_DIR/versions/$RUBY_NAME
 
 MODULES=()
 
 function downloadRuby() {
-  echo "$PFX Creating ruby environment in directory: $RUBY_ROOT"
+  echo "$PFX Creating ruby environment in directory: $RUBY_DIR"
   
-  mkdir -p $RUBY_ROOT/{sources,versions}
+  mkdir -p $RUBY_DIR/{sources,versions}
   
   echo "$PFX Downloading ruby from: $DOWNLOAD_URL"
 
