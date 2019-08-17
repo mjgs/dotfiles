@@ -125,6 +125,10 @@ function runInstallScripts() {
 
   # dotfiles install
   $DOTFILES_DIR/bin/install/common/install.sh
+  
+  echo "$PFX Loading $HOME/.bashrc"
+  source $HOME/.bashrc
+  
   $DOTFILES_DIR/bin/install/$OS_TYPE/install.sh
 }
 

@@ -88,17 +88,10 @@ function createDotfilesSymlinks() {
   createRegularDotfilesSymlinks $DOTFILES_LOCAL_DIR
 }
 
-function loadBashrc() {
-  echo "$PFX Loading $HOME/.bashrc"
-
-  source $HOME/.bashrc
-}
-
 #
 # Main
 #
 
 createDotfilesSymlinks
-loadBashrc
 
 exit 0
