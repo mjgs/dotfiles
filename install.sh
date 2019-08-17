@@ -116,6 +116,7 @@ function runInstallScripts() {
   # Configure git, ssh keys and dotfiles here since they are needed during the installation
   $DOTFILES_DIR/bin/install/common/configurations/cli/git.sh
   $DOTFILES_DIR/bin/install/common/configurations/cli/publicPrivateKeyPair.sh
+  $DOTFILES_DIR/bin/install/common/installs/openssl.sh
 
   # dotfiles_local install
   if [ -d "$DOTFILES_LOCAL_DIR"  ]; then

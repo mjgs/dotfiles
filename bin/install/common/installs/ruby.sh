@@ -18,6 +18,7 @@ HOME=${HOME:?}
 LANGUAGES_DIR=${LANGUAGES_DIR:-?}
 LANGUAGES_RUBY_VERSION=${LANGUAGES_RUBY_VERSION:?}
 DOWNLOAD_URL_BASE=${DOWNLOAD_URL_BASE:-https://cache.ruby-lang.org/pub/ruby}
+OPENSSL_DIR=${OPENSSL_DIR:?}
 
 CWD=$(pwd)
 RUBY_DIR=$LANGUAGES_DIR/ruby
@@ -31,6 +32,12 @@ MODULES=(
   jekyll
 )
 
+function ensureOpensslDirectoryExists() {
+  if [ ! -d "$OPENSSL_DIR" ]; then
+    echo "ERROR: openssl directory does not exist: $OPENSSL_DIR, exiting..."
+    exit 1
+  fi
+}
 
 function downloadRuby() {
   echo "$PFX Creating ruby environment in directory: $RUBY_DIR"
@@ -64,6 +71,12 @@ function installRuby() {
   echo "$PFX Creating install directory: $INSTALL_DIR"
  
   mkdir -p $INSTALL_DIR
+
+  echo "$PFX Setting compile variables: LDFLAGS CPPFLAGS PKG_CONFIG_PATH"
+
+  export LDFLAGS=-L$OPENSSL_DIR/lib
+  export CPPFLAGS=-I$OPENSSL_DIR/include
+  export PKG_CONFIG_PATH=$OPENSSL_DIR/lib/pkgconfig
 
   local BUILT_FILE=$DOWNLOAD_DIR/.$RUBY_NAME
   
@@ -101,6 +114,7 @@ function installRubyModules() {
 # Main
 #
 
+ensureOpensslDirectoryExists
 downloadRuby
 installRuby
 installRubyModules
