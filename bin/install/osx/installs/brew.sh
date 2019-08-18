@@ -28,7 +28,6 @@ PACKAGES=(
   iperf
   jq
   neovim
-  nvm
   openssl
   redis
   tree

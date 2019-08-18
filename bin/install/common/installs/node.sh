@@ -15,7 +15,17 @@ set -e; set -o pipefail
 
 PFX=${PFX:-==>}
 HOME=${HOME:?}
-NVM_VERSION=${NVM_VERSION:-v0.34.0}
+LANGUAGES_DIR=${LANGUAGES_DIR:?}
+LANGUAGES_NODE_VERSION=${LANGUAGES_NODE_VERSION:?}
+DOWNLOAD_URL_BASE=${DOWNLOAD_URL_BASE:-https://nodejs.org/dist}
+
+CWD=$(pwd)
+NODE_DIR=$LANGUAGES_DIR/node
+NODE_NAME=node-v$LANGUAGES_NODE_VERSION
+DOWNLOAD_URL=$DOWNLOAD_URL_BASE/v$LANGUAGES_NODE_VERSION/$NODE_NAME.tar.gz
+DOWNLOAD_DIR=$NODE_DIR/sources
+INSTALL_DIR=$NODE_DIR/versions/$NODE_NAME
+
 MODULES=(
   browser-sync
   express
@@ -28,30 +38,68 @@ MODULES=(
   npm-check
 )
 
-function installNvm() {
-  local NVM_URL=https://raw.githubusercontent.com/nvm-sh/nvm/$NVM_VERSION/install.sh
+function downloadNode() {
+  echo "$PFX Creating node environment in directory: $NODE_DIR"
+  
+  mkdir -p $NODE_DIR/{sources,versions}
+  
+  echo "$PFX Downloading node from: $DOWNLOAD_URL"
 
-  echo "$PFX Installing nvm..."
- 
-  if [ ! -d $HOME/.nvm ]; then
-    echo "$PFX Nvm install url: $NVM_URL"
-    cd $HOME
-    curl -o- $NVM_URL | bash
+  local DOWNLOAD_TARGET=$DOWNLOAD_DIR/$NODE_NAME.tar.gz
+
+  echo "$PFX Target: $DOWNLOAD_TARGET"
+
+  if [ ! -e "$DOWNLOAD_TARGET" ]; then
+    mkdir -p $DOWNLOAD_DIR
+    wget $DOWNLOAD_URL -O $DOWNLOAD_TARGET || rm -f $DOWNLOAD_TARGET
   else
-    echo "$PFX nvm directory $HOME/.nvm exists, skipping..."
+    echo "$PFX Download target already exists, skipping..."
   fi
- 
-  # Load nvm into current environment 
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+  local UNTARED_TARGET=$(dirname $DOWNLOAD_TARGET)/$NODE_NAME
+
+  echo "$PFX Untaring archive: $DOWNLOAD_TARGET"
+
+  # tar overwrites by default
+  tar xvfz $DOWNLOAD_TARGET -C $DOWNLOAD_DIR
 }
 
-function installLatestNode() {
-  # Nvm installs currently silently crash the script unless exit on error is turned off
-  # TODO - Figure out why it's necessary to turn off exit on error https://github.com/nvm-sh/nvm/issues/2080
-  set +e
-  nvm install stable
-  set -e
+function installNode() {
+  cd $DOWNLOAD_DIR/$NODE_NAME
+
+  echo "$PFX Creating install directory: $INSTALL_DIR"
+
+  mkdir -p $INSTALL_DIR
+
+  local BUILT_FILE=$DOWNLOAD_DIR/.$NODE_NAME
+
+  if [ ! -e $BUILT_FILE ]; then
+    echo "$PFX Configuring..."
+
+    ./configure --prefix=$INSTALL_DIR
+
+    echo "$PFX Making..."
+
+    make -j4
+
+    echo "$PFX Testing..."
+
+    make test-only
+
+    echo "$PFX Installing..."
+
+    make install
+
+    echo "$PFX Building docs..."
+
+    make doc
+
+    echo "$PFX Creating build file: $BUILT_FILE"
+
+    echo Built: $(date) > $BUILT_FILE
+  fi
+
+  cd $CWD
 }
 
 function installNodeModules() {
@@ -67,8 +115,8 @@ function installNodeModules() {
 # Main
 #
 
-installNvm
-installLatestNode
+downloadNode
+installNode
 installNodeModules
 
 exit 0

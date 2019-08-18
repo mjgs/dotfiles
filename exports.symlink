@@ -18,6 +18,7 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 # Add languages to PATH
 export PATH="$LANGUAGES_DIR/perl/versions/perl-$LANGUAGES_PERL_VERSION/bin:$PATH"
 export PATH="$LANGUAGES_DIR/ruby/versions/ruby-$LANGUAGES_RUBY_VERSION/bin:$PATH"
+export PATH="$LANGUAGES_DIR/node/versions/node-v$LANGUAGES_NODE_VERSION/bin:$PATH"
 
 # Add the current path to the bash shell
 PS1='\w $ '
@@ -29,7 +30,7 @@ export HISTTIMEFORMAT="%d/%m/%Y %T "
 export PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
 
 # Nvm                            
-[ -n "$VERBOSE" ] && echo "sourcing $NVM_DIR/nvm.sh"
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#[ -n "$VERBOSE" ] && echo "sourcing $NVM_DIR/nvm.sh"
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
