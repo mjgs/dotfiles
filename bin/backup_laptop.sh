@@ -44,7 +44,7 @@ function backupDotfiles() {
   echo "$PFX Backing up dotfiles..."
 
   mkdir -p $1 
-  rsync -avh --delete --progress $HOME/.??* $1
+  rsync -avh --delete --progress --include '\.*' --exclude '*' $HOME/ $1
 
   DOTFILES_README_FILE=$1/DOTFILES_IN_THIS_FOLDER.txt
   mkdir -p $(dirname $DOTFILES_README_FILE)
