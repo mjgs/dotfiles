@@ -20,3 +20,5 @@ What happens:
 - So far so good, but...
 
 -> Currently these test installs fail with an nvm error: nvm is not compatible with the npm config "prefix" option
+
+2019-08-18 I've removed nvm in favour of just installing from source, so will need to test this temp location proceedure again, but current hard drive isn't big enough to run the test
