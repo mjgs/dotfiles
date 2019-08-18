@@ -31,11 +31,11 @@ if [ $(whoami) != "root" ]; then
 fi
 
 function backupDirectory() {
-echo "$PFX Backing up $1..."
-echo "$PFX Source dir: $2"
-echo "$PFX Target dir: $3"
+  echo "$PFX Backing up $1..."
+  echo "$PFX Source dir: $2"
+  echo "$PFX Target dir: $3"
 
-mkdir -p $3
+  mkdir -p $3
   rsync -avh --delete --progress $2 $3
   echo
 }
