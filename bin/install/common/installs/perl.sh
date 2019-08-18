@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+
 
 #
 # Description: installs perl and perl modules
@@ -26,8 +26,6 @@ PERL_MAJOR_VERSION=$(echo $LANGUAGES_PERL_VERSION | sed 's/\.[^.]*$//' | sed 's/
 DOWNLOAD_URL=$DOWNLOAD_URL_BASE/$PERL_MAJOR_VERSION/$PERL_NAME.tar.gz
 DOWNLOAD_DIR=$PERL_DIR/sources
 INSTALL_DIR=$PERL_DIR/versions/$PERL_NAME
-
-MODULES=()
 
 MODULES=()
 
