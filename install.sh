@@ -96,6 +96,9 @@ function cloneLatestDotfileRepos() {
   echo "$PFX Cloning repo: $DOTFILES_REPO"
   echo "$PFX Target directory: $DOTFILES_DIR"
   if [ ! -e "$DOTFILES_DIR" ]; then
+    echo "DOTFILES_REPO_BRANCH: $DOTFILES_REPO_BRANCH"
+    echo "DOTFILES_REPO: $DOTFILES_REPO"
+    echo "DOTFILES_DIR: $DOTFILES_DIR"
     git clone -b $DOTFILES_REPO_BRANCH $DOTFILES_REPO $DOTFILES_DIR
   else
     echo "$PFX Target directory exists, skipping..."
