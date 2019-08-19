@@ -107,7 +107,7 @@ DOTFILES_BACKUP_DIR=$BACKUP_DIR/$DOTFILES_BACKUP_NAME
 
 restoreDirectory "Ssh keys" $DOTFILES_BACKUP_DIR/.ssh/ $HOME/.ssh
 restoreDirectory "Desktop" $MAIN_BACKUP_DIR/Desktop/ $HOME/Desktop
-restoreDirectory "Documents" $MAIN_BACKUP_DIR/Documents/ $HOME/Documents "Codes"
+#restoreDirectory "Documents" $MAIN_BACKUP_DIR/Documents/ $HOME/Documents "Codes"
 restoreDirectory "Movies" $MAIN_BACKUP_DIR/Movies/ $HOME/Movies
 restoreDirectory "Music" $MAIN_BACKUP_DIR/Music/ $HOME/Music
 restoreDirectory "Pictures" $MAIN_BACKUP_DIR/Pictures/ $HOME/Pictures
