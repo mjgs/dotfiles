@@ -19,6 +19,7 @@ DOTFILES_DIR=${DOTFILES_DIR:?}
 HOMEBREW_URL=${HOMEBREW_URL:?}
 PACKAGES=(
   ack
+  awscli
   cmake
   git
   git-extras
