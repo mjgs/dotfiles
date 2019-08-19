@@ -124,6 +124,9 @@ function runInstallScripts() {
   $DOTFILES_DIR/bin/install/common/configurations/cli/publicPrivateKeyPair.sh
   $DOTFILES_DIR/bin/install/common/installs/openssl.sh
 
+  # Restore files from backup
+  $DOTFILES_DIR/bin/restore_laptop.sh
+
   # dotfiles_local install
   if [ -d "$DOTFILES_LOCAL_DIR"  ]; then
     $DOTFILES_LOCAL_DIR/install.sh
