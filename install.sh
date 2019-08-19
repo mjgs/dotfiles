@@ -18,7 +18,9 @@ HOME=${HOME:?}
 OS_TYPE=${OS_TYPE:?}
 CODES_DIR=${CODES_DIR:-$HOME/Codes}
 DOTFILES_REPO=${DOTFILES_REPO:-git@github.com:mjgs/dotfiles.git}
+DOTFILES_REPO_BRANCH=${DOTFILES_REPO_BRANCH:-master}
 DOTFILES_LOCAL_REPO=${DOTFILES_LOCAL_REPO:-git@github.com:mjgs/dotfiles_local.git}
+DOTFILES_LOCAL_REPO_BRANCH=${DOTFILES_LOCAL_REPO_BRANCH:-master}
 DOTFILES_RELATIVE_BASE=${DOTFILES_RELATIVE_BASE:-Codes}
 
 CWD=$(pwd)
@@ -32,12 +34,14 @@ function printUsage() {
   echo
   echo "Environment variables:"
   echo 
-  echo "  HOME                   - user home directory"
-  echo "  OS_TYPE                - osx (*)"
-  echo "  CODES_DIR              - path to directory where dotfiles repos will be cloned (d)"
-  echo "  DOTFILES_REPO          - ssh connection string for dotfiles repository (d)"
-  echo "  DOTFILES_LOCAL_REPO    - ssh connection string for dotfiles_local repository (d)"
-  echo "  DOTFILES_RELATIVE_BASE - path segment used as base for relative symlink creation"
+  echo "  HOME                       - user home directory"
+  echo "  OS_TYPE                    - osx (*)"
+  echo "  CODES_DIR                  - path to directory where dotfiles repos will be cloned (d)"
+  echo "  DOTFILES_REPO              - ssh connection string for dotfiles repository (d)"
+  echo "  DOTFILES_REPO_BRANCH       - branch of the dotfiles repo (d)"
+  echo "  DOTFILES_LOCAL_REPO        - ssh connection string for dotfiles_local repository (d)"
+  echo "  DOTFILES_LOCAL_REPO_BRANCH - branch of the dotfiles_local repo (d)"
+  echo "  DOTFILES_RELATIVE_BASE     - path segment used as base for relative symlink creation"
   echo 
   echo "  (d) - indicates that a default is set, see code for details"
   echo
@@ -52,7 +56,9 @@ function printVariables() {
   echo "  HOME: $HOME"
   echo "  CODES_DIR: $CODES_DIR"
   echo "  DOTFILES_REPO: $DOTFILES_REPO"
+  echo "  DOTFILES_REPO_BRANCH: $DOTFILES_REPO_BRANCH"
   echo "  DOTFILES_LOCAL_REPO: $DOTFILES_LOCAL_REPO"
+  echo "  DOTFILES_LOCAL_REPO_BRANCH: $DOTFILES_LOCAL_REPO_BRANCH"
   echo
 }
 
@@ -82,7 +88,7 @@ function cloneLatestDotfileRepos() {
   echo "$PFX Cloning repo: $DOTFILES_LOCAL_REPO"
   echo "$PFX Target directory: $DOTFILES_LOCAL_DIR"
   if [ ! -e "$DOTFILES_LOCAL_DIR" ]; then
-    git clone $DOTFILES_LOCAL_REPO $DOTFILES_LOCAL_DIR
+    git clone -b $DOTFILES_LOCAL_REPO_BRANCH $DOTFILES_LOCAL_REPO $DOTFILES_LOCAL_DIR
   else
     echo "$PFX Target directory exists, skipping..."
   fi
@@ -90,7 +96,7 @@ function cloneLatestDotfileRepos() {
   echo "$PFX Cloning repo: $DOTFILES_REPO"
   echo "$PFX Target directory: $DOTFILES_DIR"
   if [ ! -e "$DOTFILES_DIR" ]; then
-    git clone $DOTFILES_REPO $DOTFILES_DIR
+    git clone -b $DOTFILES_REPO_BRANCH $DOTFILES_REPO $DOTFILES_DIR
   else
     echo "$PFX Target directory exists, skipping..."
   fi
