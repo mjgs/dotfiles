@@ -1,0 +1,7 @@
+alias p='ping'
+alias p1='ping -c 1'
+alias p1g='ping -c 1 google.com'
+alias t='traceroute'
+alias wip1="curl ipinfo.io/ip"
+alias wip2="curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'"
+alias np="nping --tcp-connect -p 80,443 "
