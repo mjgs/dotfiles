@@ -1,7 +1,3 @@
-# local variable exports
-[ -n "$VERBOSE" ] && echo "sourcing $HOME/.exports_local"
-source $HOME/.exports_local
-
 # Basic PATH setup (read from left to right by the shell)
 export PATH="/usr/bin:/bin:/usr/sbin:/sbin"
 
@@ -19,12 +15,3 @@ export PATH="/usr/local/opt/openssl/bin:$PATH"
 export PATH="$LANGUAGES_DIR/perl/versions/perl-$LANGUAGES_PERL_VERSION/bin:$PATH"
 export PATH="$LANGUAGES_DIR/ruby/versions/ruby-$LANGUAGES_RUBY_VERSION/bin:$PATH"
 export PATH="$LANGUAGES_DIR/node/versions/node-v$LANGUAGES_NODE_VERSION/bin:$PATH"
-
-# Add the current path to the bash shell
-PS1='\w $ '
-
-# Bash history timestamp
-export HISTTIMEFORMAT="%d/%m/%Y %T "
-
-# Adds debugging info to the prompt for bash set -x
-export PS4='+($(basename ${BASH_SOURCE}):${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'

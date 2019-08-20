@@ -1,0 +1,5 @@
+alias sbashrc='source $HOME/.bashrc'
+alias saliases='source $HOME/.aliases'
+alias sexports='source $HOME/.exports'
+alias sfunctions='source $HOME/.functions'
+alias spf='sudo pfctl -ef /etc/pf.conf'

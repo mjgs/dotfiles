@@ -1,0 +1,9 @@
+# local variable exports
+[ -n "$VERBOSE" ] && echo "sourcing $HOME/.exports_local"
+source $HOME/.exports_local
+
+[ -n "$VERBOSE" ] && echo "sourcing $HOME/.exports/exports_path"
+source $HOME/.exports/exports_path
+
+[ -n "$VERBOSE" ] && echo "sourcing $HOME/.exports/exports_general"
+source $HOME/.exports/exports_general

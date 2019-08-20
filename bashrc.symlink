@@ -1,12 +1,12 @@
 # exports
-[ -n "$VERBOSE" ] && echo "sourcing $HOME/.exports"
-source $HOME/.exports
+[ -n "$VERBOSE" ] && echo "sourcing $HOME/.exports/exports"
+source $HOME/.exports/exports
 
 # functions
-[ -n "$VERBOSE" ] && echo "sourcing $HOME/.functions"
-source $HOME/.functions
+[ -n "$VERBOSE" ] && echo "sourcing $HOME/.functions/functions"
+source $HOME/.functions/functions
 
 # aliases
-[ -n "$VERBOSE" ] && echo "sourcing $HOME/.aliases"
-source $HOME/.aliases
+[ -n "$VERBOSE" ] && echo "sourcing $HOME/.aliases/aliases"
+source $HOME/.aliases/aliases
 

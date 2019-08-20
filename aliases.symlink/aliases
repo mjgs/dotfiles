@@ -1,0 +1,24 @@
+[ -n "$VERBOSE" ] && echo "sourcing $HOME/.aliases/aliases_general"
+source $HOME/.aliases/aliases_general
+
+[ -n "$VERBOSE" ] && echo "sourcing $HOME/.aliases/aliases_networking"
+source $HOME/.aliases/aliases_networking
+
+[ -n "$VERBOSE" ] && echo "sourcing $HOME/.aliases/aliases_fastfileediting"
+source $HOME/.aliases/aliases_fastfileediting
+
+[ -n "$VERBOSE" ] && echo "sourcing $HOME/.aliases/aliases_reloadconfigs"
+source $HOME/.aliases/aliases_reloadconfigs
+
+[ -n "$VERBOSE" ] && echo "sourcing $HOME/.aliases/aliases_dotfiles"
+source $HOME/.aliases/aliases_dotfiles
+
+[ -n "$VERBOSE" ] && echo "sourcing $HOME/.aliases/aliases_git"
+source $HOME/.aliases/aliases_git
+
+[ -n "$VERBOSE" ] && echo "sourcing $HOME/.aliases/aliases_todos"
+source $HOME/.aliases/aliases_todos
+
+# local aliases
+[ -n "$VERBOSE" ] && echo "sourcing $HOME/.aliases_local"
+source $HOME/.aliases_local
