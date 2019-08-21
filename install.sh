@@ -16,18 +16,17 @@ set -e; set -o pipefail
 PFX=${PFX:-==>}
 HOME=${HOME:?}
 OS_TYPE=${OS_TYPE:?}
-DOTFILES_REPO_DIR=${DOTFILES_REPO_DIR:?}
-
+DOTFILES_ROOT_DIR=${DOTFILES_ROOT_DIR:?}
 DOTFILES_REPO_URL=${DOTFILES_REPO_URL:?}
 DOTFILES_REPO_BRANCH=${DOTFILES_REPO_BRANCH:-master}
-
 DOTFILES_LOCAL_REPO_URL=${DOTFILES_LOCAL_REPO_URL:?}
 DOTFILES_LOCAL_REPO_BRANCH=${DOTFILES_LOCAL_REPO_BRANCH:-master}
-
-DOTFILES_RELATIVE_BASE=${DOTFILES_RELATIVE_BASE:-Codes}
+DOTFILES_RELATIVE_BASE=${DOTFILES_RELATIVE_BASE:?}
 
 CWD=$(pwd)
 HOMEBREW_URL=https://raw.githubusercontent.com/Homebrew/install/master/install
+DOTFILES_DIR=$DOTFILES_ROOT_DIR/dotfiles
+DOTFILES_LOCAL_DIR=$DOTFILES_ROOT_DIR/dotfiles_local
 
 function printUsage() {
   echo "Usage: install.sh"
@@ -36,7 +35,7 @@ function printUsage() {
   echo 
   echo "  HOME                       - user home directory"
   echo "  OS_TYPE                    - osx (*)"
-  echo "  DOTFILES_REPO_DIR          - path to directory where dotfiles repos will be cloned"
+  echo "  DOTFILES_ROOT_DIR          - path to directory where dotfiles repos will be cloned"
   echo "  DOTFILES_REPO_URL          - dotfiles repo url (e.g git@github.com:mjgs/dotfiles.git)"
   echo "  DOTFILES_REPO_BRANCH       - branch of the dotfiles repo (default: master)"
   echo "  DOTFILES_LOCAL_REPO_URL    - dotfils_local repo url (e.g. git@github.com:mjgs/dotfiles_local.git)"
@@ -75,8 +74,8 @@ function getUserInfo() {
 }
 
 function createDirectories() {
-  echo "$PFX Creating DOTFILES_REPO_DIR: $DOTFILES_REPO_DIR"
-  mkdir -p $DOTFILES_REPO_DIR
+  echo "$PFX Creating DOTFILES_ROOT_DIR: $DOTFILES_ROOT_DIR"
+  mkdir -p $DOTFILES_ROOT_DIR
 }
 
 function cloneRepo() {
@@ -99,25 +98,27 @@ function cloneLatestDotfileRepos() {
   echo "$PFX Add your public key to your dotfiles code repositories before continuing"
   read -p "$PFX Hit enter to continue..." enter
 
-  cloneRepo $DOTFILES_LOCAL_REPO_URL $DOTFILES_REPO_DIR/dotfiles_local $DOTFILES_LOCAL_REPO_BRANCH
-  cloneRepo $DOTFILES_REPO_URL $DOTFILES_REPO_DIR/dotfiles $DOTFILES_REPO_BRANCH
+  cloneRepo $DOTFILES_LOCAL_REPO_URL $DOTFILES_LOCAL_DIR $DOTFILES_LOCAL_REPO_BRANCH
+  cloneRepo $DOTFILES_REPO_URL $DOTFILES_DIR $DOTFILES_REPO_BRANCH
 }
 
 function exportVariables() {
   export PFX
-  export DOTFILES_DIR
-  export DOTFILES_REPO
-  export DOTFILES_DIR
-  export DOTFILES_LOCAL_REPO
-  export DOTFILES_LOCAL_DIR
-  export DOTFILES_RELATIVE_BASE
   export NAME
   export EMAIL
   export HOMEBREW_URL
+
+  export DOTFILES_DIR
+  export DOTFILES_REPO
+  export DOTFILES_LOCAL_REPO
+  export DOTFILES_LOCAL_DIR
+  export DOTFILES_RELATIVE_BASE
 }
 
 function runInstallScripts() {
   echo "$PFX Running install scripts..."
+
+
 
   # Configure git, ssh keys and dotfiles here since they are needed during the installation
   $DOTFILES_DIR/bin/install/common/configurations/cli/git.sh
