@@ -35,16 +35,13 @@ You'll need to set a few environment variables in your shell before you run the 
 ```
   HOME                       - user home directory
   OS_TYPE                    - osx (*)
-  CODES_DIR                  - path to codes directory (d)
-  DOTFILES_REPO              - ssh connection string for dotfiles repository (d)
-  DOTFILES_REPO_BRANCH       - branch name (d)
-  DOTFILES_LOCAL_REPO        - ssh connection string for dotfiles_local repository (d)
-  DOTFILES_LOCAL_REPO_BRANCH - branch name (d)
-  DOTFILES_RELATIVE_BASE     - path segment used as base for relative symlink creation (d)
+  DOTFILES_ROOT_DIR          - path to directory where dotfiles repos and cloned
+  DOTFILES_REPO_URL          - dotfiles repo url (e.g. git@github.com:mjgs/dotfiles.git)
+  DOTFILES_REPO_BRANCH       - branch name (default: master)
+  DOTFILES_LOCAL_REPO_URL    - dotfiles_local repo url (e.g. git@github.com:mjgs/dotfiles_local.git)
+  DOTFILES_LOCAL_REPO_BRANCH - branch name (default: master)
+  DOTFILES_RELATIVE_BASE     - path segment used as base for relative symlink creation
 
-  (d) - indicates that a default is set, see code for details
-  
-  (*) - add other os types scripts to bin/install/<os_type>
 ```
 
 ## Development
