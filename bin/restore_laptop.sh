@@ -42,24 +42,6 @@ function restoreDirectory() {
   rsync -avh --progress $SRC $TGT
 }
 
-function restoreProjectVscodeDirectories() {
-  echo "$PFX Restoring project vscode directories..."
- 
-  for FOLDER in $(ls $CODES_BACKUP_DIR); do
-    local VSCODE_SRC_DIR=$CODES_BACKUP_DIR/$FOLDER/.vscode
-    local VSCODE_TGT_DIR=$CODES_DIR/$FOLDER/.vscode
-
-    if [ -e "$VSCODE_SRC_DIR" ]; then
-      echo "$PFX Restoring directory: $VSCODE_SRC_DIR"
-      echo "$PFX Target directory: $VSCODE_TGT_DIR"
-      mkdir -p $VSCODE_TGT_DIR
-      rsync -avh --progress $VSCODE_SRC_DIR/ $VSCODE_TGT_DIR 
-    else
-      echo "$PFX Skipping restore: No vscode directory for project: $FOLDER"
-    fi
-  done
-}
-
 function restoreIterm2Preferences() {
   echo "$PFX Restoring iterm2 preferences..."
 
@@ -101,7 +83,6 @@ restoreDirectory "Movies" $MAIN_BACKUP_DIR/Movies/ $HOME/Movies
 restoreDirectory "Music" $MAIN_BACKUP_DIR/Music/ $HOME/Music
 restoreDirectory "Pictures" $MAIN_BACKUP_DIR/Pictures/ $HOME/Pictures
 
-restoreProjectVscodeDirectories 
 restoreIterm2Preferences
 
 TIMESTAMP_END=$(date)
