@@ -38,7 +38,6 @@ installHomebrew
 
 echo "$PFX Installing OSX items"
 
-$DOTFILES_DIR/bin/install/osx/installs/ruby.sh
 $DOTFILES_DIR/bin/install/osx/installs/shell.sh
 $DOTFILES_DIR/bin/install/osx/installs/brew.sh
 $DOTFILES_DIR/bin/install/osx/installs/gui.sh
