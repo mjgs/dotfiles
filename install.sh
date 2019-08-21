@@ -118,8 +118,6 @@ function exportVariables() {
 function runInstallScripts() {
   echo "$PFX Running install scripts..."
 
-
-
   # Configure git, ssh keys and dotfiles here since they are needed during the installation
   $DOTFILES_DIR/bin/install/common/configurations/cli/git.sh
   $DOTFILES_DIR/bin/install/common/configurations/cli/publicPrivateKeyPair.sh
