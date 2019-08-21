@@ -1,5 +1,5 @@
 # Add the current path to the bash shell
-PS1='\w $ '
+export PS1='\w $ '
 
 # Bash history timestamp
 export HISTTIMEFORMAT="%d/%m/%Y %T "
