@@ -27,6 +27,7 @@ RUBY_MAJOR_VERSION=$(echo $LANGUAGES_RUBY_VERSION | sed 's/\.[^.]*$//')
 DOWNLOAD_URL=$DOWNLOAD_URL_BASE/$RUBY_MAJOR_VERSION/$RUBY_NAME.tar.gz
 DOWNLOAD_DIR=$RUBY_DIR/sources
 INSTALL_DIR=$RUBY_DIR/versions/$RUBY_NAME
+BUILT_FILE=$DOWNLOAD_DIR/.$RUBY_NAME
 
 MODULES=(
   jekyll
@@ -61,8 +62,11 @@ function downloadRuby() {
   
   echo "$PFX Untaring archive: $DOWNLOAD_TARGET"
 
-  # tar overwrites by default
-  tar xvfz $DOWNLOAD_TARGET -C $DOWNLOAD_DIR
+  # Only untar if the build has never completed yet to ensure
+  # the source files aren't overwritten, tar overwrites by default
+  if [ ! -e "$BUILT_FILE" ]; then
+    tar xvfz $DOWNLOAD_TARGET -C $DOWNLOAD_DIR
+  fi
 }
 
 function installRuby() {
@@ -77,8 +81,6 @@ function installRuby() {
   export LDFLAGS=-L$OPENSSL_DIR/lib
   export CPPFLAGS=-I$OPENSSL_DIR/include
   export PKG_CONFIG_PATH=$OPENSSL_DIR/lib/pkgconfig
-
-  local BUILT_FILE=$DOWNLOAD_DIR/.$RUBY_NAME
   
   if [ ! -e $BUILT_FILE ]; then
     echo "$PFX Configuring..."
