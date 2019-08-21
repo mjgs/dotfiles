@@ -26,6 +26,7 @@ PERL_MAJOR_VERSION=$(echo $LANGUAGES_PERL_VERSION | sed 's/\.[^.]*$//' | sed 's/
 DOWNLOAD_URL=$DOWNLOAD_URL_BASE/$PERL_MAJOR_VERSION/$PERL_NAME.tar.gz
 DOWNLOAD_DIR=$PERL_DIR/sources
 INSTALL_DIR=$PERL_DIR/versions/$PERL_NAME
+BUILT_FILE=$DOWNLOAD_DIR/.$PERL_NAME
 
 MODULES=()
 
@@ -51,8 +52,11 @@ function downloadPerl() {
   
   echo "$PFX Untaring archive: $DOWNLOAD_TARGET"
 
-  # tar overwrites by default
-  tar xvfz $DOWNLOAD_TARGET -C $DOWNLOAD_DIR
+  # Only untar if the build has never completed yet to ensure
+  # the source files aren't overwritten, tar overwrites by default
+  if [ ! -e "$BUILT_FILE" ]; then
+    tar xvfz $DOWNLOAD_TARGET -C $DOWNLOAD_DIR
+  fi
 }
 
 function installPerl() {
@@ -62,9 +66,7 @@ function installPerl() {
  
   mkdir -p $INSTALL_DIR
 
-  local BUILT_FILE=$DOWNLOAD_DIR/.$PERL_NAME
-  
-  if [ ! -e $BUILT_FILE ]; then
+  if [ ! -e "$BUILT_FILE" ]; then
     echo "$PFX Configuring..."
 
     ./Configure -des -Dprefix=$INSTALL_DIR

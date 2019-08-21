@@ -25,6 +25,7 @@ NODE_NAME=node-v$LANGUAGES_NODE_VERSION
 DOWNLOAD_URL=$DOWNLOAD_URL_BASE/v$LANGUAGES_NODE_VERSION/$NODE_NAME.tar.gz
 DOWNLOAD_DIR=$NODE_DIR/sources
 INSTALL_DIR=$NODE_DIR/versions/$NODE_NAME
+BUILT_FILE=$DOWNLOAD_DIR/.$NODE_NAME
 
 MODULES=(
   browser-sync
@@ -60,8 +61,11 @@ function downloadNode() {
 
   echo "$PFX Untaring archive: $DOWNLOAD_TARGET"
 
-  # tar overwrites by default
-  tar xvfz $DOWNLOAD_TARGET -C $DOWNLOAD_DIR
+  # Only untar if the build has never completed yet to ensure
+  # the source files aren't overwritten, tar overwrites by default
+  if [ ! -e "$BUILT_FILE" ]; then
+    tar xvfz $DOWNLOAD_TARGET -C $DOWNLOAD_DIR
+  fi
 }
 
 function installNode() {
@@ -71,9 +75,7 @@ function installNode() {
 
   mkdir -p $INSTALL_DIR
 
-  local BUILT_FILE=$DOWNLOAD_DIR/.$NODE_NAME
-
-  if [ ! -e $BUILT_FILE ]; then
+  if [ ! -e "$BUILT_FILE" ]; then
     echo "$PFX Configuring..."
 
     ./configure --prefix=$INSTALL_DIR
