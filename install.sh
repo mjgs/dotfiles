@@ -16,35 +16,33 @@ set -e; set -o pipefail
 PFX=${PFX:-==>}
 HOME=${HOME:?}
 OS_TYPE=${OS_TYPE:?}
-CODES_DIR=${CODES_DIR:-$HOME/Codes}
-DOTFILES_REPO=${DOTFILES_REPO:-git@github.com:mjgs/dotfiles.git}
+DOTFILES_REPO_DIR=${DOTFILES_REPO_DIR:?}
+
+DOTFILES_REPO_URL=${DOTFILES_REPO_URL:?}
 DOTFILES_REPO_BRANCH=${DOTFILES_REPO_BRANCH:-master}
-DOTFILES_LOCAL_REPO=${DOTFILES_LOCAL_REPO:-git@github.com:mjgs/dotfiles_local.git}
+
+DOTFILES_LOCAL_REPO_URL=${DOTFILES_LOCAL_REPO_URL:?}
 DOTFILES_LOCAL_REPO_BRANCH=${DOTFILES_LOCAL_REPO_BRANCH:-master}
+
 DOTFILES_RELATIVE_BASE=${DOTFILES_RELATIVE_BASE:-Codes}
 
 CWD=$(pwd)
-DOTFILES_DIR=$CODES_DIR/$(basename ${DOTFILES_REPO%.git})
-DOTFILES_LOCAL_DIR=$CODES_DIR/$(basename ${DOTFILES_LOCAL_REPO%.git})
 HOMEBREW_URL=https://raw.githubusercontent.com/Homebrew/install/master/install
 
 function printUsage() {
   echo "Usage: install.sh"
   echo
-  echo
   echo "Environment variables:"
   echo 
   echo "  HOME                       - user home directory"
   echo "  OS_TYPE                    - osx (*)"
-  echo "  CODES_DIR                  - path to directory where dotfiles repos will be cloned (d)"
-  echo "  DOTFILES_REPO              - ssh connection string for dotfiles repository (d)"
-  echo "  DOTFILES_REPO_BRANCH       - branch of the dotfiles repo (d)"
-  echo "  DOTFILES_LOCAL_REPO        - ssh connection string for dotfiles_local repository (d)"
-  echo "  DOTFILES_LOCAL_REPO_BRANCH - branch of the dotfiles_local repo (d)"
+  echo "  DOTFILES_REPO_DIR          - path to directory where dotfiles repos will be cloned"
+  echo "  DOTFILES_REPO_URL          - dotfiles repo url (e.g git@github.com:mjgs/dotfiles.git)"
+  echo "  DOTFILES_REPO_BRANCH       - branch of the dotfiles repo (default: master)"
+  echo "  DOTFILES_LOCAL_REPO_URL    - dotfils_local repo url (e.g. git@github.com:mjgs/dotfiles_local.git)"
+  echo "  DOTFILES_LOCAL_REPO_BRANCH - branch of the dotfiles_local repo (default: master)"
   echo "  DOTFILES_RELATIVE_BASE     - path segment used as base for relative symlink creation"
-  echo 
-  echo "  (d) - indicates that a default is set, see code for details"
-  echo
+  echo "  BACKUP_DIR                 - if set used as the source path in laptop-restore.sh script" 
   echo "  (*) - add other os types scripts to bin/install/<os_type>"
   echo
 }
@@ -54,10 +52,10 @@ function printVariables() {
   echo
   echo "  OS_TYPE: $OS_TYPE"
   echo "  HOME: $HOME"
-  echo "  CODES_DIR: $CODES_DIR"
-  echo "  DOTFILES_REPO: $DOTFILES_REPO"
+  echo "  DOTFILS_REPO_DIR: $CODES_DIR"
+  echo "  DOTFILES_REPO_URL: $DOTFILES_REPO_URL"
   echo "  DOTFILES_REPO_BRANCH: $DOTFILES_REPO_BRANCH"
-  echo "  DOTFILES_LOCAL_REPO: $DOTFILES_LOCAL_REPO"
+  echo "  DOTFILES_LOCAL_REPO_URL: $DOTFILES_LOCAL_REPO_URL"
   echo "  DOTFILES_LOCAL_REPO_BRANCH: $DOTFILES_LOCAL_REPO_BRANCH"
   echo
 }
@@ -77,29 +75,32 @@ function getUserInfo() {
 }
 
 function createDirectories() {
-  echo "$PFX Creating CODES_DIR: $CODES_DIR"
-  mkdir -p $CODES_DIR
+  echo "$PFX Creating DOTFILES_REPO_DIR: $DOTFILES_REPO_DIR"
+  mkdir -p $DOTFILES_REPO_DIR
+}
+
+function cloneRepo() {
+  local REPO=$1
+  local TARGET_DIR=$2
+  local BRANCH=$3
+
+  echo "$PFX Cloning repo: $REPO"
+  echo "$PFX Target directory: $TARGET_DIR"
+  echo "$PFX Branch to checkout: $BRANCH"
+
+  if [ ! -e "$TARGET_DIR" ]; then
+    git clone -b $BRANCH "$REPO" "$TARGET_DIR"
+  else
+    echo "$PFX Target directory exists, skipping..."
+  fi
 }
 
 function cloneLatestDotfileRepos() {
   echo "$PFX Add your public key to your dotfiles code repositories before continuing"
   read -p "$PFX Hit enter to continue..." enter
 
-  echo "$PFX Cloning repo: $DOTFILES_LOCAL_REPO"
-  echo "$PFX Target directory: $DOTFILES_LOCAL_DIR"
-  if [ ! -e "$DOTFILES_LOCAL_DIR" ]; then
-    git clone -b $DOTFILES_LOCAL_REPO_BRANCH $DOTFILES_LOCAL_REPO $DOTFILES_LOCAL_DIR
-  else
-    echo "$PFX Target directory exists, skipping..."
-  fi
-
-  echo "$PFX Cloning repo: $DOTFILES_REPO"
-  echo "$PFX Target directory: $DOTFILES_DIR"
-  if [ ! -e "$DOTFILES_DIR" ]; then
-    git clone -b $DOTFILES_REPO_BRANCH $DOTFILES_REPO $DOTFILES_DIR
-  else
-    echo "$PFX Target directory exists, skipping..."
-  fi
+  cloneRepo $DOTFILES_LOCAL_REPO_URL $DOTFILES_REPO_DIR/dotfiles_local $DOTFILES_LOCAL_REPO_BRANCH
+  cloneRepo $DOTFILES_REPO_URL $DOTFILES_REPO_DIR/dotfiles $DOTFILES_REPO_BRANCH
 }
 
 function exportVariables() {
@@ -125,10 +126,12 @@ function runInstallScripts() {
   $DOTFILES_DIR/bin/install/common/installs/openssl.sh
 
   # Restore files from backup
-  $DOTFILES_DIR/bin/restore_laptop.sh
+  if [ -d "$BACKUP_DIR" ]; then
+    $DOTFILES_DIR/bin/restore_laptop.sh
+  fi
 
   # dotfiles_local install
-  if [ -d "$DOTFILES_LOCAL_DIR"  ]; then
+  if [ -d "$DOTFILES_LOCAL_DIR" ]; then
     $DOTFILES_LOCAL_DIR/install.sh
   fi
 
