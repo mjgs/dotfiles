@@ -52,7 +52,7 @@ function printVariables() {
   echo
   echo "  OS_TYPE: $OS_TYPE"
   echo "  HOME: $HOME"
-  echo "  DOTFILS_REPO_DIR: $CODES_DIR"
+  echo "  DOTFILS_REPO_DIR: $DOTFILS_REPO_DIR"
   echo "  DOTFILES_REPO_URL: $DOTFILES_REPO_URL"
   echo "  DOTFILES_REPO_BRANCH: $DOTFILES_REPO_BRANCH"
   echo "  DOTFILES_LOCAL_REPO_URL: $DOTFILES_LOCAL_REPO_URL"
@@ -106,7 +106,6 @@ function cloneLatestDotfileRepos() {
 function exportVariables() {
   export PFX
   export DOTFILES_DIR
-  export CODES_DIR
   export DOTFILES_REPO
   export DOTFILES_DIR
   export DOTFILES_LOCAL_REPO
