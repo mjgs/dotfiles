@@ -124,6 +124,10 @@ function runInstallScripts() {
   $DOTFILES_DIR/bin/install/common/configurations/cli/git.sh
   $DOTFILES_DIR/bin/install/common/configurations/cli/publicPrivateKeyPair.sh
   $DOTFILES_DIR/bin/install/common/installs/openssl.sh
+  $DOTFILES_DIR/bin/install/common/installs/dotfiles.sh
+
+  echo "$PFX Loading $HOME/.bashrc"
+  source $HOME/.bashrc
 
   # Restore files from backup
   if [ -d "$BACKUP_DIR" ]; then
@@ -137,10 +141,6 @@ function runInstallScripts() {
 
   # dotfiles install
   $DOTFILES_DIR/bin/install/common/install.sh
-  
-  echo "$PFX Loading $HOME/.bashrc"
-  source $HOME/.bashrc
-  
   $DOTFILES_DIR/bin/install/$OS_TYPE/install.sh
 }
 
