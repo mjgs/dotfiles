@@ -28,7 +28,7 @@ e.g. bash.symlink
 
 ## Install fresh environment
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/mjgs/dotfiles/easier-testing/install.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/mjgs/dotfiles/master/install.sh)"
 
 You'll need to set a few environment variables in your shell before you run the script:
 
