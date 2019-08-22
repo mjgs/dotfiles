@@ -30,3 +30,4 @@ What happens:
 - Homebrew will still install to regular location, so these will all be skipped (Homebrew tends to work fine so not an issue)
 - Everything else gets installed to /TESTS/DOTFILES_TESTS/TEST_HOME
 - All the symlinks get created in /TESTS/DOTFILES_TESTS/TEST_HOME
+- When it gets to vim pluging install, open seperate shell, set HOME var and run the :PluginInstall and :PluginUpdate commands in nvim there
