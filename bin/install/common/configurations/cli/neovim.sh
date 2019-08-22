@@ -46,7 +46,7 @@ function installAndConfigureVimPluginManager() {
   echo "$PFX Target directory: $VIM_BUNDLES_DIR"
 
   if [ ! -e $VIM_BUNDLES_DIR ]; then
-    git clone $VIM_PLUGIN_MANAGER_REPO $VIM_BUNDLES_DIR
+    git clone $VIM_PLUGIN_MANAGER_REPO $VIM_BUNDLES_DIR/Vundle.vim
   else
     echo "$PFX Target directory exists, skipping..."
   fi
