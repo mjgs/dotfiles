@@ -23,11 +23,13 @@ echo "$PFX Configuring package: neovim"
 function createNvimConfiguration() {
   echo "$PFX Creating nvim configuration..."
 
+  mkdir -p $VIM_DIR
+
   if [ -L $NVIM_DIR ]; then
     echo "$PFX $NVIM_DIR already exists... Skipping."    
   else
-    echo "$PFX Creating $HOME/.vim symlink to $NVIM_DIR"
-    ln -s $HOME/.vim $NVIM_DIR
+    echo "$PFX Creating $VIM_DIR symlink to $NVIM_DIR"
+    ln -s $VIM_DIR $NVIM_DIR
   fi
 
   if [ -L $NVIM_DIR/init.vim ]; then
