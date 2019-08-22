@@ -124,9 +124,6 @@ function runInstallScripts() {
   $DOTFILES_DIR/bin/install/common/installs/openssl.sh
   $DOTFILES_DIR/bin/install/common/installs/dotfiles.sh
 
-  echo "$PFX Loading $HOME/.bashrc"
-  source $HOME/.bashrc
-
   # Restore files from backup
   if [ -d "$BACKUP_DIR" ]; then
     $DOTFILES_DIR/bin/restore_laptop.sh
@@ -136,6 +133,10 @@ function runInstallScripts() {
   if [ -d "$DOTFILES_LOCAL_DIR" ]; then
     $DOTFILES_LOCAL_DIR/install.sh
   fi
+
+  # Noe that everyhing has been setup from local dotfiles load bashrc
+  echo "$PFX Loading $HOME/.bashrc"
+  source $HOME/.bashrc
 
   # dotfiles install
   $DOTFILES_DIR/bin/install/common/install.sh
