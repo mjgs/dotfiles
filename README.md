@@ -42,6 +42,7 @@ You'll need to set a few environment variables in your shell before you run the 
   DOTFILES_LOCAL_REPO_BRANCH - branch name (default: master)
   DOTFILES_RELATIVE_BASE     - path segment used as base for relative symlink creation
 
+  (*) could add support for other unixy OS_TYPES by adding scripts to bin/install
 ```
 
 ## Development
