@@ -65,12 +65,16 @@ function configureNodeForNeovim() {
 
 function configureVimColorScheme() {
   echo "$PFX Configuring vim color schemes..."
-  rsync -avz $VIM_DIR/bundle/vim-colorschemes/colors $VIM_DIR
+  
+  local COLORSCHEMES_DIR=$VIM_DIR/bundle/vim-colorschemes/colors
+  rsync -avz $COLORSCHEMES_DIR $VIM_DIR
 }
 
 function configureVimWebIndent() {
   echo "$PFX Configuring vim web indent..."
-  rsync -avz $VIM_DIR/bundle/vim-web-indent/indent $VIM_DIR
+
+  WEBINDENT_DIR=$VIM_DIR/bundle/vim-web-indent/indent
+  rsync -avz $WEBINDENT_DIR $VIM_DIR
 }
 
 createNvimConfiguration
