@@ -1,20 +1,26 @@
+# General
 alias ga='git add '
 alias gap='git add -p'
 alias gcm='git commit -m'
-alias gd='git diff'
 alias gs='git status'
 alias gpush='git push'
 alias gpull='git pull'
-alias gdc='git diff --cached'
 alias gu='git reset HEAD~'
 alias grh='git reset HEAD'
-alias gl='git log'
-alias glo='git log --oneline'
-alias gls='git log --pretty="format:%C(cyan)%ai%Creset %C(yellow)%h%Creset %s" --reverse --since '
 alias gca='git commit --amend'
-alias gsd='git show --decorate'
-alias gsf='git show --pretty="" --name-only'
 alias gri='git rebase -i'
 alias gb='git branch'
 alias gbd='git branch -d '
 alias gc='git checkout'
+
+# Log, diff and show
+alias gl='git log'
+alias glo='git log --oneline'
+alias gls='git log --pretty="format:%C(cyan)%ai%Creset %C(yellow)%h%Creset %s" --reverse --since '
+
+alias gd='git diff'
+alias gdc='git diff --cached'
+
+alias gsd='git show --decorate'
+alias gsf='git show --pretty="" --name-only'
+
