@@ -17,6 +17,7 @@ alias gc='git checkout'
 alias gl='git log'
 alias glo='git log --oneline'
 alias gls='git log --pretty="format:%C(cyan)%ai%Creset %C(yellow)%h%Creset %s" --reverse --since '
+alias glms='git log --pretty="format:%C(cyan)%ai%Creset %C(yellow)%h%Creset %s" --reverse --merges --since '
 
 alias gd='git diff'
 alias gdc='git diff --cached'
