@@ -3,9 +3,8 @@
 # Role: Core environment variables and settings common to ALL platforms (macOS/Android).
 # --------------------------------------------------------------------------
 
-# 1. --- Shell Options -----------------------------------------------------
+# 1. --- Shell Options and History Settings --------------------------------
 
-# Append to the history file, do not overwrite it.
 shopt -s histappend
 
 # Set the size of the history file (in memory and on disk)
@@ -15,42 +14,36 @@ HISTFILESIZE=20000
 # Ignore duplicate commands and commands starting with a space
 HISTCONTROL=ignoredups:ignorespace
 
+# 2. --- Path Setup Logic -------------------------------------------------
 
-# 2. --- Core Environment Variables -----------------------------------------
+# Use a local variable for the path to simplify the checks.
+local UTILS_PATH="$CODE_DIR/utility-scripts"
 
-# Set default text editor (if not overridden in platform/exports)
-export EDITOR='vim'
-
-# Prefer the modern 'less' for paging, with colors
-export PAGER='less -R'
-
-# Language settings (adjust if you need a different locale)
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-
-# 3. --- Path Setup --------------------------------------------------------
-
-# IMPORTANT: CODE_DIR is set in the platform-specific exports file, which is sourced first.
-
-# Add custom utility scripts directory to PATH
-if [ -n "$CODE_DIR" ] && [ -d "$CODE_DIR/utility-scripts" ]; then
-  export PATH="$CODE_DIR/utility-scripts:$PATH"
+# Add custom utility scripts directory to PATH, only if not already present
+if [ -n "$CODE_DIR" ] && [ -d "$UTILS_PATH" ]; then
+  # Check if the path is NOT already in $PATH
+  if [[ ":$PATH:" != *":$UTILS_PATH:"* ]]; then
+    export PATH="$UTILS_PATH:$PATH"
+  fi
 fi
 
 # Use the 'dotfiles' directory for local binaries/scripts
-# NOTE: DOTFILES_DIR is set in the platform-specific bashrc (e.g., macos/bashrc)
-if [[ -n "${DOTFILES_DIR}" && -d "${DOTFILES_DIR}/bin" ]]; then
-  export PATH="${DOTFILES_DIR}/bin:${PATH}"
+local DOTFILES_BIN_PATH="${DOTFILES_DIR}/bin"
+if [[ -n "${DOTFILES_DIR}" && -d "${DOTFILES_BIN_PATH}" ]]; then
+  if [[ ":$PATH:" != *":$DOTFILES_BIN_PATH:"* ]]; then
+    export PATH="${DOTFILES_BIN_PATH}:${PATH}"
+  fi
 fi
 
 # Add a common local bin directory to the path, if it exists
-if [ -d "${HOME}/.local/bin" ]; then
-  export PATH="${HOME}/.local/bin:${PATH}"
+local LOCAL_BIN_PATH="${HOME}/.local/bin"
+if [ -d "${LOCAL_BIN_PATH}" ]; then
+  if [[ ":$PATH:" != *":$LOCAL_BIN_PATH:"* ]]; then
+    export PATH="${LOCAL_BIN_PATH}:${PATH}"
+  fi
 fi
 
-
-# 4. --- Custom Prompt (Optional) -------------------------------------------
+# 3. --- Custom Prompt (Optional) -------------------------------------------
 
 # Example of a minimal, common prompt. You can override this in the
 # platform-specific bashrc file if you want different colors/details per OS.

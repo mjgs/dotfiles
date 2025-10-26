@@ -3,49 +3,35 @@
 # Role: Environment variables common to all platforms (macOS & Android).
 # --------------------------------------------------------------------------
 
-# --- 1. General Configuration ---
+# --- 1. Core Environment Variables (Universal) --------------------------
 
-# Set your preferred editor for Git, terminal programs, and the 'dotedit' function.
-# This ensures 'nvim' is used everywhere.
+# Set your preferred editor for Git, terminal programs, and 'dotedit'.
 export EDITOR='nvim'
+export VISUAL='nvim'
 
 # Set your default pager (what views long output, e.g., 'man' pages).
-export PAGER='less'
+# Using -R flag for color support, which works with most 'less' versions.
+export PAGER='less -R'
 
 # Set your preferred text terminal type for better color and compatibility.
 export TERM='xterm-256color'
 
-# --- 2. Shell History and Behavior ---
-
-# Increase the size of the history list in memory and on disk.
-export HISTSIZE=100000
-export HISTFILESIZE=50000
-
-# Set history to ignore duplicate lines and commands that start with a space.
-export HISTCONTROL=ignoreboth
-
-# Append to the history file rather than overwriting it.
-shopt -s histappend
-
-# --- 3. Custom Paths (Based on Your Setup) ---
+# --- 2. Custom Paths ---------------------------------------------------
 
 # Define the local path for user-installed binaries.
-# This ensures local tools and npm global installs are found first.
-# NOTE: macOS uses $HOME/bin and Termux uses $HOME/bin. This works across both.
 export PATH="${HOME}/bin:${PATH}"
 
 # Add any language-specific environment variables you always need.
-# Example: Rust and Go paths are commonly included here.
 # export PATH="${HOME}/.cargo/bin:${PATH}"
-# export PATH="/usr/local/go/bin:${PATH}" # MacPorts/Homebrew handles this for you usually
+# export PATH="/usr/local/go/bin:${PATH}"
 
-# --- 4. Language & Locale (Optional) ---
+# --- 3. Language & Locale ----------------------------------------------
 
 # Set to suppress locale warnings and ensure UTF-8 is used.
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 
-# --- 5. Directory Variables ---
+# --- 4. Directory Variables --------------------------------------------
 
 export POSTS_DIR=$HOME/posts
 export WEBSITE_DIR=$HOME/website
