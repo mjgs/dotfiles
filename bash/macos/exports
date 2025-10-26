@@ -8,15 +8,9 @@
 # Silence Apple's shell change warnings
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-# Default editor
-export EDITOR=nvim
-
 # 2. --- Directory Variables ------------------------------------------------
 
 # Define all directory variables used by scripts and applications
-export POSTS_DIR=$HOME/posts
-export WEBSITE_DIR=$HOME/website
-export TEMPLATES_DIR=$HOME/templates
 export CODE_DIR=$HOME/Code # Note the capital 'C'
 export PODMAN_IMAGES_DIR=$HOME/podman_images_backup
 export OLLAMA_MODELS_DIR=$HOME/ollama-models-persistent

@@ -6,12 +6,4 @@
 # 1. --- Directory Variables ------------------------------------------------
 
 # Define all directory variables used by scripts and applications
-export POSTS_DIR=$HOME/posts
-export WEBSITE_DIR=$HOME/website
-export TEMPLATES_DIR=$HOME/templates
 export CODE_DIR=$HOME/code # Note the lowercase 'c' for Android/Termux
-
-# 2. --- Default Editor ----------------------------------------------------
-
-# Default editor (if different from the common setting, or set explicitly)
-export EDITOR=nvim
