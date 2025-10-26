@@ -16,8 +16,8 @@ HISTCONTROL=ignoredups:ignorespace
 
 # 2. --- Path Setup Logic -------------------------------------------------
 
-# Use a local variable for the path to simplify the checks.
-local UTILS_PATH="$CODE_DIR/utility-scripts"
+# Use a shell variable for the path to simplify the checks.
+UTILS_PATH="$CODE_DIR/utility-scripts"
 
 # Add custom utility scripts directory to PATH, only if not already present
 if [ -n "$CODE_DIR" ] && [ -d "$UTILS_PATH" ]; then
@@ -28,7 +28,7 @@ if [ -n "$CODE_DIR" ] && [ -d "$UTILS_PATH" ]; then
 fi
 
 # Use the 'dotfiles' directory for local binaries/scripts
-local DOTFILES_BIN_PATH="${DOTFILES_DIR}/bin"
+DOTFILES_BIN_PATH="${DOTFILES_DIR}/bin"
 if [[ -n "${DOTFILES_DIR}" && -d "${DOTFILES_BIN_PATH}" ]]; then
   if [[ ":$PATH:" != *":$DOTFILES_BIN_PATH:"* ]]; then
     export PATH="${DOTFILES_BIN_PATH}:${PATH}"
@@ -36,7 +36,7 @@ if [[ -n "${DOTFILES_DIR}" && -d "${DOTFILES_BIN_PATH}" ]]; then
 fi
 
 # Add a common local bin directory to the path, if it exists
-local LOCAL_BIN_PATH="${HOME}/.local/bin"
+LOCAL_BIN_PATH="${HOME}/.local/bin"
 if [ -d "${LOCAL_BIN_PATH}" ]; then
   if [[ ":$PATH:" != *":$LOCAL_BIN_PATH:"* ]]; then
     export PATH="${LOCAL_BIN_PATH}:${PATH}"
