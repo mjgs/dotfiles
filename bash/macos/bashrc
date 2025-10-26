@@ -35,6 +35,11 @@ fi
 # 3. --- Source Common Configuration ----------------------------------------
 # All common files are sourced next.
 
+# Defines EDITOR, PAGER, LANG, and other universal environment settings.
+if test -f "${DOTFILES_DIR}/bash/exports_common"; then
+  source "${DOTFILES_DIR}/bash/exports_common"
+fi
+
 # Shared environment variables and core settings (PATH, history, etc.)
 if test -f "${DOTFILES_DIR}/bash/bashrc_common"; then
   source "${DOTFILES_DIR}/bash/bashrc_common"
