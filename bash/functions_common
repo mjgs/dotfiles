@@ -75,7 +75,7 @@ dotedit () {
   if [ -z "$1" ]; then
     echo "Usage: dotedit <type> (e.g., aliases, exports, bashrcc)"
     return 1
-  }
+  fi
 
   local INPUT_TYPE="$1"
   local FILENAME=""

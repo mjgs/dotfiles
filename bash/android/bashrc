@@ -5,11 +5,21 @@
 # --------------------------------------------------------------------------
 
 # 1. --- Determine Repository Path (MUST BE FIRST) --------------------------
-# This parameter expansion trick ensures the script knows where the rest of
-# the dotfiles are, regardless of where this file is symlinked from.
-#
-# BASH_SOURCE[0] is the path to the current script (e.g., ~/.bashrc)
-DOTFILES_DIR=$(dirname "$(dirname "${BASH_SOURCE[0]}")")
+# This robust logic finds the absolute path to the repository root, regardless
+# of where the file is sourced from or whether it's a symlink.
+
+# Get the directory of the current script, resolving symlinks (if possible)
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # Resolve $SOURCE until it is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # If $SOURCE was a relative symlink
+done
+DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+
+# $DIR is now the absolute path to '~/dotfiles/bash/android'.
+# We go up two levels to find the repository root.
+DOTFILES_DIR="$(dirname "$(dirname "$DIR")")"
 
 # Define the platform-specific directory for clarity
 PLATFORM_DIR="${DOTFILES_DIR}/bash/android"
