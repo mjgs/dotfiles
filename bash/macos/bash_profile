@@ -5,5 +5,5 @@
 
 # If a ~/.bashrc file exists (which is the symlink to our main config), source it.
 if [ -f "$HOME/.bashrc" ]; then
-    source "$HOME/.bashrc"
+  source "$HOME/.bashrc"
 fi
