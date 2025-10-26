@@ -1,0 +1,36 @@
+# --------------------------------------------------------------------------
+# File: bash/android/aliases
+# Role: Aliases specific to Android/Termux.
+# --------------------------------------------------------------------------
+
+# 1. --- Termux Utilities & Helpers ----------------------------------------
+
+# Shortcuts for package management (Termux uses 'pkg' based on apt)
+alias pkgup='pkg update && pkg upgrade'
+alias pkgi='pkg install'
+alias pkgs='pkg search'
+
+# Shortcuts for Termux API commands (if Termux API app is installed)
+alias termux-notify='termux-notification'
+alias termux-clip='termux-clipboard-get'
+
+
+# 2. --- Android Storage Navigation -----------------------------------------
+
+# Quick jump to the external storage root
+alias cdstorage='cd /sdcard'
+
+# Quick jump to the Downloads folder
+alias cddl='cd /sdcard/Download'
+
+# Quick jump to the DCIM (camera) folder
+alias cddcim='cd /sdcard/DCIM'
+
+# Quick jump to the Pictures folder
+alias cdpix='cd /sdcard/Pictures'
+
+
+# 3. --- Termux-Specific Functions (Placeholder) ----------------------------
+
+# Quick shortcut to reload Termux application properties
+alias reload_termux_props='killall -HUP termux'

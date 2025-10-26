@@ -1,0 +1,44 @@
+# --------------------------------------------------------------------------
+# File: bash/macos/aliases
+# Role: Aliases specific to macOS.
+# --------------------------------------------------------------------------
+
+# 1. --- macOS System Tools ----------------------------------------------
+
+# Open files/directories using the default macOS application
+alias open='open'
+alias o='open'
+
+# Show hidden files in the current directory (macOS only)
+alias lha='ls -A'
+
+# Flush the DNS cache
+alias dnsflush='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
+
+# Prevent Mac from sleeping while a command is running (caffeinate)
+alias nosleep='caffeinate'
+
+# Tools
+alias ftop='sudo uv tool run fluidtop --theme cyan'
+
+
+# 2. --- Application Shortcuts ---------------------------------------------
+
+# Quick jump to common application directories
+alias cdapp='cd /Applications'
+alias cdpref='cd ~/Library/Preferences'
+
+# Quick access to the Desktop
+alias cdd='cd ~/Desktop'
+
+
+# 3. --- Homebrew ----------------------------------------------------------
+
+# Update Homebrew packages and casks
+alias brewup='brew update && brew upgrade && brew cleanup'
+
+# Search Homebrew formulas
+alias brews='brew search'
+
+# List installed packages/casks
+alias brewls='brew list --formula; brew list --cask'

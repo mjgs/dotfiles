@@ -1,0 +1,122 @@
+# --------------------------------------------------------------------------
+# File: bash/functions_common
+# Role: Functions common to ALL platforms (macOS/Android).
+# --------------------------------------------------------------------------
+
+# 1. --- Navigation & Directory Management ---------------------------------
+
+# Jump to the specified directory and run 'll' (long list)
+# Usage: goto <directory_path>
+goto () {
+  if [ -d "$1" ]; then
+    cd "$1" || return
+    ll
+  else
+    echo "Directory not found: $1"
+  fi
+}
+
+# Create a new directory and immediately change into it
+# Usage: mkcd <new_directory_name>
+mkcd () {
+  mkdir -p "$1" && cd "$1" || return
+}
+
+# Goes up a specified number of directories
+# Usage: up 2
+up () {
+  local i
+  local dir=""
+  for (( i=1; i<=${1:-1}; i++ )); do
+    dir=$dir"../"
+  done
+  cd "$dir" || return
+}
+
+
+# 2. --- Git Management ----------------------------------------------------
+
+# Initializes a git repository and makes the first commit
+# Usage: gitinit <project_name>
+gitinit () {
+  if [ -n "$1" ]; then
+    mkcd "$1"
+  fi
+  git init
+  touch README.md
+  git add .
+  git commit -m "Initial commit"
+  echo "Git repository created and initialized."
+}
+
+# Removes all local branches that have been merged into the current branch
+# Usage: gprune
+gprune () {
+  git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
+}
+
+
+# 3. --- Search and Filtering ----------------------------------------------
+
+# Search command history for a specific string
+# Usage: hgrep <search_string>
+hgrep () {
+  history | grep "$1"
+}
+
+# 4. --- Dotfile Editing and Management ------------------------------------
+
+# Opens the correct config file based on platform and simple suffixes.
+# Usage: dotedit <file_type>
+# Examples:
+#   dotedit aliases    -> Opens platform-specific aliases file (e.g., macos/aliases)
+#   dotedit aliasesc   -> Opens common aliases file (aliases_common)
+dotedit () {
+  if [ -z "$1" ]; then
+    echo "Usage: dotedit <type> (e.g., aliases, exports, bashrcc)"
+    return 1
+  }
+
+  local INPUT_TYPE="$1"
+  local FILENAME=""
+  local TARGET_DIR="${PLATFORM_DIR}"
+  local IS_COMMON="false"
+
+  # 1. Check for the 'c' suffix to determine if it's a common file
+  if [[ "$INPUT_TYPE" == *c ]]; then
+    # Remove the trailing 'c'
+    local BASE_TYPE="${INPUT_TYPE%c}"
+    IS_COMMON="true"
+    TARGET_DIR="${DOTFILES_DIR}/bash"
+    
+    # Construct the common file name (e.g., aliases_common)
+    FILENAME="${BASE_TYPE}_common"
+
+    # Handle the special case where 'bashrcc' should open 'bashrc_common'
+    if [ "$BASE_TYPE" == "bashrc" ]; then
+      FILENAME="bashrc_common"
+    fi
+
+  # 2. Handle platform-specific files (no 'c' suffix)
+  else
+    # Filename is the input type (e.g., aliases, exports)
+    FILENAME="${INPUT_TYPE}"
+  fi
+  
+  local FILE_PATH="${TARGET_DIR}/${FILENAME}"
+
+  # 3. Handle vimrc, which is only in the platform directory (for now)
+  if [ "$INPUT_TYPE" == "vimrc" ] || [ "$INPUT_TYPE" == "vimrcc" ]; then
+    # Since vimrc is only in the platform dir, force the platform dir path
+    FILE_PATH="${PLATFORM_DIR}/vimrc"
+  fi
+
+  if [ -f "$FILE_PATH" ]; then
+    echo "Opening: $FILE_PATH"
+    "${EDITOR:-nvim}" "$FILE_PATH"
+  else
+    echo "Error: Config file not found at $FILE_PATH"
+    echo "Attempted path: $FILE_PATH"
+    return 1
+  fi
+}

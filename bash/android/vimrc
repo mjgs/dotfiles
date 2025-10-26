@@ -1,0 +1,12 @@
+" --------------------------------------------------------------------------
+" File: bash/android/vimrc
+" Role: Vim configuration specific to Android/Termux.
+" --------------------------------------------------------------------------
+
+" Clipboard settings for system integration in Termux
+set clipboard=unnamed
+set clipboard+=unnamedplus
+
+" File format settings
+set nofixeol
+set nofixendofline

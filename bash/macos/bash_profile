@@ -1,0 +1,9 @@
+# --------------------------------------------------------------------------
+# File: bash/macos/bash_profile
+# Role: macOS Login Shell entry point. Ensures ~/.bashrc is always sourced.
+# --------------------------------------------------------------------------
+
+# If a ~/.bashrc file exists (which is the symlink to our main config), source it.
+if [ -f "$HOME/.bashrc" ]; then
+    source "$HOME/.bashrc"
+fi

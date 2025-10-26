@@ -1,0 +1,68 @@
+#!/bin/bash
+# --------------------------------------------------------------------------
+# File: bash/android/bashrc
+# Role: Primary bashrc for Android/Termux systems. It sources all configurations.
+# --------------------------------------------------------------------------
+
+# 1. --- Determine Repository Path (MUST BE FIRST) --------------------------
+# This parameter expansion trick ensures the script knows where the rest of
+# the dotfiles are, regardless of where this file is symlinked from.
+#
+# BASH_SOURCE[0] is the path to the current script (e.g., ~/.bashrc)
+DOTFILES_DIR=$(dirname "$(dirname "${BASH_SOURCE[0]}")")
+
+# Define the platform-specific directory for clarity
+PLATFORM_DIR="${DOTFILES_DIR}/bash/android"
+
+
+# 2. --- Source Platform-Specific Exports -----------------------------------
+# This defines CODE_DIR (lowercase), EDITOR, and other Android-specific variables.
+if test -f "${PLATFORM_DIR}/exports"; then
+  source "${PLATFORM_DIR}/exports"
+fi
+
+
+# 3. --- Source Common Configuration ----------------------------------------
+# All common files are sourced next.
+# NOTE: bashrc_common now safely contains the CODE_DIR PATH logic.
+
+# Shared environment variables and core settings (PATH, history, etc.)
+if test -f "${DOTFILES_DIR}/bash/bashrc_common"; then
+  source "${DOTFILES_DIR}/bash/bashrc_common"
+fi
+
+# Shared shell aliases
+if test -f "${DOTFILES_DIR}/bash/aliases_common"; then
+  source "${DOTFILES_DIR}/bash/aliases_common"
+fi
+
+# Shared custom functions
+if test -f "${DOTFILES_DIR}/bash/functions_common"; then
+  source "${DOTFILES_DIR}/bash/functions_common"
+fi
+
+
+# 4. --- Source Android-Specific Configuration ------------------------------
+# Load files unique to Android after the common files.
+
+# Android-specific aliases
+if test -f "${PLATFORM_DIR}/aliases"; then
+  source "${PLATFORM_DIR}/aliases"
+fi
+
+# Android-specific functions
+if test -f "${PLATFORM_DIR}/functions"; then
+  source "${PLATFORM_DIR}/functions"
+fi
+
+
+# 5. --- Post-Sourcing Customizations (Termux Setup) ------------------------
+# Add any final setup commands unique to Termux here.
+
+# Termux file access setup (required to access external storage)
+if command -v termux-setup-storage >/dev/null; then
+  # Uncommenting this line will run the setup. It may block the shell the
+  # first time it runs and ask for permissions.
+  # termux-setup-storage
+  :
+fi

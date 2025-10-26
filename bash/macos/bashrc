@@ -1,0 +1,67 @@
+#!/bin/bash
+# --------------------------------------------------------------------------
+# File: bash/macos/bashrc
+# Role: Primary bashrc for macOS systems. It sources all configurations.
+# --------------------------------------------------------------------------
+
+# 1. --- Determine Repository Path (MUST BE FIRST) --------------------------
+# This parameter expansion trick ensures the script knows where the rest of
+# the dotfiles are, regardless of where this file is symlinked from.
+#
+# BASH_SOURCE[0] is the path to the current script (e.g., ~/.bashrc)
+DOTFILES_DIR=$(dirname "$(dirname "${BASH_SOURCE[0]}")")
+
+# Define the platform-specific directory for clarity
+PLATFORM_DIR="${DOTFILES_DIR}/bash/macos"
+
+
+# 2. --- Source Platform-Specific Exports -----------------------------------
+# This defines CODE_DIR, NVM_DIR, and other necessary environment variables.
+if test -f "${PLATFORM_DIR}/exports"; then
+  source "${PLATFORM_DIR}/exports"
+fi
+
+
+# 3. --- Source Common Configuration ----------------------------------------
+# All common files are sourced next.
+
+# Shared environment variables and core settings (PATH, history, etc.)
+if test -f "${DOTFILES_DIR}/bash/bashrc_common"; then
+  source "${DOTFILES_DIR}/bash/bashrc_common"
+fi
+
+# Shared shell aliases
+if test -f "${DOTFILES_DIR}/bash/aliases_common"; then
+  source "${DOTFILES_DIR}/bash/aliases_common"
+fi
+
+# Shared custom functions
+if test -f "${DOTFILES_DIR}/bash/functions_common"; then
+  source "${DOTFILES_DIR}/bash/functions_common"
+fi
+
+
+# 4. --- Source macOS-Specific Configuration --------------------------------
+# Load files unique to macOS after the common files.
+
+# macOS-specific aliases
+if test -f "${PLATFORM_DIR}/aliases"; then
+  source "${PLATFORM_DIR}/aliases"
+fi
+
+# macOS-specific functions
+if test -f "${PLATFORM_DIR}/functions"; then
+  source "${PLATFORM_DIR}/functions"
+fi
+
+
+# 5. --- Post-Sourcing Initialization (Executable Setup) --------------------
+# Run commands that rely on environment variables defined above.
+
+# Homebrew environment setup
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Node Version Manager (NVM) setup
+# NVM_DIR is defined in the exports file.
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"

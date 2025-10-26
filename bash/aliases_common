@@ -1,0 +1,129 @@
+# --------------------------------------------------------------------------
+# File: bash/aliases_common
+# Role: Aliases common to ALL platforms (macOS/Android).
+# --------------------------------------------------------------------------
+
+# 1. --- Navigation & Listing ----------------------------------------------
+
+# Use 'ls' with colors and human-readable sizes, sorted by extension (X)
+alias ls='ls -F --color=auto'
+alias l='ls -h'                 # Simple list
+alias ll='ls -la'               # Long list all (using your preferred -la)
+alias la='ls -A'                # List all except . and ..
+alias l.='ls -d .*'             # List only dotfiles
+alias lt='ls -hlt'              # List by time (most recent first)
+
+# Quick navigation shortcuts
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+
+# 2. --- Core Directory Navigation (Uses variables defined in exports) ------
+
+alias web="cd $WEBSITE_DIR"
+alias posts="cd $POSTS_DIR"
+alias templates="cd $TEMPLATES_DIR"
+alias code="cd $CODE_DIR"
+
+alias w=web
+alias p=posts
+alias tp=templates
+alias c=code
+
+
+# 3. --- Blogging Workflow Navigation --------------------------------------
+
+alias blog="cd $POSTS_DIR/blog"
+alias links="cd $POSTS_DIR/linkblog"
+alias notes="cd $POSTS_DIR/notes"
+alias newsletter="cd $POSTS_DIR/newsletter"
+alias podcast="cd $POSTS_DIR/podcast"
+alias images="cd $POSTS_DIR/images"
+
+alias b=blog # Overrides the 'b=bashrc' alias below for faster access
+alias l=links
+alias n=notes
+alias nw=newsletter
+alias pod=podcast
+alias i=images
+
+
+# 4. --- Date-Based Navigation (Time Shortcuts) ----------------------------
+
+alias today="echo posts-daily-$(date -I)"
+
+alias bt="cd $POSTS_DIR/blog/$(date '+%Y')"
+alias lt="cd $POSTS_DIR/linkblog/$(date '+%Y')/$(date '+%m')/$(date '+%d')"
+alias nt="cd $POSTS_DIR/notes/$(date '+%Y')/$(date '+%m')/$(date '+%d')"
+alias nwt="cd $POSTS_DIR/newsletter/$(date '+%Y')"
+alias pt="cd $POSTS_DIR/podcast/$(date '+%Y')"
+alias it="cd $POSTS_DIR/images/$(date '+%Y')/$(date '+%m')/$(date '+%d')"
+
+
+# 5. --- Git Shortcuts -----------------------------------------------------
+
+alias g='git'                   # General git base
+alias gs="git status -sb"       # Status (using your original gs definition, but adding -sb for brevity)
+alias ga="git add"
+alias gaa='git add .'           # Add all changed files (from previous common list)
+alias gc="git commit"
+alias gcm='git commit -m'       # Commit with message (from previous common list)
+alias gco="git checkout"
+alias gb="git branch"
+alias gp="git push"
+alias gpl='git pull'            # Pull (from previous common list)
+alias gds="git diff --staged"   # Diff staged changes
+
+
+# 6. --- Blogging Content Creation (Requires utility-scripts to be set in PATH)
+
+alias nb='mkpost.sh blog'
+alias nl='mkpost.sh link'
+alias nn='mkpost.sh newsletter'
+alias np='mkpost.sh podcast'
+alias ni='mkpost.sh img'
+alias n='mkpost.sh note' # Re-aliased 'n' here to avoid conflict with 'n=notes' navigation
+
+
+# 7. --- File Operations & Time Tools --------------------------------------
+
+# Interactive (confirm before overwriting) file moving/copying/deleting (from previous common list)
+alias mv='mv -i'
+alias cp='cp -i'
+alias rm='rm -i'
+
+alias tdate="date '+%Y-%m-%d %H:%M:%S +01:00'" # Timestamps
+alias fdate="date '+%Y-%m-%d-%H%M%S'"          # Filename timestamps
+alias t="truncate -s -1"                       # Truncate -s -1
+alias nle="echo TEXT=\'\' URL=\'\' nl"         # Newsletter line
+alias uuidgen="uuidgen | tr '[:upper:]' '[:lower:]'" # Lowercase UUID
+
+
+# 8. --- Build & Tooling Shortcuts -----------------------------------------
+
+alias nrb="npm run clean && npm run build && live-server dist/site"
+alias nd="gco main && git pull && gco -b \$(today)"
+alias nday="gco main && git pull && gco -b \$(today)" # Duplicate of nd, kept for safety
+
+
+# 9. --- Shell Management & Editing (Simplified Aliases) -------------------
+
+alias de='dotedit'         # Primary shortcut for editing
+
+# Platform-Specific Config Files (e.g., macos/aliases)
+alias aliases='dotedit aliases'
+alias exports='dotedit exports'
+alias functions='dotedit functions'
+alias bashrc='dotedit bashrc'
+alias vimrc='dotedit vimrc'
+
+# Common Config Files (e.g., aliases_common)
+alias aliasesc='dotedit aliasesc'
+alias exportsc='dotedit exportsc'
+alias functionsc='dotedit functionsc'
+alias bashrcc='dotedit bashrcc'
+
+# Source/Reloading
+alias sbashrc='source $HOME/.bashrc'
+alias reload=sbashrc

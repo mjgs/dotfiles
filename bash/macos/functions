@@ -1,0 +1,46 @@
+# --------------------------------------------------------------------------
+# File: bash/macos/functions
+# Role: Functions specific to macOS.
+# --------------------------------------------------------------------------
+
+# 1. --- File and Directory Management -------------------------------------
+
+# Open the current directory in the Finder
+# Usage: finder
+finder () {
+  open .
+}
+
+# Open the home directory in the Finder
+# Usage: gohome
+gohome () {
+  open ~
+}
+
+# Recursively delete .DS_Store files from the current directory down
+# Usage: cleanup_ds
+cleanup_ds () {
+  find . -type f -name '.DS_Store' -delete
+  echo "Removed all .DS_Store files."
+}
+
+
+# 2. --- System and Application Control ------------------------------------
+
+# Hides all windows of an application
+# Usage: hideapp <Application_Name>
+hideapp () {
+  if [ -z "$1" ]; then
+    echo "Usage: hideapp <Application_Name>"
+  else
+    osascript -e "tell application \"$1\" to activate" -e "tell application \"$1\" to set visible to false"
+  fi
+}
+
+# Toggles visibility of files in Finder
+# Usage: toggle_hidden
+toggle_hidden () {
+  defaults write com.apple.finder AppleShowAllFiles -bool ${1:-TRUE}
+  killall Finder
+  echo "Finder visibility toggled and Finder relaunched."
+}

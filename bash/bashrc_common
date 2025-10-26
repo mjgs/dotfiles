@@ -1,0 +1,57 @@
+# --------------------------------------------------------------------------
+# File: bash/bashrc_common
+# Role: Core environment variables and settings common to ALL platforms (macOS/Android).
+# --------------------------------------------------------------------------
+
+# 1. --- Shell Options -----------------------------------------------------
+
+# Append to the history file, do not overwrite it.
+shopt -s histappend
+
+# Set the size of the history file (in memory and on disk)
+HISTSIZE=10000
+HISTFILESIZE=20000
+
+# Ignore duplicate commands and commands starting with a space
+HISTCONTROL=ignoredups:ignorespace
+
+
+# 2. --- Core Environment Variables -----------------------------------------
+
+# Set default text editor (if not overridden in platform/exports)
+export EDITOR='vim'
+
+# Prefer the modern 'less' for paging, with colors
+export PAGER='less -R'
+
+# Language settings (adjust if you need a different locale)
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+
+# 3. --- Path Setup --------------------------------------------------------
+
+# IMPORTANT: CODE_DIR is set in the platform-specific exports file, which is sourced first.
+
+# Add custom utility scripts directory to PATH
+if [ -n "$CODE_DIR" ] && [ -d "$CODE_DIR/utility-scripts" ]; then
+  export PATH="$CODE_DIR/utility-scripts:$PATH"
+fi
+
+# Use the 'dotfiles' directory for local binaries/scripts
+# NOTE: DOTFILES_DIR is set in the platform-specific bashrc (e.g., macos/bashrc)
+if [[ -n "${DOTFILES_DIR}" && -d "${DOTFILES_DIR}/bin" ]]; then
+  export PATH="${DOTFILES_DIR}/bin:${PATH}"
+fi
+
+# Add a common local bin directory to the path, if it exists
+if [ -d "${HOME}/.local/bin" ]; then
+  export PATH="${HOME}/.local/bin:${PATH}"
+fi
+
+
+# 4. --- Custom Prompt (Optional) -------------------------------------------
+
+# Example of a minimal, common prompt. You can override this in the
+# platform-specific bashrc file if you want different colors/details per OS.
+# PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\

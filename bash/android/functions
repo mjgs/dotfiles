@@ -1,0 +1,70 @@
+# --------------------------------------------------------------------------
+# File: bash/android/functions
+# Role: Functions specific to Android/Termux.
+# --------------------------------------------------------------------------
+
+# 1. --- Termux API Functions ----------------------------------------------
+
+# Copies the output of a command to the Android system clipboard
+# Usage: ls | toclip
+toclip () {
+  if command -v termux-clipboard-set >/dev/null; then
+    # Pipe input to termux-clipboard-set
+    cat /dev/stdin | termux-clipboard-set
+    echo "Content copied to Android clipboard."
+  else
+    echo "Error: termux-clipboard-set command not found. Install termux-api."
+  fi
+}
+
+# Reads the Android system clipboard into the terminal
+# Usage: clip | xargs echo "Clipboard content is: "
+clip () {
+  if command -v termux-clipboard-get >/dev/null; then
+    termux-clipboard-get
+  else
+    echo "Error: termux-clipboard-get command not found. Install termux-api."
+    return 1
+  fi
+}
+
+
+# 2. --- Quick File Sharing ------------------------------------------------
+
+# Shares a file using the Android system share sheet
+# Usage: sharefile <filename>
+sharefile () {
+  if [ -z "$1" ]; then
+    echo "Usage: sharefile <filename>"
+    return 1
+  fi
+
+  if command -v termux-share >/dev/null; then
+    termux-share -a view "$1"
+  else
+    echo "Error: termux-share command not found. Install termux-api."
+  fi
+}
+
+
+# 3. --- Termux Storage Navigation -----------------------------------------
+
+# Jumps directly to the last modified file/directory in the shared storage.
+# Useful for quickly accessing a file created by another Android app.
+# Usage: lastmod
+lastmod () {
+  local target
+  # Finds the most recently modified item in the shared storage directory
+  target=$(find /sdcard -maxdepth 1 -mindepth 1 -type d -exec stat -c %Y {} + | sort -n | tail -1 | cut -d ' ' -f 2)
+
+  if [ -n "$target" ] && [ -e "$target" ]; then
+    if [ -d "$target" ]; then
+      echo "Jumping to most recently modified directory: $target"
+      cd "$target" || return
+    else
+      echo "Most recently modified file: $target"
+    fi
+  else
+    echo "Could not find a recently modified item in /sdcard."
+  fi
+}

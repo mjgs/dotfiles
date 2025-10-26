@@ -1,0 +1,34 @@
+# --------------------------------------------------------------------------
+# File: bash/macos/exports
+# Role: Environment variables (exports) specific to macOS.
+# --------------------------------------------------------------------------
+
+# 1. --- Apple/Shell Variables ---------------------------------------------
+
+# Silence Apple's shell change warnings
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# Default editor
+export EDITOR=nvim
+
+# 2. --- Directory Variables ------------------------------------------------
+
+# Define all directory variables used by scripts and applications
+export POSTS_DIR=$HOME/posts
+export WEBSITE_DIR=$HOME/website
+export TEMPLATES_DIR=$HOME/templates
+export CODE_DIR=$HOME/Code # Note the capital 'C'
+export PODMAN_IMAGES_DIR=$HOME/podman_images_backup
+export OLLAMA_MODELS_DIR=$HOME/ollama-models-persistent
+export LLAMACPP_MODELS_DIR=$HOME/llama.cpp-models-persistent
+
+# Other specific environment files
+export env_file_path=$CODE_DIR/msssg/environments/personal-website/.env
+
+# 3. --- Third-Party Tool Exports ------------------------------------
+
+# Define NVM directory (executable sourcing is handled in bash/macos/bashrc)
+export NVM_DIR="$HOME/.nvm"
+
+# Add local pipx bin path (using HOME for safety)
+export PATH="$PATH:${HOME}/.local/bin"
