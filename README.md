@@ -77,10 +77,10 @@ Create symbolic links for your Bash configuration in your home directory:
 
 ```bash
 # Link the platform-specific Bash entry point
-ln -s ~/dotfiles/bash/macos/bashrc ~/.bashrc
+ln -s ~/Code/dotfiles/bash/macos/bashrc ~/.bashrc
 
 # Link the tiny wrapper to ensure ~/.bashrc runs in login shells
-ln -s ~/dotfiles/bash/macos/bash_profile ~/.bash_profile
+ln -s ~/Code/dotfiles/bash/macos/bash_profile ~/.bash_profile
 ```
 
 #### 🤖 On Android (Termux, etc.):
@@ -89,13 +89,13 @@ Create symbolic links for your Bash, Vim, and Termux application configurations:
 
 ```bash
 # Link the platform-specific Bash entry point
-ln -s ~/dotfiles/bash/android/bashrc ~/.bashrc
+ln -s ~/code/dotfiles/bash/android/bashrc ~/.bashrc
 
 # Link the platform-specific Vim configuration
-ln -s ~/dotfiles/bash/android/vimrc ~/.vimrc
+ln -s ~/code/dotfiles/bash/android/vimrc ~/.vimrc
 
 # Link the Termux application configuration files
-ln -s ~/dotfiles/termux/ ~/.termux
+ln -s ~/code/dotfiles/termux/ ~/.termux
 ```
 
 ### 3. Usage
