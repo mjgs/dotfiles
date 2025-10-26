@@ -7,3 +7,10 @@
 
 # Define all directory variables used by scripts and applications
 export CODE_DIR=$HOME/code # Note the lowercase 'c' for Android/Termux
+
+# 2. --- Termux Compatibility Exports ---------------------------------------
+
+# Set the TEMP and TMPDIR paths to the default Termux location.
+# This prevents certain programs from running into permission issues.
+export TMPDIR="$HOME/tmp"
+export TEMPDIR="$HOME/tmp"
