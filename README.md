@@ -76,6 +76,10 @@ git clone <your_repo_url> ~/dotfiles
 Create symbolic links for your Bash configuration in your home directory:
 
 ```bash
+# Move your existing configs
+mv ~/.bashrc ~/.bashrc.orig
+mv ~/.bash_profile ~/.bash_profile.orig
+
 # Link the platform-specific Bash entry point
 ln -s ~/dotfiles/bash/macos/bashrc ~/.bashrc
 
@@ -88,6 +92,11 @@ ln -s ~/dotfiles/bash/macos/bash_profile ~/.bash_profile
 Create symbolic links for your Bash, Vim, and Termux application configurations:
 
 ```bash
+# Move your existing config
+mv ~/.bashrc ~/.bashrc.orig
+mv ~/.vimrc ~/.vimrc.orig
+mv ~/.termux ~/.termux.orig
+
 # Link the platform-specific Bash entry point
 ln -s ~/dotfiles/bash/android/bashrc ~/.bashrc
 
@@ -101,3 +110,13 @@ ln -s ~/dotfiles/termux/ ~/.termux
 ### 3. Usage
 
 After setup, any changes to the `_common` files (aliases, functions, etc.) can be instantly propagated to all devices with a simple `git pull` and then reloading your shell (`source ~/.bashrc`).
+
+If anything goes wrong and things don't work as expected, delete the symlinks you created and move your old configs back:
+
+```bash
+# Remove the symlinks
+rm ~/.bashrc ~/.bash_profile # etc...
+
+# Move all your original configs back
+mv ~/.bashrc.orig ~/.bashrc # etc...
+```
