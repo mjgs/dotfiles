@@ -2,6 +2,8 @@
 
 This repository is a lightweight, focused solution for managing shared Bash configurations, aliases, and functions across my **macOS laptop** and **Android (Termux)** environment.
 
+[Overhaul of my dotfiles](https://markjgsmith.com/posts/2025/10/27/overhaul-of-my-dotfiles) - Blog post I wrote about creating this repo.
+
 ## 🎯 Goal
 
 My previous dotfiles repository ([mjgs/dotfiles.old](https://github.com/mjgs/dotfiles.old)) attempted to manage a complete system installation, which became overly complicated and difficult to maintain.
