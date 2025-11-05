@@ -80,10 +80,10 @@ alias gds="git diff --staged"   # Diff staged changes
 
 alias nb='mkpost.sh blog'
 alias nl='mkpost.sh link'
-alias nn='mkpost.sh newsletter'
+alias nnw='mkpost.sh newsletter'
 alias np='mkpost.sh podcast'
 alias ni='mkpost.sh img'
-alias n='mkpost.sh note' # Re-aliased 'n' here to avoid conflict with 'n=notes' navigation
+alias nn='mkpost.sh note'
 
 
 # 7. --- File Operations & Time Tools --------------------------------------
