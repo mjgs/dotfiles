@@ -110,6 +110,7 @@ alias nday="gco main && git pull && gco -b \$(today)" # Duplicate of nd, kept fo
 # 9. --- Shell Management & Editing (Simplified Aliases) -------------------
 
 alias de='dotedit'         # Primary shortcut for editing
+alias h='history'          # History
 
 # Platform-Specific Config Files (e.g., macos/aliases)
 alias aliases='dotedit aliases'
