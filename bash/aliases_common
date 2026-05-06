@@ -49,6 +49,7 @@ alias pod=podcast
 alias i=images
 
 
+
 # 4. --- Date-Based Navigation (Time Shortcuts) ----------------------------
 
 alias today="echo posts-daily-$(date -I)"
@@ -85,6 +86,9 @@ alias np='mkpost.sh podcast'
 alias ni='mkpost.sh img'
 alias nn='mkpost.sh note'
 
+alias mkr="mk render"
+alias mkd="mk dispatch"
+alias mks="mk sweep"
 
 # 7. --- File Operations & Time Tools --------------------------------------
 
