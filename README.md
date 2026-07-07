@@ -26,6 +26,7 @@ dotfiles/
 │   ├── bashrc_common           # Core configuration and environment settings common to ALL platforms.
 │   ├── aliases_common          # Aliases common to ALL platforms.
 │   ├── functions_common        # Functions common to ALL platforms.
+│   ├── gitconfig               # Git config.
 │   ├── macos/                  # Configurations specific to macOS.
 │   │   ├── bash_profile        # Wrapper to source bashrc (SYMLINKED to ~/.bash_profile).
 │   │   ├── bashrc              # macOS-specific bashrc (SYMLINKED to ~/.bashrc on Mac).
@@ -81,12 +82,25 @@ Create symbolic links for your Bash configuration in your home directory:
 # Move your existing configs
 mv ~/.bashrc ~/.bashrc.orig
 mv ~/.bash_profile ~/.bash_profile.orig
+mv ~/.gitconfig ~/.gitconfig.orig
 
 # Link the platform-specific Bash entry point
 ln -s ~/dotfiles/bash/macos/bashrc ~/.bashrc
 
 # Link the tiny wrapper to ensure ~/.bashrc runs in login shells
 ln -s ~/dotfiles/bash/macos/bash_profile ~/.bash_profile
+
+# Link the common gitconfig entry point
+ln -s ~/dotfiles/bash/gitconfig ~/.gitconfig
+```
+
+Add your git username in ~/.gitconfig.local but do not commit to dotfiles:
+```
+# ~/.gitconfig.local
+# This stuff is private, not in dotfiles
+[user]
+	name = Mark Smith
+	email = markjgsmith@gmail.com
 ```
 
 #### 🤖 On Android (Termux, etc.):
@@ -107,6 +121,18 @@ ln -s ~/dotfiles/bash/android/vimrc ~/.vimrc
 
 # Link the Termux application configuration files
 ln -s ~/dotfiles/termux/ ~/.termux
+
+# Link the common gitconfig entry point
+ln -s ~/dotfiles/bash/gitconfig ~/.gitconfig
+```
+
+Add your git username in ~/.gitconfig.local but do not commit to dotfiles:
+```
+# ~/.gitconfig.local
+# This stuff is private, not in dotfiles
+[user]
+	name = Mark Smith
+	email = markjgsmith@gmail.com
 ```
 
 ### 3. Usage

@@ -1,0 +1,29 @@
+# ~/.gitconfig
+[include]
+  path = ~/.gitconfig.local
+[push]
+	autoSetupRemote = true
+[core]
+	excludesfile = ~/.gitignore
+[alias]
+	cf = commit --fixup
+	c = commit
+	a = add
+	b = branch
+	co = checkout
+	s = status
+	l = log --oneline
+	cl = config --list
+	l5 = log --oneline -n 5
+	l10 = log --oneline -n 10
+	l15 = log --oneline -n 15
+	l20 = log --oneline -n 20
+	ria = rebase -i --autosquash
+	lg = log --graph --pretty=format:'%C(yellow)%h%C(reset) -%C(auto)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)' --abbrev-commit
+	amend = commit --amend --no-edit
+	pf = push --force-with-lease
+	sh = show --format=%B --no-patch HEAD
+	le = log --pretty=format:\"%n----------------------------------------%n%s%n%n%b\" --name-status
+	sweep = !git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
+	msg = show -s --format=%B
+  bd = branch -D
