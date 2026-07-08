@@ -76,6 +76,7 @@ alias gp="git push"
 alias gpl='git pull'            # Pull (from previous common list)
 alias gds="git diff --staged"   # Diff staged changes
 alias gbd='git branch -D'       # Delete a branch
+alias gcb='git checkout -b'     # Cut branch from current branch
 
 # 6. --- Blogging Content Creation (Requires utility-scripts to be set in PATH)
 
