@@ -18,7 +18,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-
 # 2. --- Core Directory Navigation (Uses variables defined in exports) ------
 
 alias web="cd $WEBSITE_DIR"
@@ -31,36 +30,32 @@ alias p=posts
 alias tp=templates
 alias c=code
 
-
 # 3. --- Blogging Workflow Navigation --------------------------------------
 
 alias blog="cd $POSTS_DIR/blog"
 alias links="cd $POSTS_DIR/linkblog"
 alias notes="cd $POSTS_DIR/notes"
 alias newsletter="cd $POSTS_DIR/newsletter"
-alias podcast="cd $POSTS_DIR/podcast"
+alias podcasts="cd $POSTS_DIR/podcasts"
 alias images="cd $POSTS_DIR/images"
 
 alias b=blog # Overrides the 'b=bashrc' alias below for faster access
 alias l=links
 alias n=notes
 alias nw=newsletter
-alias pod=podcast
+alias pod=podcasts
 alias i=images
-
-
 
 # 4. --- Date-Based Navigation (Time Shortcuts) ----------------------------
 
 alias today="echo posts-daily-$(date -I)"
 
 alias bt="cd $POSTS_DIR/blog/$(date '+%Y')"
-alias lt="cd $POSTS_DIR/linkblog/$(date '+%Y')/$(date '+%m')/$(date '+%d')"
+alias lt="cd $POSTS_DIR/links/$(date '+%Y')/$(date '+%m')/$(date '+%d')"
 alias nt="cd $POSTS_DIR/notes/$(date '+%Y')/$(date '+%m')/$(date '+%d')"
 alias nwt="cd $POSTS_DIR/newsletter/$(date '+%Y')"
-alias pt="cd $POSTS_DIR/podcast/$(date '+%Y')"
+alias pt="cd $POSTS_DIR/podcasts/$(date '+%Y')"
 alias it="cd $POSTS_DIR/images/$(date '+%Y')/$(date '+%m')/$(date '+%d')"
-
 
 # 5. --- Git Shortcuts -----------------------------------------------------
 
@@ -104,13 +99,11 @@ alias t="truncate -s -1"                       # Truncate -s -1
 alias nle="echo TEXT=\'\' URL=\'\' nl"         # Newsletter line
 alias uuidgen="uuidgen | tr '[:upper:]' '[:lower:]'" # Lowercase UUID
 
-
 # 8. --- Build & Tooling Shortcuts -----------------------------------------
 
 alias nrb="npm run clean && npm run build && live-server dist/site"
 alias nd="gco main && git pull && gco -b \$(today)"
 alias nday="gco main && git pull && gco -b \$(today)" # Duplicate of nd, kept for safety
-
 
 # 9. --- Shell Management & Editing (Simplified Aliases) -------------------
 
