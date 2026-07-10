@@ -6,12 +6,11 @@
 # 1. --- Navigation & Listing ----------------------------------------------
 
 # Use 'ls' with colors and human-readable sizes, sorted by extension (X)
-alias ls='ls -F --color=auto'
-alias l='ls -h'                 # Simple list
-alias ll='ls -la'               # Long list all (using your preferred -la)
+alias ll='ls -lh'               # Long list, no dotfiles
+alias lla='ls -lah'             # Long list all, with dotfiles
 alias la='ls -A'                # List all except . and ..
 alias l.='ls -d .*'             # List only dotfiles
-alias lt='ls -hlt'              # List by time (most recent first)
+alias ltm='ls -hlt'             # List by time (most recent first)
 
 # Quick navigation shortcuts
 alias ..='cd ..'
@@ -32,12 +31,12 @@ alias c=code
 
 # 3. --- Blogging Workflow Navigation --------------------------------------
 
-alias blog="cd $POSTS_DIR/blog"
-alias links="cd $POSTS_DIR/linkblog"
-alias notes="cd $POSTS_DIR/notes"
-alias newsletter="cd $POSTS_DIR/newsletter"
-alias podcasts="cd $POSTS_DIR/podcasts"
-alias images="cd $POSTS_DIR/images"
+alias blog="cd $POSTS_DIR/content/blog"
+alias links="cd $POSTS_DIR/content/links"
+alias notes="cd $POSTS_DIR/content/notes"
+alias newsletter="cd $POSTS_DIR/content/newsletters"
+alias podcasts="cd $POSTS_DIR/content/podcasts"
+alias images="cd $POSTS_DIR/content/images"
 
 alias b=blog # Overrides the 'b=bashrc' alias below for faster access
 alias l=links
