@@ -5,7 +5,6 @@
 
 # 1. --- Navigation & Listing ----------------------------------------------
 
-# Use 'ls' with colors and human-readable sizes, sorted by extension (X)
 alias ll='ls -lh'               # Long list, no dotfiles
 alias lla='ls -lah'             # Long list all, with dotfiles
 alias la='ls -A'                # List all except . and ..
@@ -74,12 +73,7 @@ alias gg='git co main && gpl && gdb' # Cleanup merged branch
 
 # 6. --- Blogging Content Creation (Requires utility-scripts to be set in PATH)
 
-alias nb='mkpost.sh blog'
-alias nl='mkpost.sh link'
-alias nnw='mkpost.sh newsletter'
-alias np='mkpost.sh podcast'
 alias ni='mkpost.sh img'
-alias nn='mkpost.sh note'
 
 alias mkr="mk render"
 alias mkd="mk dispatch"
