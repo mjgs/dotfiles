@@ -106,7 +106,7 @@ alias nd="gco main && git pull && gco -b \$(today)"
 alias nday="gco main && git pull && gco -b \$(today)" # Duplicate of nd, kept for safety
 
 # 9. --- Shell Management & Editing (Simplified Aliases) -------------------
-
+alias nv='nvim'
 alias de='dotedit'         # Primary shortcut for editing
 alias h='history'          # History
 
