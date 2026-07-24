@@ -33,6 +33,6 @@ export LC_ALL='en_US.UTF-8'
 
 # --- 4. Directory Variables --------------------------------------------
 
-export POSTS_DIR=$HOME/posts
+export POSTS_DIR=$HOME/posts/content
 export WEBSITE_DIR=$HOME/website
 export TEMPLATES_DIR=$HOME/templates
