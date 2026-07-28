@@ -48,12 +48,12 @@ alias i=images
 
 alias today="echo posts-daily-$(date -I)"
 
-alias bt="cd $POSTS_DIR/posts/$(date '+%Y')"
-alias lt="cd $POSTS_DIR/links/$(date '+%Y')/$(date '+%m')/$(date '+%d')"
-alias nt="cd $POSTS_DIR/notes/$(date '+%Y')/$(date '+%m')/$(date '+%d')"
-alias nwt="cd $POSTS_DIR/newsletter/$(date '+%Y')"
-alias pt="cd $POSTS_DIR/podcasts/$(date '+%Y')"
-alias it="cd $POSTS_DIR/images/$(date '+%Y')/$(date '+%m')/$(date '+%d')"
+alias bt="cd $POSTS_DIR/content/posts/$(date '+%Y')"
+alias lt="cd $POSTS_DIR/content/links/$(date '+%Y')/$(date '+%m')/$(date '+%d')"
+alias nt="cd $POSTS_DIR/content/notes/$(date '+%Y')/$(date '+%m')/$(date '+%d')"
+alias nwt="cd $POSTS_DIR/content/newsletter/$(date '+%Y')"
+alias pt="cd $POSTS_DIR/content/podcasts/$(date '+%Y')"
+alias it="cd $POSTS_DIR/content/images/$(date '+%Y')/$(date '+%m')/$(date '+%d')"
 
 # 5. --- Git Shortcuts -----------------------------------------------------
 
