@@ -72,7 +72,6 @@ alias gbd='git branch -D'       # Delete a branch
 alias gcb='git checkout -b'     # Cut branch from current branch
 alias gd='git diff'
 alias gds='git diff --staged'
-alias gg='git co main && gpl && gbd' # Cleanup merged branch
 alias gt="git for-each-ref --sort=-version:refname --format='%(refname:short) [%(*objectname:short)] - %(contents:subject)' refs/tags"
 
 alias gl='git log --oneline'

@@ -55,6 +55,44 @@ gprune () {
   git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
 }
 
+# Safely switches branch, pulls latest updates, and force-deletes a merged task branch.
+# Usage: gg <branch-to-delete> [branch-to-pull]
+# Examples:
+#   gg feat/some-fix                                            -> Deletes local branch and pulls main
+#   gg feat/v1.1.0-beta.4/security-policy beta/v1.1.0-beta.4    -> Deletes feature branch and pulls beta branch
+gg() {
+  local branch_to_delete="${1}"
+  local branch_to_pull="${2:-main}"
+
+  if [ -z "$branch_to_delete" ]; then
+    echo "Usage: gg <branch-to-delete> [branch-to-pull]"
+    echo "Examples:"
+    echo "  gg feat/some-fix"
+    echo "  gg feat/v1.1.0-beta.4/security-policy beta/v1.1.0-beta.4"
+    return 1
+  fi
+
+  # Safety Guard: Prevent deleting main
+  if [ "$branch_to_delete" = "main" ]; then
+    echo "Error: Safety guard triggered! You cannot pass 'main' as branch-to-delete."
+    return 1
+  fi
+
+  if [ "$branch_to_delete" = "$branch_to_pull" ]; then
+    echo "Error: Cannot delete the branch you are switching to ($branch_to_delete)."
+    return 1
+  fi
+
+  echo "Switching to branch-to-pull ($branch_to_pull) and updating..."
+  if ! git checkout "$branch_to_pull" || ! git pull origin "$branch_to_pull"; then
+    echo "Error: Checkout or pull failed. Aborting branch deletion to prevent data loss."
+    return 1
+  fi
+
+  echo "Deleting local branch-to-delete: $branch_to_delete"
+  git branch -D "$branch_to_delete"
+}
+
 
 # 3. --- Search and Filtering ----------------------------------------------
 
@@ -120,3 +158,4 @@ dotedit () {
     return 1
   fi
 }
+
