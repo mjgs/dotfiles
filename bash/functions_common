@@ -105,13 +105,15 @@ hgrep () {
 # 4. --- Dotfile Editing and Management ------------------------------------
 
 # Opens the correct config file based on platform and simple suffixes.
-# Usage: dotedit <file_type>
+# Usage: dotedit <type>[c]
+# Supported types: aliases, exports, functions, bashrc, vimrc
 # Examples:
-#   dotedit aliases    -> Opens platform-specific aliases file (e.g., macos/aliases)
-#   dotedit aliasesc   -> Opens common aliases file (aliases_common)
+#   dotedit functions   -> Opens platform-specific functions file (e.g., macos/functions)
+#   dotedit functionsc  -> Opens common functions file (${DOTFILES_DIR}/bash/functions_common)
 dotedit () {
   if [ -z "$1" ]; then
-    echo "Usage: dotedit <type> (e.g., aliases, exports, bashrcc)"
+    echo "Usage: dotedit <type>[c] (e.g., aliases, aliasesc, exports, exportsc, functions, functionsc)"
+    echo "Note: Appending 'c' opens the common (shared) version of the file."
     return 1
   fi
 
@@ -127,23 +129,23 @@ dotedit () {
     IS_COMMON="true"
     TARGET_DIR="${DOTFILES_DIR}/bash"
     
-    # Construct the common file name (e.g., aliases_common)
+    # Construct the common file name (e.g., aliases_common, functions_common)
     FILENAME="${BASE_TYPE}_common"
 
-    # Handle the special case where 'bashrcc' should open 'bashrc_common'
+    # Handle special case where 'bashrcc' should open 'bashrc_common'
     if [ "$BASE_TYPE" == "bashrc" ]; then
       FILENAME="bashrc_common"
     fi
 
   # 2. Handle platform-specific files (no 'c' suffix)
   else
-    # Filename is the input type (e.g., aliases, exports)
+    # Filename is the input type directly (e.g., aliases, exports, functions, bashrc)
     FILENAME="${INPUT_TYPE}"
   fi
   
   local FILE_PATH="${TARGET_DIR}/${FILENAME}"
 
-  # 3. Handle vimrc, which is only in the platform directory (for now)
+  # 3. Handle vimrc special case (only exists in platform directory for now)
   if [ "$INPUT_TYPE" == "vimrc" ] || [ "$INPUT_TYPE" == "vimrcc" ]; then
     # Since vimrc is only in the platform dir, force the platform dir path
     FILE_PATH="${PLATFORM_DIR}/vimrc"
